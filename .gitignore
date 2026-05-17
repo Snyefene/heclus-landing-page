@@ -13,6 +13,9 @@ out/
 # build output
 dist/
 
+# next.js generated types (auto-regenerated on build)
+next-env.d.ts
+
 # misc
 .DS_Store
 *.pem
