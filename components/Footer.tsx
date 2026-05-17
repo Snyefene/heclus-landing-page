@@ -31,7 +31,7 @@ export default function Footer() {
                 <span className="text-base font-semibold" style={{ color: "oklch(0.92 0 0)" }}>
                   Heclus
                 </span>
-                <span className="text-[10px] font-medium tracking-wide" style={{ color: "oklch(0.65 0 0)" }}>
+                <span className="text-xs font-medium tracking-wide" style={{ color: "#888" }}>
                   by aiTrends
                 </span>
               </div>
