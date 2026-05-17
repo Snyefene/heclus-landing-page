@@ -35,6 +35,10 @@ export default function Footer() {
               The AI-powered YouTube video factory. Analyze channels, generate
               scripts, voiceovers, images, and full videos — automated.
             </p>
+            <p className="text-xs mt-3" style={{ color: "oklch(0.38 0 0)" }}>
+              A product by{" "}
+              <span style={{ color: "oklch(0.55 0 0)", fontWeight: 500 }}>aiTrends</span>
+            </p>
           </div>
 
           {/* Link columns */}
@@ -66,7 +70,7 @@ export default function Footer() {
           style={{ borderTop: "1px solid oklch(1 0 0 / 0.05)" }}
         >
           <p className="text-xs" style={{ color: "oklch(0.38 0 0)" }}>
-            © {new Date().getFullYear()} Heclus. All rights reserved.
+            © {new Date().getFullYear()} aiTrends. All rights reserved.
           </p>
           <div className="flex items-center gap-1.5 text-xs" style={{ color: "oklch(0.38 0 0)" }}>
             <span>Powered by</span>
