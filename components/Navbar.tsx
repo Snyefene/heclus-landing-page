@@ -41,7 +41,7 @@ export default function Navbar() {
             <span className="text-base font-semibold tracking-tight" style={{ color: "oklch(0.95 0 0)" }}>
               Heclus
             </span>
-            <span className="text-[10px] font-medium tracking-wide" style={{ color: "oklch(0.50 0 0)" }}>
+            <span className="text-[10px] font-medium tracking-wide" style={{ color: "oklch(0.65 0 0)" }}>
               by aiTrends
             </span>
           </div>
