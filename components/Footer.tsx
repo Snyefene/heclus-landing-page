@@ -27,17 +27,18 @@ export default function Footer() {
           <div className="col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
               <Image src="/logo.svg" alt="Heclus" width={32} height={32} className="rounded-lg" />
-              <span className="text-lg font-semibold" style={{ color: "oklch(0.92 0 0)" }}>
-                Heclus
-              </span>
+              <div className="flex flex-col leading-none">
+                <span className="text-base font-semibold" style={{ color: "oklch(0.92 0 0)" }}>
+                  Heclus
+                </span>
+                <span className="text-[10px] font-medium tracking-wide" style={{ color: "oklch(0.50 0 0)" }}>
+                  by aiTrends
+                </span>
+              </div>
             </div>
             <p className="text-sm max-w-xs leading-relaxed" style={{ color: "oklch(0.48 0 0)" }}>
               The AI-powered YouTube video factory. Analyze channels, generate
               scripts, voiceovers, images, and full videos — automated.
-            </p>
-            <p className="text-xs mt-3" style={{ color: "oklch(0.38 0 0)" }}>
-              A product by{" "}
-              <span style={{ color: "oklch(0.55 0 0)", fontWeight: 500 }}>aiTrends</span>
             </p>
           </div>
 

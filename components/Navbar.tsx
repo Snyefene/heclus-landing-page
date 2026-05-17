@@ -37,9 +37,14 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
           <Image src="/logo.svg" alt="Heclus" width={32} height={32} className="rounded-lg" />
-          <span className="text-lg font-semibold tracking-tight" style={{ color: "oklch(0.95 0 0)" }}>
-            Heclus
-          </span>
+          <div className="flex flex-col leading-none">
+            <span className="text-base font-semibold tracking-tight" style={{ color: "oklch(0.95 0 0)" }}>
+              Heclus
+            </span>
+            <span className="text-[10px] font-medium tracking-wide" style={{ color: "oklch(0.50 0 0)" }}>
+              by aiTrends
+            </span>
+          </div>
         </Link>
 
         {/* Desktop nav */}
