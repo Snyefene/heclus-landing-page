@@ -120,7 +120,7 @@ export default function Pricing() {
 
                 {/* CTA */}
                 <a
-                  href={process.env.NEXT_PUBLIC_APP_URL ?? "#"}
+                  href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup`}
                   className="flex items-center justify-center gap-2 w-full py-4 rounded-xl text-base font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                   style={{
                     background: "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 295) 100%)",

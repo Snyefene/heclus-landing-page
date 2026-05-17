@@ -54,7 +54,7 @@ export default function FinalCTA() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href={process.env.NEXT_PUBLIC_APP_URL ?? "#"}
+            href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup`}
             className="inline-flex items-center gap-2 px-10 py-4 rounded-xl text-base font-semibold transition-all duration-200 hover:scale-105 active:scale-95"
             style={{
               background: "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 295) 100%)",

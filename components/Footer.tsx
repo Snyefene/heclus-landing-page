@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "";
+
 const LINKS = {
   Product: [
     { label: "Features",     href: "#features"  },
@@ -8,8 +10,8 @@ const LINKS = {
     { label: "FAQ",          href: "#faq"        },
   ],
   Company: [
-    { label: "Sign In",      href: process.env.NEXT_PUBLIC_APP_URL ?? "#" },
-    { label: "Get Started",  href: process.env.NEXT_PUBLIC_APP_URL ?? "#" },
+    { label: "Sign In",      href: `${APP_URL}/login`  },
+    { label: "Get Started",  href: `${APP_URL}/signup` },
   ],
 };
 

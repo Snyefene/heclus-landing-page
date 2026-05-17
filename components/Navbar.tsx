@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "";
+
 const NAV_LINKS = [
   { label: "Features",   href: "#features"  },
   { label: "Pipeline",   href: "#pipeline"  },
@@ -58,14 +60,14 @@ export default function Navbar() {
         {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href={process.env.NEXT_PUBLIC_APP_URL ?? "#"}
+            href={`${APP_URL}/login`}
             className="text-sm font-medium transition-colors hover:text-white"
             style={{ color: "oklch(0.60 0 0)" }}
           >
             Sign in
           </a>
           <a
-            href={process.env.NEXT_PUBLIC_APP_URL ?? "#"}
+            href={`${APP_URL}/signup`}
             className="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:scale-105 active:scale-95"
             style={{
               background: "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 290) 100%)",
@@ -122,14 +124,14 @@ export default function Navbar() {
           ))}
           <div className="pt-3 flex flex-col gap-2">
             <a
-              href={process.env.NEXT_PUBLIC_APP_URL ?? "#"}
+              href={`${APP_URL}/login`}
               className="text-sm text-center py-2.5 rounded-lg font-medium"
               style={{ color: "oklch(0.65 0 0)", border: "1px solid oklch(1 0 0 / 0.10)" }}
             >
               Sign in
             </a>
             <a
-              href={process.env.NEXT_PUBLIC_APP_URL ?? "#"}
+              href={`${APP_URL}/signup`}
               className="text-sm text-center py-2.5 rounded-lg font-semibold text-white"
               style={{ background: "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 290) 100%)" }}
             >
