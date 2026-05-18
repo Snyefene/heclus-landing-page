@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     "video pipeline",
   ],
   icons: {
-    icon: "/heclus.ico",
-    apple: "/heclus-icon.png",
+    icon: "/heclus-white.ico",
+    apple: "/heclus-icon-white.png",
   },
   openGraph: {
     title: "Heclus — AI YouTube Video Factory",
