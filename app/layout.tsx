@@ -9,7 +9,7 @@ const inter = localFont({
   weight: "100 900",
 });
 
-const SITE_URL = "https://heclus.io";
+const SITE_URL = "https://heclus.com";
 const OG_IMAGE = `${SITE_URL}/heclus-icon.png`;
 
 export const metadata: Metadata = {
