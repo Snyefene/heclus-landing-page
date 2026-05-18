@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     "video pipeline",
   ],
   icons: {
-    icon: "/favicon.ico",
+    icon: "/heclus.ico",
     apple: "/heclus-icon.png",
   },
   openGraph: {
