@@ -26,7 +26,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
-              <Image src="/heclus-icon.png" alt="Heclus" width={32} height={32} className="rounded-lg" />
+              <Image src="/heclus-icon-white.svg" alt="Heclus" width={32} height={32} className="rounded-lg" />
               <div className="flex flex-col leading-none">
                 <span className="text-base font-semibold" style={{ color: "oklch(0.92 0 0)" }}>
                   Heclus

@@ -36,7 +36,7 @@ export default function Navbar() {
       <nav className="mx-auto max-w-7xl px-6 lg:px-8 flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <Image src="/heclus-icon.png" alt="Heclus" width={32} height={32} className="rounded-lg" />
+          <Image src="/heclus-icon-white.svg" alt="Heclus" width={32} height={32} className="rounded-lg" />
           <div className="flex flex-col leading-none">
             <span className="text-base font-semibold tracking-tight" style={{ color: "oklch(0.95 0 0)" }}>
               Heclus
