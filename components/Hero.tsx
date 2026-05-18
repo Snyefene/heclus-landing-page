@@ -55,9 +55,10 @@ export default function Hero() {
             </div>
 
             {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.04] tracking-tight mb-7">
-              Build Viral<br />
-              YouTube Videos<br />
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.04] tracking-tight mb-4">
+              Heclus
+            </h1>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight mb-7">
               <span
                 style={{
                   background: "linear-gradient(120deg, oklch(0.88 0.18 285) 0%, oklch(0.72 0.25 285) 40%, oklch(0.65 0.20 200) 100%)",
@@ -66,15 +67,13 @@ export default function Hero() {
                   backgroundClip: "text",
                 }}
               >
-                on Autopilot.
+                Clone any YouTube Niche
               </span>
-            </h1>
+            </h2>
 
             {/* Sub */}
             <p className="text-lg lg:text-xl leading-relaxed mb-10 max-w-lg" style={{ color: "oklch(0.62 0 0)" }}>
-              Heclus analyzes top YouTube channels, writes scripts in their authentic voice,
-              generates professional voiceovers, creates AI images, and assembles a
-              complete publish-ready video — all in one pipeline.
+              Paste a channel URL. Get a style-matched script, voiceover, AI images, and video clips — fully automated.
             </p>
 
             {/* CTAs */}
