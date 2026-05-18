@@ -4,12 +4,13 @@
       "source": "/(.*)",
       "destination": "https://heclus.com/$1",
       "permanent": true,
-      "has": [
-        {
-          "type": "host",
-          "value": "heclus.io"
-        }
-      ]
+      "has": [{ "type": "host", "value": "heclus.io" }]
+    },
+    {
+      "source": "/(.*)",
+      "destination": "https://heclus.com/$1",
+      "permanent": true,
+      "has": [{ "type": "host", "value": "www.heclus.com" }]
     }
   ]
 }
