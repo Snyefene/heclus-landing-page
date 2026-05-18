@@ -10,7 +10,7 @@ const inter = localFont({
 });
 
 const SITE_URL = "https://heclus.io";
-const OG_IMAGE = `${SITE_URL}/logo.png`;
+const OG_IMAGE = `${SITE_URL}/heclus-icon.png`;
 
 export const metadata: Metadata = {
   title: "Heclus — AI YouTube Video Factory",
@@ -27,10 +27,10 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: [
-      { url: "/logo.svg", type: "image/svg+xml" },
-      { url: "/logo.png", type: "image/png" },
+      { url: "/heclus-icon.svg", type: "image/svg+xml" },
+      { url: "/heclus-icon.png", type: "image/png" },
     ],
-    apple: "/logo.png",
+    apple: "/heclus-icon.png",
   },
   openGraph: {
     title: "Heclus — AI YouTube Video Factory",
