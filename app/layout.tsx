@@ -26,10 +26,7 @@ export const metadata: Metadata = {
     "video pipeline",
   ],
   icons: {
-    icon: [
-      { url: "/heclus-icon.svg", type: "image/svg+xml" },
-      { url: "/heclus-icon.png", type: "image/png" },
-    ],
+    icon: "/heclus-icon.png",
     apple: "/heclus-icon.png",
   },
   openGraph: {
