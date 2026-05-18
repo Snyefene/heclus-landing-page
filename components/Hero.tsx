@@ -67,7 +67,7 @@ export default function Hero() {
                   backgroundClip: "text",
                 }}
               >
-                Clone any YouTube Niche
+                Clones any YouTube Niche
               </span>
             </h2>
 
