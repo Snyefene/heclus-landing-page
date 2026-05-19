@@ -103,7 +103,7 @@ export default function Pricing() {
               </p>
             </div>
             <a
-              href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup`}
+              href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup?plan=founder`}
               className="shrink-0 flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
               style={{
                 background: "linear-gradient(135deg, oklch(0.72 0.25 285), oklch(0.58 0.28 300))",
@@ -208,7 +208,7 @@ export default function Pricing() {
                   </div>
                 ) : (
                   <a
-                    href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup`}
+                    href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup?plan=${plan.name.toLowerCase()}`}
                     className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                     style={plan.highlighted ? {
                       background: "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 295) 100%)",
