@@ -100,6 +100,44 @@ export default function Pricing() {
           </p>
         </div>
 
+        {/* Founder promo */}
+        <div className="max-w-3xl mx-auto mb-10 rounded-2xl p-6 relative overflow-hidden"
+          style={{
+            background: "linear-gradient(135deg, oklch(0.12 0.015 285) 0%, oklch(0.10 0.010 285) 100%)",
+            border: "1px solid oklch(0.72 0.25 285 / 0.40)",
+            boxShadow: "0 0 40px oklch(0.72 0.25 285 / 0.10)",
+          }}>
+          <div className="pointer-events-none absolute top-0 right-0 w-64 h-32"
+            style={{ background: "radial-gradient(ellipse at top right, oklch(0.72 0.25 285 / 0.12), transparent 70%)" }} />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 relative">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-xs font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
+                  style={{ background: "oklch(0.72 0.25 285 / 0.20)", color: "oklch(0.82 0.18 285)" }}>
+                  🔥 Founder Offer · First 100 only
+                </span>
+              </div>
+              <h3 className="text-xl font-bold mb-1" style={{ color: "oklch(0.95 0 0)" }}>
+                $40 · Full access for 1 year
+              </h3>
+              <p className="text-sm" style={{ color: "oklch(0.55 0 0)" }}>
+                Pay once, get everything — unlimited niches, full AI pipeline, no monthly renewal. After your year, choose any monthly plan.
+              </p>
+            </div>
+            <a
+              href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup`}
+              className="shrink-0 flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
+              style={{
+                background: "linear-gradient(135deg, oklch(0.72 0.25 285), oklch(0.58 0.28 300))",
+                color: "white",
+                boxShadow: "0 0 20px oklch(0.72 0.25 285 / 0.30)",
+              }}
+            >
+              Claim Founder Spot →
+            </a>
+          </div>
+        </div>
+
         {/* Plan cards */}
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {PLANS.map((plan) => (
