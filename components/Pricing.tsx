@@ -4,10 +4,10 @@ const PLANS = [
     price: "$19",
     period: "/month",
     description: "Perfect for creators just getting started.",
-    limit: "5 niches · 3 videos each",
+    limit: "5 niches/month",
     features: [
       "5 niches per month",
-      "3 videos per niche",
+      "Standard image processing",
       "Full 8-step AI pipeline",
       "All features included",
       "Community support",
@@ -21,10 +21,10 @@ const PLANS = [
     price: "$49",
     period: "/month",
     description: "For creators scaling their content output.",
-    limit: "Unlimited niches & videos",
+    limit: "Unlimited niches",
     features: [
       "Unlimited niches",
-      "Unlimited videos per niche",
+      "HD image processing",
       "Full 8-step AI pipeline",
       "All features included",
       "Priority support",
@@ -32,26 +32,6 @@ const PLANS = [
     cta: "Start Pro",
     highlighted: true,
     disabled: false,
-  },
-  {
-    name: "Agency",
-    price: "$99",
-    period: "/month",
-    description: "For teams managing multiple channels.",
-    limit: "3 seats + unlimited",
-    features: [
-      "3 team seats",
-      "Unlimited niches",
-      "Full 8-step AI pipeline",
-      "Script & voiceover generation",
-      "AI image & thumbnail generation",
-      "Video clip assembly",
-      "ZIP export",
-      "Priority support",
-    ],
-    cta: "Coming Soon",
-    highlighted: false,
-    disabled: true,
   },
 ];
 
@@ -137,7 +117,7 @@ export default function Pricing() {
         </div>
 
         {/* Plan cards */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {PLANS.map((plan) => (
             <div
               key={plan.name}
