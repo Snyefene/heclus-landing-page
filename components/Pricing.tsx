@@ -117,11 +117,11 @@ export default function Pricing() {
         </div>
 
         {/* Plan cards */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mt-6">
           {PLANS.map((plan) => (
             <div
               key={plan.name}
-              className="relative rounded-3xl p-8 flex flex-col overflow-hidden"
+              className="relative rounded-3xl p-8 flex flex-col"
               style={{
                 background: plan.disabled ? "oklch(0.07 0.002 280)" : plan.highlighted ? "oklch(0.10 0.008 280)" : "oklch(0.08 0.004 280)",
                 border: plan.disabled ? "1px solid oklch(1 0 0 / 0.05)" : plan.highlighted
