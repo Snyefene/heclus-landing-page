@@ -121,7 +121,7 @@ export default function Pricing() {
                 $40 · Full access for 1 year
               </h3>
               <p className="text-sm" style={{ color: "oklch(0.55 0 0)" }}>
-                Pay once, get everything — unlimited niches, full AI pipeline, no monthly renewal. After your year, choose any monthly plan.
+                Pay once, get 20 niches + full AI pipeline for a full year — no monthly renewal. After your year, choose any monthly plan.
               </p>
             </div>
             <a
