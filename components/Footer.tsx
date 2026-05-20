@@ -13,6 +13,11 @@ const LINKS = {
     { label: "Sign In",      href: `${APP_URL}/login`  },
     { label: "Get Started",  href: `${APP_URL}/signup` },
   ],
+  Legal: [
+    { label: "Terms of Service", href: "/terms"   },
+    { label: "Privacy Policy",   href: "/privacy" },
+    { label: "Refund Policy",    href: "/refund"  },
+  ],
 };
 
 export default function Footer() {
@@ -86,7 +91,7 @@ export default function Footer() {
             >
               Claude AI
             </span>
-            <span>&amp; Paystack</span>
+            <span>&amp; Gumroad</span>
           </div>
         </div>
       </div>
