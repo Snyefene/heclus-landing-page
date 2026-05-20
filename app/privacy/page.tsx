@@ -1,9 +1,18 @@
+import Image from "next/image";
+
 export const metadata = { title: "Privacy Policy — Heclus" };
 
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen py-20 px-6" style={{ background: "var(--bg-page, oklch(0.07 0.004 280))" }}>
       <div className="max-w-3xl mx-auto">
+        <a href="/" className="flex items-center gap-2.5 mb-12">
+          <Image src="/heclus-icon-white.svg" alt="Heclus" width={32} height={32} className="rounded-lg" />
+          <div className="flex flex-col leading-none">
+            <span className="text-base font-semibold" style={{ color: "oklch(0.92 0 0)" }}>Heclus</span>
+            <span className="text-xs font-medium tracking-wide" style={{ color: "#888" }}>by aiTrends</span>
+          </div>
+        </a>
         <h1 className="text-4xl font-bold mb-2" style={{ color: "oklch(0.95 0 0)" }}>Privacy Policy</h1>
         <p className="text-sm mb-12" style={{ color: "oklch(0.45 0 0)" }}>Last updated: May 2025</p>
 
@@ -70,7 +79,7 @@ export default function PrivacyPage() {
         </div>
 
         <div className="mt-16">
-          <a href="/" className="text-sm hover:underline" style={{ color: "oklch(0.72 0.25 285)" }}>← Back to Heclus</a>
+          <a href="/" className="text-sm hover:underline" style={{ color: "oklch(0.72 0.25 285)" }}>← Back to home</a>
         </div>
       </div>
     </div>
