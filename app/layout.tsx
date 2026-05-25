@@ -51,7 +51,12 @@ const jsonLd = {
   "@type": "Organization",
   name: "Heclus",
   url: SITE_URL,
-  logo: OG_IMAGE,
+  logo: {
+    "@type": "ImageObject",
+    url: OG_IMAGE,
+    width: 512,
+    height: 512,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
