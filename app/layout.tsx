@@ -13,6 +13,9 @@ const SITE_URL = "https://heclus.com";
 const OG_IMAGE = `${SITE_URL}/heclus-icon.png`;
 
 export const metadata: Metadata = {
+  verification: {
+    google: "GCN0u5bvT9xqLHnEteWKp9tvDpHrk4Wn51oWxUte1VI",
+  },
   title: "Heclus — AI YouTube Video Factory",
   description:
     "Analyze any YouTube channel, generate scripts, voiceovers, AI images, thumbnails, and assemble complete videos — all in one automated pipeline.",
