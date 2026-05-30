@@ -7,15 +7,15 @@ import Image from "next/image";
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "";
 
 const NAV_LINKS = [
-  { label: "Features",   href: "#features"  },
-  { label: "Pipeline",   href: "#pipeline"  },
-  { label: "Pricing",    href: "#pricing"   },
-  { label: "FAQ",        href: "#faq"       },
+  { label: "Features", href: "#features" },
+  { label: "Pipeline", href: "#pipeline" },
+  { label: "Pricing",  href: "#pricing"  },
+  { label: "FAQ",      href: "#faq"      },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled]   = useState(false);
-  const [menuOpen, setMenuOpen]   = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -27,34 +27,32 @@ export default function Navbar() {
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? "oklch(0.07 0.008 280 / 0.90)" : "transparent",
-        backdropFilter: scrolled ? "blur(20px)" : "none",
-        WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled ? "1px solid oklch(1 0 0 / 0.06)" : "1px solid transparent",
+        background: scrolled ? "oklch(0.985 0.008 75 / 0.85)" : "transparent",
+        backdropFilter: scrolled ? "blur(14px) saturate(140%)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(14px) saturate(140%)" : "none",
+        borderBottom: scrolled ? "1px solid var(--color-rule)" : "1px solid transparent",
       }}
     >
-      <nav className="mx-auto max-w-7xl px-6 lg:px-8 flex items-center justify-between h-16">
-        {/* Logo */}
+      <nav className="mx-auto max-w-6xl px-6 lg:px-8 flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-2.5 group">
-          <Image src="/heclus-icon-white.svg" alt="Heclus" width={32} height={32} className="rounded-lg" />
-          <div className="flex flex-col leading-none">
-            <span className="text-base font-semibold tracking-tight" style={{ color: "oklch(0.95 0 0)" }}>
-              Heclus
-            </span>
-            <span className="text-xs font-medium tracking-wide" style={{ color: "#888" }}>
-              by aiTrends
-            </span>
-          </div>
+          <Image src="/heclus-icon-white.svg" alt="Heclus" width={28} height={28}
+            className="rounded-md"
+            style={{ filter: "invert(1)" }}
+          />
+          <span className="text-base font-semibold tracking-tight" style={{ color: "var(--color-ink)" }}>
+            Heclus
+          </span>
+          <span className="text-xs tracking-wide ml-0.5" style={{ color: "var(--color-muted)" }}>
+            by aiTrends
+          </span>
         </Link>
 
-        {/* Desktop nav */}
         <ul className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((l) => (
             <li key={l.label}>
-              <a
-                href={l.href}
-                className="text-sm font-medium transition-colors duration-150 hover:text-white"
-                style={{ color: "oklch(0.60 0 0)" }}
+              <a href={l.href}
+                className="text-sm transition-colors duration-150"
+                style={{ color: "var(--color-ink-soft)" }}
               >
                 {l.label}
               </a>
@@ -62,35 +60,27 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          <a
-            href={`${APP_URL}/login`}
-            className="text-sm font-medium transition-colors hover:text-white"
-            style={{ color: "oklch(0.60 0 0)" }}
+        <div className="hidden md:flex items-center gap-5">
+          <a href={`${APP_URL}/login`}
+            className="text-sm transition-colors"
+            style={{ color: "var(--color-ink-soft)" }}
           >
             Sign in
           </a>
-          <a
-            href={`${APP_URL}/signup`}
-            className="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:scale-105 active:scale-95"
-            style={{
-              background: "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 290) 100%)",
-              color: "white",
-              boxShadow: "0 0 20px oklch(0.72 0.25 285 / 0.25)",
-            }}
+          <a href={`${APP_URL}/signup`}
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all"
+            style={{ background: "var(--color-accent)", color: "white" }}
           >
-            Get Started
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            Get started
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
         </div>
 
-        {/* Mobile hamburger */}
         <button
           className="md:hidden p-2 rounded-lg"
-          style={{ color: "oklch(0.65 0 0)" }}
+          style={{ color: "var(--color-ink)" }}
           onClick={() => setMenuOpen((o) => !o)}
           aria-label="Toggle menu"
         >
@@ -106,41 +96,36 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
       {menuOpen && (
         <div
           className="md:hidden px-6 pb-6 pt-2 space-y-1"
           style={{
-            background: "oklch(0.08 0.008 280 / 0.95)",
+            background: "oklch(0.985 0.008 75 / 0.96)",
             backdropFilter: "blur(20px)",
-            borderBottom: "1px solid oklch(1 0 0 / 0.06)",
+            borderBottom: "1px solid var(--color-rule)",
           }}
         >
           {NAV_LINKS.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              className="block py-2.5 text-sm font-medium transition-colors hover:text-white"
-              style={{ color: "oklch(0.65 0 0)" }}
+            <a key={l.label} href={l.href}
+              className="block py-2.5 text-sm transition-colors"
+              style={{ color: "var(--color-ink-soft)" }}
               onClick={() => setMenuOpen(false)}
             >
               {l.label}
             </a>
           ))}
           <div className="pt-3 flex flex-col gap-2">
-            <a
-              href={`${APP_URL}/login`}
-              className="text-sm text-center py-2.5 rounded-lg font-medium"
-              style={{ color: "oklch(0.65 0 0)", border: "1px solid oklch(1 0 0 / 0.10)" }}
+            <a href={`${APP_URL}/login`}
+              className="text-sm text-center py-2.5 rounded-full"
+              style={{ color: "var(--color-ink)", border: "1px solid var(--color-rule)" }}
             >
               Sign in
             </a>
-            <a
-              href={`${APP_URL}/signup`}
-              className="text-sm text-center py-2.5 rounded-lg font-semibold text-white"
-              style={{ background: "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 290) 100%)" }}
+            <a href={`${APP_URL}/signup`}
+              className="text-sm text-center py-2.5 rounded-full font-medium"
+              style={{ background: "var(--color-accent)", color: "white" }}
             >
-              Get Started
+              Get started
             </a>
           </div>
         </div>
