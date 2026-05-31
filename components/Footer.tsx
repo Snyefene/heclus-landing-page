@@ -24,7 +24,27 @@ export default function Footer() {
   return (
     <footer className="pt-20 pb-12 rule-top">
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-14">
+
+        {/* ── Built by panel ────────────────────────────────────────── */}
+        <div className="mb-16 max-w-2xl">
+          <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--color-muted)" }}>
+            <span className="section-num text-base mr-2">§</span>
+            Built by
+          </p>
+          <p className="font-serif text-2xl sm:text-[28px] leading-[1.3] mb-4"
+            style={{ color: "var(--color-ink)" }}
+          >
+            Heclus started as a side-project to ship videos for our own channel without
+            losing the weekend. It turned into a small tool we wanted to share.
+          </p>
+          <p className="font-serif italic text-base" style={{ color: "var(--color-accent-ink)" }}>
+            — the aiTrends team
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-14 pt-12 rule-top"
+          style={{ borderColor: "var(--color-rule)" }}
+        >
           <div className="col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
               <Image src="/heclus-icon-white.svg" alt="Heclus" width={28} height={28}
