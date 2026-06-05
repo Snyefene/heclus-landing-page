@@ -38,24 +38,6 @@ body {
   font-feature-settings: "liga", "dlig";
 }
 
-/* ── Editorial drop cap ───────────────────────────────────────────── */
-.dropcap::first-letter {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 4.5em;
-  float: left;
-  line-height: 0.82;
-  padding: 0.04em 0.12em 0 0;
-  color: var(--color-accent-ink);
-}
-
-/* ── Section eyebrow with numeral ─────────────────────────────────── */
-.section-num {
-  font-family: var(--font-serif);
-  font-style: italic;
-  color: var(--color-accent-ink);
-}
-
 /* ── Animations — sparse, only for entry. No idle motion. ─────────── */
 
 @keyframes fade-up {

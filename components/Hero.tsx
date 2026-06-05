@@ -78,34 +78,6 @@ export default function Hero() {
                 sizes="(min-width: 1024px) 40vw, (min-width: 640px) 80vw, 100vw"
                 className="w-full h-auto block"
               />
-
-              {/* 8-step progress strip */}
-              <div className="px-5 py-4 flex items-center gap-3 rule-top"
-                style={{ background: "var(--color-paper)", borderColor: "var(--color-rule)" }}
-              >
-                <span className="text-[10px] uppercase tracking-widest shrink-0"
-                  style={{ color: "var(--color-muted)" }}
-                >
-                  1 / 8
-                </span>
-                <div className="flex-1 flex items-center gap-1.5">
-                  {Array.from({ length: 8 }).map((_, i) => (
-                    <span key={i}
-                      className="flex-1 h-[3px] rounded-full"
-                      style={{
-                        background: i === 0
-                          ? "var(--color-accent)"
-                          : "var(--color-rule)",
-                      }}
-                    />
-                  ))}
-                </div>
-                <span className="text-[10px] uppercase tracking-widest shrink-0"
-                  style={{ color: "var(--color-ink-soft)" }}
-                >
-                  Channel
-                </span>
-              </div>
             </div>
 
             {/* Floating context badge */}

@@ -29,19 +29,13 @@ export default function Features() {
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <div className="mb-16 max-w-2xl">
           <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--color-muted)" }}>
-            <span className="section-num text-base mr-2">03</span>
             Features
           </p>
-          <h2 className="font-serif text-4xl sm:text-5xl leading-[1.05] tracking-tight mb-6"
+          <h2 className="font-serif text-4xl sm:text-5xl leading-[1.05] tracking-tight"
             style={{ color: "var(--color-ink)" }}
           >
             Everything a video needs, in one pass.
           </h2>
-          <p className="dropcap text-base leading-relaxed" style={{ color: "var(--color-ink-soft)" }}>
-            One run of the pipeline produces every piece of a finished video. No app-hopping,
-            no chasing five different tools — Heclus does the analysis, the writing, the
-            voice, the visuals, and the cut. You stay in the loop where it matters.
-          </p>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-x-12 gap-y-14">

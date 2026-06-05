@@ -45,7 +45,6 @@ export default function FAQ() {
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
         <div className="mb-12 text-center">
           <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--color-muted)" }}>
-            <span className="section-num text-base mr-2">07</span>
             Questions
           </p>
           <h2 className="font-serif text-4xl sm:text-5xl leading-[1.05] tracking-tight"

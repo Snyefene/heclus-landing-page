@@ -22,7 +22,6 @@ export default function HowItWorks() {
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <div className="mb-16 max-w-2xl">
           <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--color-muted)" }}>
-            <span className="section-num text-base mr-2">04</span>
             How it works
           </p>
           <h2 className="font-serif text-4xl sm:text-5xl leading-[1.05] tracking-tight"
