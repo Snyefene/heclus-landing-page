@@ -2,159 +2,249 @@ const PLANS = [
   {
     name: "Starter",
     price: "$19",
-    period: " / month",
-    description: "For creators getting their first videos out.",
-    limit: "5 niches per month",
+    period: "/month",
+    description: "Perfect for creators just getting started.",
+    limit: "5 niches/month",
     features: [
       "5 niches per month",
       "Standard image processing",
-      "Full pipeline access",
+      "Full 8-step AI pipeline",
+      "All features included",
       "Community support",
     ],
-    cta: "Get started",
+    cta: "Get Started",
     highlighted: false,
+    disabled: false,
   },
   {
     name: "Pro",
     price: "$49",
-    period: " / month",
-    description: "For creators scaling output across channels.",
+    period: "/month",
+    description: "For creators scaling their content output.",
     limit: "Unlimited niches",
     features: [
       "Everything in Starter",
-      "Unlimited niches & videos",
+      "Clone unlimited YouTube niches",
+      "Unlimited video creation",
       "Bulk video generation",
       "Priority rendering queue",
       "Priority support",
     ],
     cta: "Start Pro",
     highlighted: true,
+    disabled: false,
   },
 ];
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "";
-
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-28 sm:py-36 rule-top"
-      style={{ background: "var(--color-paper-2)" }}
-    >
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
-        <div className="mb-14 max-w-2xl">
-          <p className="text-xs tracking-widest uppercase mb-4" style={{ color: "var(--color-muted)" }}>
+    <section id="pricing" className="py-24 relative">
+      {/* Glow */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: "radial-gradient(ellipse 60% 50% at 50% 50%, oklch(0.72 0.25 285 / 0.05) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Heading */}
+        <div className="text-center mb-16">
+          <div
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-5"
+            style={{
+              background: "oklch(0.72 0.25 285 / 0.08)",
+              border: "1px solid oklch(0.72 0.25 285 / 0.20)",
+              color: "oklch(0.75 0.20 285)",
+            }}
+          >
             Pricing
-          </p>
-          <h2 className="font-serif text-4xl sm:text-5xl leading-[1.05] tracking-tight"
-            style={{ color: "var(--color-ink)" }}
-          >
-            Pick a pace. Upgrade when you outgrow it.
-          </h2>
-        </div>
-
-        {/* Founder strip */}
-        <div className="mb-10 rounded-md p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-5"
-          style={{
-            background: "var(--color-paper)",
-            border: "1px solid var(--color-accent)",
-          }}
-        >
-          <div>
-            <p className="text-xs tracking-widest uppercase mb-2" style={{ color: "var(--color-accent-ink)" }}>
-              Founder offer · First 100 only
-            </p>
-            <p className="font-serif text-2xl leading-tight mb-1" style={{ color: "var(--color-ink)" }}>
-              $40 for a full year.
-            </p>
-            <p className="text-sm leading-relaxed" style={{ color: "var(--color-ink-soft)" }}>
-              Pay once, get 20 niches plus the full pipeline for twelve months. After your year, pick any monthly plan.
-            </p>
           </div>
-          <a href={`${APP_URL}/signup?plan=founder`}
-            className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all"
-            style={{ background: "var(--color-accent)", color: "white" }}
-          >
-            Claim founder spot
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {PLANS.map((plan) => (
-            <div key={plan.name}
-              className="rounded-md p-8 flex flex-col"
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+            Simple, transparent
+            <br />
+            <span
               style={{
-                background: "var(--color-paper)",
-                border: plan.highlighted
-                  ? "1px solid var(--color-accent)"
-                  : "1px solid var(--color-rule)",
+                background: "linear-gradient(120deg, oklch(0.88 0.18 285) 0%, oklch(0.72 0.25 285) 60%, oklch(0.65 0.20 200) 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
               }}
             >
-              <div className="flex items-baseline justify-between mb-6">
-                <h3 className="font-serif text-2xl tracking-tight" style={{ color: "var(--color-ink)" }}>
-                  {plan.name}
-                </h3>
-                {plan.highlighted && (
-                  <span className="text-xs tracking-widest uppercase" style={{ color: "var(--color-accent-ink)" }}>
-                    Most popular
-                  </span>
+              pricing.
+            </span>
+          </h2>
+          <p className="text-lg max-w-xl mx-auto" style={{ color: "oklch(0.58 0 0)" }}>
+            Pick the plan that fits your output. Upgrade or cancel anytime.
+          </p>
+        </div>
+
+        {/* Founder promo */}
+        <div className="max-w-3xl mx-auto mb-10 rounded-2xl p-6 relative overflow-hidden"
+          style={{
+            background: "linear-gradient(135deg, oklch(0.12 0.015 285) 0%, oklch(0.10 0.010 285) 100%)",
+            border: "1px solid oklch(0.72 0.25 285 / 0.40)",
+            boxShadow: "0 0 40px oklch(0.72 0.25 285 / 0.10)",
+          }}>
+          <div className="pointer-events-none absolute top-0 right-0 w-64 h-32"
+            style={{ background: "radial-gradient(ellipse at top right, oklch(0.72 0.25 285 / 0.12), transparent 70%)" }} />
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 relative">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-xs font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
+                  style={{ background: "oklch(0.72 0.25 285 / 0.20)", color: "oklch(0.82 0.18 285)" }}>
+                  🔥 Founder Offer · First 100 only
+                </span>
+              </div>
+              <h3 className="text-xl font-bold mb-1" style={{ color: "oklch(0.95 0 0)" }}>
+                $40 · Full access for 1 year
+              </h3>
+              <p className="text-sm" style={{ color: "oklch(0.55 0 0)" }}>
+                Pay once, get 20 niches + full AI pipeline for a full year — no monthly renewal. After your year, choose any monthly plan.
+              </p>
+            </div>
+            <a
+              href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup?plan=founder`}
+              className="shrink-0 flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
+              style={{
+                background: "linear-gradient(135deg, oklch(0.72 0.25 285), oklch(0.58 0.28 300))",
+                color: "white",
+                boxShadow: "0 0 20px oklch(0.72 0.25 285 / 0.30)",
+              }}
+            >
+              Claim Founder Spot →
+            </a>
+          </div>
+        </div>
+
+        {/* Plan cards */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mt-6">
+          {PLANS.map((plan) => (
+            <div
+              key={plan.name}
+              className="relative rounded-3xl p-8 flex flex-col"
+              style={{
+                background: plan.disabled ? "oklch(0.07 0.002 280)" : plan.highlighted ? "oklch(0.10 0.008 280)" : "oklch(0.08 0.004 280)",
+                border: plan.disabled ? "1px solid oklch(1 0 0 / 0.05)" : plan.highlighted
+                  ? "1px solid oklch(0.72 0.25 285 / 0.35)"
+                  : "1px solid oklch(1 0 0 / 0.08)",
+                boxShadow: plan.disabled ? "none" : plan.highlighted
+                  ? "0 0 60px oklch(0.72 0.25 285 / 0.12), 0 32px 64px oklch(0 0 0 / 0.40)"
+                  : "0 8px 32px oklch(0 0 0 / 0.30)",
+                opacity: plan.disabled ? 0.5 : 1,
+              }}
+            >
+              {/* Card glow for highlighted */}
+              {plan.highlighted && (
+                <>
+                  <div
+                    className="absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-1.5 rounded-full text-xs font-semibold z-10 whitespace-nowrap"
+                    style={{
+                      background: "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 295) 100%)",
+                      color: "white",
+                      boxShadow: "0 0 20px oklch(0.72 0.25 285 / 0.40)",
+                    }}
+                  >
+                    Most Popular
+                  </div>
+                  <div
+                    className="pointer-events-none absolute top-0 left-0 right-0 h-48"
+                    style={{
+                      background: "radial-gradient(ellipse 80% 60% at 50% 0%, oklch(0.72 0.25 285 / 0.10) 0%, transparent 70%)",
+                    }}
+                  />
+                </>
+              )}
+
+              <div className="relative flex flex-col flex-1">
+                {/* Plan name + description */}
+                <div className="mb-6">
+                  <p className="text-sm font-semibold mb-1" style={{ color: "oklch(0.72 0.25 285)" }}>
+                    {plan.name}
+                  </p>
+                  <p className="text-xs leading-relaxed" style={{ color: "oklch(0.50 0 0)" }}>
+                    {plan.description}
+                  </p>
+                </div>
+
+                {/* Price */}
+                <div className="mb-6">
+                  <div className="flex items-end gap-1">
+                    <span className="text-4xl font-bold tracking-tight" style={{ color: "oklch(0.95 0 0)" }}>
+                      {plan.price}
+                    </span>
+                    <span className="text-sm mb-1.5" style={{ color: "oklch(0.48 0 0)" }}>
+                      {plan.period}
+                    </span>
+                  </div>
+                  <p className="text-xs mt-1 font-medium" style={{ color: "oklch(0.55 0 0)" }}>
+                    {plan.limit}
+                  </p>
+                </div>
+
+                {/* Features */}
+                <ul className="space-y-2.5 mb-8 flex-1">
+                  {plan.features.map((f) => (
+                    <li key={f} className="flex items-center gap-3 text-sm" style={{ color: "oklch(0.68 0 0)" }}>
+                      <span
+                        className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
+                        style={{ background: "oklch(0.72 0.25 285 / 0.15)", color: "oklch(0.82 0.18 285)" }}
+                      >
+                        <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      </span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA */}
+                {plan.disabled ? (
+                  <div
+                    className="flex items-center justify-center w-full py-3.5 rounded-xl text-sm font-medium cursor-not-allowed"
+                    style={{ background: "oklch(1 0 0 / 0.04)", color: "oklch(0.40 0 0)", border: "1px solid oklch(1 0 0 / 0.06)" }}
+                  >
+                    Coming Soon
+                  </div>
+                ) : (
+                  <a
+                    href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup?plan=${plan.name.toLowerCase()}`}
+                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                    style={plan.highlighted ? {
+                      background: "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 295) 100%)",
+                      color: "white",
+                      boxShadow: "0 0 24px oklch(0.72 0.25 285 / 0.30)",
+                    } : {
+                      background: "oklch(1 0 0 / 0.06)",
+                      color: "oklch(0.75 0 0)",
+                      border: "1px solid oklch(1 0 0 / 0.10)",
+                    }}
+                  >
+                    {plan.cta}
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </a>
                 )}
               </div>
-
-              <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--color-ink-soft)" }}>
-                {plan.description}
-              </p>
-
-              <div className="mb-6 pb-6 rule-bottom" style={{ borderColor: "var(--color-rule)" }}>
-                <div className="flex items-baseline gap-1">
-                  <span className="font-serif text-5xl tracking-tight" style={{ color: "var(--color-ink)" }}>
-                    {plan.price}
-                  </span>
-                  <span className="text-sm" style={{ color: "var(--color-muted)" }}>
-                    {plan.period}
-                  </span>
-                </div>
-                <p className="text-xs mt-2" style={{ color: "var(--color-muted)" }}>
-                  {plan.limit}
-                </p>
-              </div>
-
-              <ul className="space-y-2 mb-8 flex-1">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 text-sm leading-relaxed"
-                    style={{ color: "var(--color-ink-soft)" }}
-                  >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                      stroke="var(--color-accent)" strokeWidth="2.5"
-                      className="mt-1 shrink-0"
-                    >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              <a href={`${APP_URL}/signup?plan=${plan.name.toLowerCase()}`}
-                className="flex items-center justify-center gap-2 w-full py-3 rounded-full text-sm font-medium transition-all"
-                style={plan.highlighted
-                  ? { background: "var(--color-accent)", color: "white" }
-                  : { background: "transparent", color: "var(--color-accent-ink)", border: "1px solid var(--color-accent)" }
-                }
-              >
-                {plan.cta}
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
             </div>
           ))}
         </div>
 
-        <p className="mt-10 text-sm text-center" style={{ color: "var(--color-muted)" }}>
-          Secure checkout · Instant access · Cancel anytime
-        </p>
+        {/* Guarantee strip */}
+        <div className="mt-12 flex flex-wrap justify-center gap-8" style={{ color: "oklch(0.50 0 0)" }}>
+          {[
+            { icon: "🔒", text: "Secure checkout via Paystack" },
+            { icon: "⚡", text: "Instant access after payment" },
+            { icon: "🚫", text: "Cancel anytime, no lock-in" },
+          ].map((item) => (
+            <div key={item.text} className="flex items-center gap-2 text-sm">
+              <span>{item.icon}</span>
+              {item.text}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

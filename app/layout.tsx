@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
 const inter = localFont({
@@ -8,14 +7,6 @@ const inter = localFont({
   variable: "--font-inter",
   display: "swap",
   weight: "100 900",
-});
-
-const serifDisplay = Instrument_Serif({
-  weight: "400",
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-serif-display",
-  display: "swap",
 });
 
 const SITE_URL = "https://heclus.com";
@@ -52,7 +43,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f9f6f0",
+  themeColor: "#0f0a18",
 };
 
 const jsonLd = {
@@ -70,7 +61,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${serifDisplay.variable}`}>
+    <html lang="en" className={inter.variable}>
       <head>
         <script
           type="application/ld+json"
