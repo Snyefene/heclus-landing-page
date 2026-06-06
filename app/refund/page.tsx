@@ -1,6 +1,10 @@
 import Image from "next/image";
 
-export const metadata = { title: "Refund Policy — Heclus" };
+export const metadata = {
+  title: "Refund Policy — Heclus",
+  description: "Heclus refund policy — what's eligible for a refund and how to request one.",
+  alternates: { canonical: "/refund" },
+};
 
 export default function RefundPage() {
   return (

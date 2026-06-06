@@ -1,3 +1,35 @@
+import { supabase } from "@/lib/supabase";
+
+// Live founder counter — sourced from the same Supabase row the
+// youtube-engine /api/founder-spots route reads (product_config row
+// service='_global', columns founders_promo_limit /
+// founders_subscriptions_count, plus a derived active flag). The RPC
+// get_founder_promo_state returns { taken, remaining, active, limit }
+// as a single O(1) read. Constants below are a defensive fallback
+// only — used when the RPC errors or env vars are missing so the
+// banner never silently shows 0 spots left.
+const FOUNDER_TOTAL_FALLBACK = 100;
+
+type FounderState = { spots_left: number; limit: number };
+
+async function fetchFounderState(): Promise<FounderState> {
+  try {
+    const { data, error } = await supabase
+      .rpc("get_founder_promo_state")
+      .single();
+    if (error || !data) throw error ?? new Error("no data");
+    const row = data as { taken: number; remaining: number; active: boolean; limit?: number };
+    const limit = typeof row.limit === "number"
+      ? row.limit
+      : (typeof row.taken === "number" && typeof row.remaining === "number"
+        ? row.taken + row.remaining
+        : FOUNDER_TOTAL_FALLBACK);
+    return { spots_left: row.remaining ?? 0, limit };
+  } catch {
+    return { spots_left: FOUNDER_TOTAL_FALLBACK, limit: FOUNDER_TOTAL_FALLBACK };
+  }
+}
+
 const PLANS = [
   {
     name: "Starter",
@@ -36,7 +68,11 @@ const PLANS = [
   },
 ];
 
-export default function Pricing() {
+export default async function Pricing() {
+  const founder = await fetchFounderState();
+  const claimedPct = founder.limit > 0
+    ? Math.min(100, ((founder.limit - founder.spots_left) / founder.limit) * 100)
+    : 0;
   return (
     <section id="pricing" className="py-24 relative">
       {/* Glow */}
@@ -94,7 +130,7 @@ export default function Pricing() {
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-xs font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
                   style={{ background: "oklch(0.72 0.25 285 / 0.20)", color: "oklch(0.82 0.18 285)" }}>
-                  🔥 Founder Offer · First 100 only
+                  🔥 Founder Offer · First {founder.limit} only
                 </span>
               </div>
               <h3 className="text-xl font-bold mb-1" style={{ color: "oklch(0.95 0 0)" }}>
@@ -104,17 +140,33 @@ export default function Pricing() {
                 Pay once, get 20 niches + full AI pipeline for a full year — no monthly renewal. After your year, choose any monthly plan.
               </p>
             </div>
-            <a
-              href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup?plan=founder`}
-              className="shrink-0 flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
-              style={{
-                background: "linear-gradient(135deg, oklch(0.72 0.25 285), oklch(0.58 0.28 300))",
-                color: "white",
-                boxShadow: "0 0 20px oklch(0.72 0.25 285 / 0.30)",
-              }}
-            >
-              Claim Founder Spot →
-            </a>
+            <div className="shrink-0 flex flex-col items-stretch sm:items-end gap-2.5">
+              <a
+                href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup?plan=founder`}
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
+                style={{
+                  background: "linear-gradient(135deg, oklch(0.72 0.25 285), oklch(0.58 0.28 300))",
+                  color: "white",
+                  boxShadow: "0 0 20px oklch(0.72 0.25 285 / 0.30)",
+                }}
+              >
+                Claim Founder Spot →
+              </a>
+              <div className="flex items-center gap-2.5 w-full sm:w-auto">
+                <div className="flex-1 sm:w-[140px] h-1.5 rounded-full overflow-hidden"
+                  style={{ background: "oklch(0.14 0.008 285)" }}>
+                  <div className="h-full rounded-full"
+                    style={{
+                      background: "oklch(0.72 0.25 285)",
+                      width: `${claimedPct}%`,
+                    }} />
+                </div>
+                <span className="text-xs font-semibold tabular-nums whitespace-nowrap"
+                  style={{ color: "oklch(0.82 0.18 285)" }}>
+                  {founder.spots_left} spots left
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 

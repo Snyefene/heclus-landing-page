@@ -1,6 +1,10 @@
 import Image from "next/image";
 
-export const metadata = { title: "Privacy Policy — Heclus" };
+export const metadata = {
+  title: "Privacy Policy — Heclus",
+  description: "How Heclus handles your data, projects, and generated content. Privacy policy for the Heclus AI video platform.",
+  alternates: { canonical: "/privacy" },
+};
 
 export default function PrivacyPage() {
   return (

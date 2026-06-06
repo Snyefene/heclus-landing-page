@@ -16,7 +16,7 @@ const STATS = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 pb-24 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-16 pb-8 overflow-hidden">
       {/* Ambient glow blobs */}
       <div className="pointer-events-none absolute inset-0">
         <div
@@ -36,7 +36,7 @@ export default function Hero() {
           <div className="animate-fade-up">
             {/* Badge */}
             <div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-8"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mt-[25px] mb-[22px]"
               style={{
                 background: "oklch(0.72 0.25 285 / 0.10)",
                 border: "1px solid oklch(0.72 0.25 285 / 0.25)",
@@ -54,17 +54,17 @@ export default function Hero() {
             </div>
 
             {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.04] tracking-tight mb-4">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.04] tracking-tight mb-1">
               Heclus
             </h1>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight mb-7">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight mb-[43px]">
               <span style={{ color: "oklch(0.72 0.25 285)" }}>
                 Clone any YouTube Niche
               </span>
             </h2>
 
             {/* Sub */}
-            <p className="text-lg lg:text-xl leading-relaxed mb-10 max-w-lg" style={{ color: "oklch(0.62 0 0)" }}>
+            <p className="text-base lg:text-lg leading-relaxed mb-5 max-w-lg" style={{ color: "oklch(0.62 0 0)" }}>
              Analyze any trending YouTube niche. Generate humanized scripts, voiceover narration, images, videos, and thumbnails
             </p>
 
@@ -94,18 +94,6 @@ export default function Hero() {
                   <path d="M12 5v14M5 12l7 7 7-7" />
                 </svg>
               </a>
-            </div>
-
-            {/* Trust strip */}
-            <div className="mt-12 flex flex-wrap items-center gap-6" style={{ color: "white" }}>
-              {["Full video workflow", "Bulk image & video generation"].map((t) => (
-                <div key={t} className="flex items-center gap-1.5 text-sm">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="oklch(0.72 0.25 285)" strokeWidth="2.5">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  {t}
-                </div>
-              ))}
             </div>
           </div>
 
@@ -219,7 +207,7 @@ export default function Hero() {
 
             {/* Floating badge */}
             <div
-              className="absolute -bottom-4 -left-4 flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-2xl animate-slide-in-right animation-delay-400"
+              className="absolute -bottom-1 -left-1 flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-2xl animate-slide-in-right animation-delay-400"
               style={{
                 background: "oklch(0.11 0.006 280)",
                 border: "1px solid oklch(0.72 0.25 285 / 0.25)",

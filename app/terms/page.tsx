@@ -1,6 +1,10 @@
 import Image from "next/image";
 
-export const metadata = { title: "Terms of Service — Heclus" };
+export const metadata = {
+  title: "Terms of Service — Heclus",
+  description: "Heclus terms of service — what you agree to when using the Heclus AI YouTube video pipeline.",
+  alternates: { canonical: "/terms" },
+};
 
 export default function TermsPage() {
   return (
