@@ -69,10 +69,11 @@ export default function HowItWorks() {
             <br />
             <span
               style={{
-                background: "linear-gradient(120deg, oklch(0.88 0.18 285) 0%, oklch(0.72 0.25 285) 60%, oklch(0.65 0.20 200) 100%)",
+                backgroundImage: "linear-gradient(120deg, oklch(0.88 0.18 285) 0%, oklch(0.72 0.25 285) 60%, oklch(0.72 0.25 285) 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
+                color: "transparent",
               }}
             >
               Next YouTube Video

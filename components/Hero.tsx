@@ -1,11 +1,10 @@
 const PIPELINE_STEPS = [
-  { name: "Channel Analysis", done: true  },
-  { name: "Style DNA",        done: true  },
-  { name: "Script",           done: true  },
-  { name: "Voiceover",        done: true  },
-  { name: "AI Images",        done: false, active: true },
-  { name: "Thumbnail",        done: false },
-  { name: "Video Clips",      done: false },
+  { name: "Niche Analysis", done: true  },
+  { name: "Script Generation & Editing",        done: true  },
+  { name: "Voiceover Generation",           done: true  },
+  { name: "Bulk Image Generation",        done: true  },
+  { name: "Bulk Video Clips",        done: false, active: true },
+  { name: "Thumbnail Generation",        done: false },
   { name: "Export",           done: false },
 ];
 
@@ -59,21 +58,14 @@ export default function Hero() {
               Heclus
             </h1>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight mb-7">
-              <span
-                style={{
-                  background: "linear-gradient(120deg, oklch(0.88 0.18 285) 0%, oklch(0.72 0.25 285) 40%, oklch(0.65 0.20 200) 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
+              <span style={{ color: "oklch(0.72 0.25 285)" }}>
                 Clone any YouTube Niche
               </span>
             </h2>
 
             {/* Sub */}
             <p className="text-lg lg:text-xl leading-relaxed mb-10 max-w-lg" style={{ color: "oklch(0.62 0 0)" }}>
-              Paste a channel URL. Get a style-matched script, voiceover, AI images, and video clips — fully automated.
+             Analyze any trending YouTube niche. Generate humanized scripts, voiceover narration, images, videos, and thumbnails
             </p>
 
             {/* CTAs */}
@@ -105,8 +97,8 @@ export default function Hero() {
             </div>
 
             {/* Trust strip */}
-            <div className="mt-12 flex flex-wrap items-center gap-6" style={{ color: "oklch(0.45 0 0)" }}>
-              {["No code required", "Works on any channel", "Export in minutes"].map((t) => (
+            <div className="mt-12 flex flex-wrap items-center gap-6" style={{ color: "white" }}>
+              {["Full video workflow", "Bulk image & video generation"].map((t) => (
                 <div key={t} className="flex items-center gap-1.5 text-sm">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="oklch(0.72 0.25 285)" strokeWidth="2.5">
                     <polyline points="20 6 9 17 4 12" />
@@ -131,11 +123,7 @@ export default function Hero() {
             >
               {/* Window chrome */}
               <div className="flex items-center gap-3 mb-5">
-                <div className="flex gap-1.5">
-                  <span className="w-3 h-3 rounded-full" style={{ background: "oklch(0.55 0.18 22)" }} />
-                  <span className="w-3 h-3 rounded-full" style={{ background: "oklch(0.72 0.15 75)" }} />
-                  <span className="w-3 h-3 rounded-full" style={{ background: "oklch(0.55 0.16 145)" }} />
-                </div>
+              
                 <div
                   className="flex-1 h-7 rounded-md px-3 flex items-center text-xs font-mono gap-2"
                   style={{ background: "oklch(0.14 0 0)", color: "oklch(0.50 0 0)" }}
@@ -197,13 +185,13 @@ export default function Hero() {
                   style={{ color: "oklch(0.48 0 0)" }}
                 >
                   <span>Generating AI images…</span>
-                  <span style={{ color: "oklch(0.72 0.25 285)" }}>62%</span>
+                  <span style={{ color: "oklch(0.68 0.18 145)" }}>62%</span>
                 </div>
                 <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "oklch(0.14 0 0)" }}>
                   <div
                     className="h-full rounded-full animate-progress"
                     style={{
-                      background: "linear-gradient(90deg, oklch(0.72 0.25 285) 0%, oklch(0.65 0.20 200) 100%)",
+                      background: "oklch(0.68 0.18 145)",
                       width: "62%",
                     }}
                   />

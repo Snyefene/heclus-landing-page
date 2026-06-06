@@ -82,10 +82,11 @@ export default function Footer() {
             <span>Powered by</span>
             <span
               style={{
-                background: "linear-gradient(90deg, oklch(0.72 0.25 285) 0%, oklch(0.65 0.20 200) 100%)",
+                backgroundImage: "linear-gradient(90deg, oklch(0.72 0.25 285) 0%, oklch(0.72 0.25 285) 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
+                color: "transparent",
                 fontWeight: 600,
               }}
             >

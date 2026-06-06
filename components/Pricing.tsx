@@ -65,10 +65,11 @@ export default function Pricing() {
             <br />
             <span
               style={{
-                background: "linear-gradient(120deg, oklch(0.88 0.18 285) 0%, oklch(0.72 0.25 285) 60%, oklch(0.65 0.20 200) 100%)",
+                backgroundImage: "linear-gradient(120deg, oklch(0.88 0.18 285) 0%, oklch(0.72 0.25 285) 60%, oklch(0.72 0.25 285) 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
+                color: "transparent",
               }}
             >
               pricing.
@@ -235,12 +236,35 @@ export default function Pricing() {
         {/* Guarantee strip */}
         <div className="mt-12 flex flex-wrap justify-center gap-8" style={{ color: "oklch(0.50 0 0)" }}>
           {[
-            { icon: "🔒", text: "Secure checkout via Paystack" },
-            { icon: "⚡", text: "Instant access after payment" },
-            { icon: "🚫", text: "Cancel anytime, no lock-in" },
+            {
+              text: "Secure checkout via Paystack",
+              icon: (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+              ),
+            },
+            {
+              text: "Instant access after payment",
+              icon: (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+              ),
+            },
+            {
+              text: "Cancel anytime, no lock-in",
+              icon: (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+                </svg>
+              ),
+            },
           ].map((item) => (
             <div key={item.text} className="flex items-center gap-2 text-sm">
-              <span>{item.icon}</span>
+              <span style={{ color: "oklch(0.72 0.25 285)" }}>{item.icon}</span>
               {item.text}
             </div>
           ))}

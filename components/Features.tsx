@@ -1,7 +1,7 @@
 const FEATURES = [
   {
-    title: "Analyze Any YouTube Channel",
-    desc: "Just paste a channel URL. Heclus fetches transcripts, studies content patterns, extracts the creator's unique voice fingerprint, and builds a content blueprint you can replicate instantly.",
+    title: "Niche Research & Analysis",
+    desc: "Analyze patterns in any trending niche to identify high-performing topics",
     highlights: ["Transcript extraction", "Style & tone mapping", "Winning topic analysis", "Content DNA profile"],
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
@@ -14,8 +14,8 @@ const FEATURES = [
     accentBorder: "oklch(0.72 0.25 285 / 0.20)",
   },
   {
-    title: "AI Script + Professional Voiceover",
-    desc: "Claude AI writes a full-length, retention-optimised script in the channel's exact voice — then converts it to a professional-grade voiceover with natural pacing and emotion.",
+    title: "Script + Professional Voiceover",
+    desc:"Fully editable - Engaging full length script matching popular styles in the niche, converted to voiceover using latest text-to-speech tools",
     highlights: ["Claude-powered writing", "Voice-matched scripts", "Natural TTS narration", "Export as audio file"],
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
@@ -25,13 +25,13 @@ const FEATURES = [
         <line x1="8" y1="23" x2="16" y2="23" />
       </svg>
     ),
-    accent: "oklch(0.65 0.20 200)",
-    accentDim: "oklch(0.65 0.20 200 / 0.10)",
-    accentBorder: "oklch(0.65 0.20 200 / 0.20)",
+    accent: "oklch(0.72 0.25 285)",
+    accentDim: "oklch(0.72 0.25 285 / 0.10)",
+    accentBorder: "oklch(0.72 0.25 285 / 0.20)",
   },
   {
-    title: "AI Images, Clips & Thumbnail",
-    desc: "Scene-by-scene AI image prompts are generated and submitted to image models. A click-worthy thumbnail is crafted, and video clips are assembled — giving you a complete visual package.",
+    title: "Images, Video Clips & Thumbnail",
+    desc: "Automated 1-click image generation using the latest image models like Nano Banana 2. Bulk video generation using Seedance 2, Kling 3 and more",
     highlights: ["Scene-level image prompts", "AI image generation", "Thumbnail generation", "Video clip assembly"],
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
@@ -39,13 +39,13 @@ const FEATURES = [
         <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
       </svg>
     ),
-    accent: "oklch(0.72 0.22 50)",
-    accentDim: "oklch(0.72 0.22 50 / 0.10)",
-    accentBorder: "oklch(0.72 0.22 50 / 0.20)",
+    accent: "oklch(0.72 0.25 285)",
+    accentDim: "oklch(0.72 0.25 285 / 0.10)",
+    accentBorder: "oklch(0.72 0.25 285 / 0.20)",
   },
   {
-    title: "One-Click Export Package",
-    desc: "When generation is complete, download everything — script as DOCX, voiceover MP3, all AI images, the thumbnail, and assembled video clips — zipped and ready for editing or direct upload.",
+    title: "1-Click export",
+    desc: "Export fully completed video without long pauses or Bulk export images, and video clip assets",
     highlights: ["DOCX script export", "Audio & image files", "Video clip bundle", "ZIP download"],
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
@@ -54,9 +54,9 @@ const FEATURES = [
         <line x1="12" y1="15" x2="12" y2="3" />
       </svg>
     ),
-    accent: "oklch(0.68 0.20 145)",
-    accentDim: "oklch(0.68 0.20 145 / 0.10)",
-    accentBorder: "oklch(0.68 0.20 145 / 0.20)",
+    accent: "oklch(0.72 0.25 285)",
+    accentDim: "oklch(0.72 0.25 285 / 0.10)",
+    accentBorder: "oklch(0.72 0.25 285 / 0.20)",
   },
 ];
 
@@ -77,22 +77,22 @@ export default function Features() {
             Features
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
-            Everything You Need to
+            Everything You Need
             <br />
             <span
               style={{
-                background: "linear-gradient(120deg, oklch(0.88 0.18 285) 0%, oklch(0.72 0.25 285) 60%, oklch(0.65 0.20 200) 100%)",
+                backgroundImage: "linear-gradient(120deg, oklch(0.88 0.18 285) 0%, oklch(0.72 0.25 285) 60%, oklch(0.72 0.25 285) 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
+                color: "transparent",
               }}
             >
-              Scale YouTube Production
+              In One Single Tool
             </span>
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "oklch(0.58 0 0)" }}>
-            One platform. Every tool a YouTube creator needs to go from idea to
-            polished, publish-ready video — without a production team.
+            Don’t miss the next trending niche. Speed up your production
           </p>
         </div>
 
@@ -115,7 +115,7 @@ export default function Features() {
 
               {/* Icon */}
               <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
+                className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 mx-auto"
                 style={{
                   background: f.accentDim,
                   border: `1px solid ${f.accentBorder}`,
@@ -125,15 +125,15 @@ export default function Features() {
                 {f.icon}
               </div>
 
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "oklch(0.92 0 0)" }}>
+              <h3 className="text-xl font-semibold mb-3 text-center" style={{ color: "oklch(0.92 0 0)" }}>
                 {f.title}
               </h3>
-              <p className="text-sm leading-relaxed mb-6" style={{ color: "oklch(0.56 0 0)" }}>
+              <p className="text-sm leading-relaxed mb-6 text-center" style={{ color: "oklch(0.56 0 0)" }}>
                 {f.desc}
               </p>
 
               {/* Highlight pills */}
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 justify-center">
                 {f.highlights.map((h) => (
                   <span
                     key={h}

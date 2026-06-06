@@ -1,8 +1,7 @@
 const STEPS = [
   {
-    num: "01",
-    name: "Channel Analysis",
-    desc: "Paste any YouTube channel URL. Heclus fetches transcripts and studies tone, pacing, structure, and winning topics.",
+    name: "Niche Identification",
+    desc: "Identifying any trending YouTube niche",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
@@ -11,9 +10,8 @@ const STEPS = [
     ),
   },
   {
-    num: "02",
-    name: "Style DNA Extraction",
-    desc: "AI reverse-engineers the channel's content DNA — vocabulary, sentence rhythm, hook patterns, and call-to-action style.",
+    name: "Style DNA",
+    desc: "Heclus reverse-engineers the niche in minutes",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
@@ -23,9 +21,8 @@ const STEPS = [
     ),
   },
   {
-    num: "03",
     name: "Topic & Script",
-    desc: "Claude AI generates trending topic ideas, then writes a full script matching the channel's voice — hooks, story, CTAs and all.",
+    desc: "Heclus identifies high-potential topics, and creates a fully humanized and editable script",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -37,9 +34,8 @@ const STEPS = [
     ),
   },
   {
-    num: "04",
     name: "Voiceover Generation",
-    desc: "Professional text-to-speech narration is generated from the script — natural, expressive, and ready to pair with visuals.",
+    desc: "Latest text-to-speech models for human-sounding voiceover narrations",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
@@ -50,9 +46,8 @@ const STEPS = [
     ),
   },
   {
-    num: "05",
-    name: "AI Image Generation",
-    desc: "Scene-by-scene visual prompts are generated and submitted to AI image models, producing stunning, on-brand visuals.",
+    name: "Image & Video Generation",
+    desc: "1-Click Bulk Image and video generation with top models including Seedance 2, Kling 3, Nano Banana 2, and more",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
@@ -62,9 +57,8 @@ const STEPS = [
     ),
   },
   {
-    num: "06",
     name: "Thumbnail Creation",
-    desc: "Eye-catching YouTube thumbnails are generated using AI — bold visuals and typography designed for maximum click-through.",
+    desc: "Scroll-stopping thumbnails matching various styles in your chosen niche",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
@@ -72,9 +66,8 @@ const STEPS = [
     ),
   },
   {
-    num: "07",
-    name: "Video Clip Assembly",
-    desc: "AI-generated video clips are created and combined with the voiceover and images into a cohesive, timed video.",
+    name: "Video Assembly",
+    desc: "1-Click timed video compilation using video clips, images, or both",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <polygon points="23 7 16 12 23 17 23 7" />
@@ -83,9 +76,8 @@ const STEPS = [
     ),
   },
   {
-    num: "08",
     name: "Export & Download",
-    desc: "Your complete video package — script, voiceover, images, thumbnail, and video clips — exported and ready to upload.",
+    desc: "Full video ready for export and upload in minutes",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -119,17 +111,18 @@ export default function Pipeline() {
             The Pipeline
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
-            From URL to Full Video —
+            From Niche to Full Video 
             <br />
             <span
               style={{
-                background: "linear-gradient(120deg, oklch(0.88 0.18 285) 0%, oklch(0.72 0.25 285) 60%, oklch(0.65 0.20 200) 100%)",
+                backgroundImage: "linear-gradient(120deg, oklch(0.88 0.18 285) 0%, oklch(0.72 0.25 285) 60%, oklch(0.72 0.25 285) 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
+                color: "transparent",
               }}
             >
-              Every Step, Automated.
+              Automated & Customizable
             </span>
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "oklch(0.58 0 0)" }}>
@@ -155,8 +148,7 @@ export default function Pipeline() {
                 style={{ background: "radial-gradient(ellipse 80% 60% at 50% 0%, oklch(0.72 0.25 285 / 0.06) 0%, transparent 70%)" }}
               />
 
-              {/* Step number */}
-              <div className="flex items-start justify-between mb-4">
+              <div className="mb-4 flex justify-center">
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
                   style={{
@@ -167,18 +159,12 @@ export default function Pipeline() {
                 >
                   {step.icon}
                 </div>
-                <span
-                  className="text-xs font-mono font-bold tabular-nums"
-                  style={{ color: "oklch(0.72 0.25 285 / 0.50)" }}
-                >
-                  {step.num}
-                </span>
               </div>
 
-              <h3 className="text-sm font-semibold mb-2" style={{ color: "oklch(0.88 0 0)" }}>
+              <h3 className="text-sm font-semibold mb-2 text-center" style={{ color: "oklch(0.88 0 0)" }}>
                 {step.name}
               </h3>
-              <p className="text-xs leading-relaxed" style={{ color: "oklch(0.52 0 0)" }}>
+              <p className="text-xs leading-relaxed text-center" style={{ color: "oklch(0.52 0 0)" }}>
                 {step.desc}
               </p>
 
