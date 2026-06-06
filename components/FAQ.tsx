@@ -5,35 +5,27 @@ import { useState } from "react";
 const QUESTIONS = [
   {
     q: "What exactly is Heclus?",
-    a: "Heclus is an AI-powered YouTube video production engine. You give it a YouTube channel URL, it studies the channel's style and content patterns, then guides you through an 8-step automated pipeline that produces a complete video — script, voiceover, AI images, thumbnail, and assembled clips — ready to upload.",
+    a: "Heclus is an AI-powered content creation platform that helps creators generate trending, high-retention videos using AI workflows, automation, and viral content systems.",
   },
   {
-    q: "Does it work with any YouTube channel?",
-    a: "Yes. Heclus works with any public YouTube channel, regardless of niche, size, or language. It fetches transcripts and analyses content structure to build a style profile specific to that creator.",
-  },
-  {
-    q: "How long does a full pipeline take?",
-    a: "Most pipelines complete within 10–20 minutes depending on the complexity of the script and the number of AI images being generated. Some steps run in parallel to keep total time low.",
+    q: "Is it only for YouTube Niches?",
+    a: "Yes, for now. Heclus is focused specifically on helping creators discover and create trending YouTube content. More platforms and content formats are planned for future updates.",
   },
   {
     q: "What AI models does Heclus use?",
-    a: "Heclus uses Claude (Anthropic) for script writing and content analysis, and integrates with AI image generation models for visuals and thumbnails. All models are accessed automatically — no accounts or API keys required on your side.",
+    a: "Heclus uses a number of models including popular text generation tools, text-to-speech tools, as well as the top image and video generation models.",
   },
   {
     q: "Do I need any technical knowledge to use it?",
-    a: "None whatsoever. If you can paste a URL and click a button, you can use Heclus. The entire pipeline is guided with clear steps and preview checkpoints so you always know what's happening.",
-  },
-  {
-    q: "Can I edit the script before it generates voiceover and images?",
-    a: "Yes. There are approval checkpoints throughout the pipeline. After the script is generated you can review and edit it, approve or regenerate topics, and adjust visual prompts before the more expensive generation steps run.",
+    a: "None whatsoever. Heclus is designed to be user-friendly for both first-time and experienced creators.",
   },
   {
     q: "What do I get at the end?",
-    a: "You receive a complete content package: a DOCX script file, an MP3 voiceover, all AI-generated images (PNG), a thumbnail, and assembled video clips — everything bundled in a ZIP you can download and take straight to your editing app or upload directly.",
+    a: "You receive a complete content package: a DOCX script file, an MP3 voiceover, all AI-generated images (PNG), thumbnails, and the full assembled video clips. Everything bundled in a ZIP file you can download and extract.",
   },
   {
     q: "Is my data private?",
-    a: "Yes. Your projects and generated content are stored under your account and are never shared with other users. Channel data is only accessed to analyse your specific project.",
+    a: "Yes. Your projects and generated content are stored under your account and are never shared with other users.",
   },
 ];
 
