@@ -1,40 +1,54 @@
-const STEPS = [
+const MODELS = [
   {
-    num: "01",
-    title: "Paste a YouTube Channel URL",
-    desc: "Enter the URL of any YouTube channel you want to model. Heclus will pull transcripts, titles, and style data automatically.",
-    detail: "Works with any public YouTube channel — niches, sizes, languages. No API keys needed.",
+    name: "ElevenLabs",
+    sub: null as string | null,
     icon: (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+        <rect x="6"  y="3" width="4" height="18" rx="0.5" />
+        <rect x="14" y="3" width="4" height="18" rx="0.5" />
       </svg>
     ),
   },
   {
-    num: "02",
-    title: "Review Topics & Approve Script",
-    desc: "Heclus proposes trending topic ideas based on the channel's DNA. Pick one, and a full script is generated — edit it or proceed.",
-    detail: "You stay in control. Approve, tweak, or regenerate at every checkpoint before moving forward.",
+    name: "Nano Banana 2",
+    sub: "Nano Banana Pro",
     icon: (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-        <polyline points="14 2 14 8 20 8" />
-        <line x1="16" y1="13" x2="8" y2="13" />
-        <line x1="16" y1="17" x2="8" y2="17" />
+      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <path d="M21 12.27a9 9 0 1 1-3.5-7.13" />
+        <path d="M21 5v6h-6" />
       </svg>
     ),
   },
   {
-    num: "03",
-    title: "Download Your Complete Video",
-    desc: "Once the pipeline finishes, your full content package is ready — voiceover, images, thumbnail, clips, and script all exported together.",
-    detail: "DOCX, MP3, PNG, and video files — everything packaged in a single ZIP download.",
+    name: "Seedance 2.0",
+    sub: null,
     icon: (
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-        <polyline points="7 10 12 15 17 10" />
-        <line x1="12" y1="15" x2="12" y2="3" />
+      <svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+        <rect x="3"  y="10" width="3" height="8"  rx="0.4" />
+        <rect x="8"  y="6"  width="3" height="14" rx="0.4" />
+        <rect x="13" y="3"  width="3" height="18" rx="0.4" />
+        <rect x="18" y="8"  width="3" height="10" rx="0.4" />
+      </svg>
+    ),
+  },
+  {
+    name: "Kling 3",
+    sub: null,
+    icon: (
+      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+        <ellipse cx="12" cy="12" rx="9" ry="5.5" transform="rotate(-22 12 12)" />
+        <circle cx="16.4" cy="9.4" r="1.3" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+  {
+    name: "Vee 3",
+    sub: null,
+    icon: (
+      <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
+        <path d="M12 3a9 9 0 1 1-8.5 6" />
+        <path d="M12 7a5 5 0 1 1-4.7 3.4" />
+        <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
       </svg>
     ),
   },
@@ -47,13 +61,14 @@ export default function HowItWorks() {
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          background: "linear-gradient(180deg, transparent 0%, oklch(0.08 0.006 280 / 0.40) 50%, transparent 100%)",
+          background:
+            "linear-gradient(180deg, transparent 0%, oklch(0.08 0.006 280 / 0.40) 50%, transparent 100%)",
         }}
       />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-14">
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-5"
             style={{
@@ -62,80 +77,67 @@ export default function HowItWorks() {
               color: "oklch(0.75 0.20 285)",
             }}
           >
-            How It Works
+            Models
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
-            Three Steps to Your
-            <br />
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
             <span
               style={{
-                backgroundImage: "linear-gradient(120deg, oklch(0.88 0.18 285) 0%, oklch(0.72 0.25 285) 60%, oklch(0.72 0.25 285) 100%)",
+                backgroundImage:
+                  "linear-gradient(120deg, oklch(0.88 0.18 285) 0%, oklch(0.72 0.25 285) 60%, oklch(0.72 0.25 285) 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
                 color: "transparent",
               }}
             >
-              Next YouTube Video
+              Access the latest models
             </span>
           </h2>
-          <p className="text-lg max-w-xl mx-auto" style={{ color: "oklch(0.58 0 0)" }}>
-            No complex setup, no learning curve. Start a project and Heclus takes
-            care of every production step.
-          </p>
         </div>
 
-        {/* Steps */}
-        <div className="grid lg:grid-cols-3 gap-8 relative">
-          {/* Connector lines */}
-          <div className="hidden lg:block absolute top-16 left-[calc(33%+1rem)] right-[calc(33%+1rem)] h-px"
-            style={{ background: "linear-gradient(90deg, oklch(0.72 0.25 285 / 0.30) 0%, oklch(0.72 0.25 285 / 0.30) 100%)" }} />
-
-          {STEPS.map((step, i) => (
-            <div
-              key={i}
-              className="relative flex flex-col items-center text-center"
-            >
-              {/* Icon circle */}
+        {/* Models grid */}
+        <div
+          className="rounded-3xl p-8 sm:p-10"
+          style={{
+            background: "oklch(0.09 0.006 280 / 0.70)",
+            border: "1px solid oklch(1 0 0 / 0.06)",
+            boxShadow: "0 0 40px oklch(0.72 0.25 285 / 0.06)",
+          }}
+        >
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 items-start">
+            {MODELS.map((m) => (
               <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 relative z-10"
-                style={{
-                  background: "oklch(0.72 0.25 285 / 0.12)",
-                  border: "1px solid oklch(0.72 0.25 285 / 0.25)",
-                  color: "oklch(0.82 0.18 285)",
-                  boxShadow: "0 0 24px oklch(0.72 0.25 285 / 0.15)",
-                }}
+                key={m.name}
+                className="flex flex-col items-center text-center gap-3"
+                style={{ color: "oklch(0.95 0 0)" }}
               >
-                {step.icon}
-                <span
-                  className="absolute -top-2 -right-2 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold"
-                  style={{
-                    background: "oklch(0.72 0.25 285)",
-                    color: "white",
-                  }}
+                <div
+                  className="w-16 h-16 flex items-center justify-center"
+                  style={{ color: "oklch(0.95 0 0)" }}
+                  aria-hidden
                 >
-                  {i + 1}
-                </span>
+                  {m.icon}
+                </div>
+                <div className="leading-snug">
+                  <p className="text-sm font-semibold" style={{ color: "oklch(0.95 0 0)" }}>
+                    {m.name}
+                  </p>
+                  {m.sub && (
+                    <p className="text-sm font-semibold" style={{ color: "oklch(0.95 0 0)" }}>
+                      {m.sub}
+                    </p>
+                  )}
+                </div>
               </div>
+            ))}
+          </div>
 
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "oklch(0.92 0 0)" }}>
-                {step.title}
-              </h3>
-              <p className="text-sm leading-relaxed mb-4" style={{ color: "oklch(0.56 0 0)" }}>
-                {step.desc}
-              </p>
-              <p
-                className="text-xs px-4 py-2.5 rounded-xl"
-                style={{
-                  background: "oklch(0.09 0.006 280)",
-                  border: "1px solid oklch(1 0 0 / 0.06)",
-                  color: "oklch(0.50 0 0)",
-                }}
-              >
-                {step.detail}
-              </p>
-            </div>
-          ))}
+          <p
+            className="text-center text-sm font-semibold mt-8"
+            style={{ color: "oklch(0.85 0 0)" }}
+          >
+            and more
+          </p>
         </div>
       </div>
     </section>

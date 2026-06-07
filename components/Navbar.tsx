@@ -25,7 +25,7 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-[45px] right-[45px] z-50 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 md:left-[45px] md:right-[45px] z-50 transition-all duration-300"
       style={{
         background: scrolled ? "oklch(0.07 0.008 280 / 0.90)" : "transparent",
         backdropFilter: scrolled ? "blur(20px)" : "none",
