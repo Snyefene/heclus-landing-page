@@ -42,7 +42,7 @@ const MODELS = [
     ),
   },
   {
-    name: "Vee 3",
+    name: "Veo 3",
     sub: null,
     icon: (
       <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
