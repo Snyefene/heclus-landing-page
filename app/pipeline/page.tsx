@@ -7,17 +7,37 @@ import Footer from "@/components/Footer";
 
 const SITE_URL = "https://heclus.com";
 
+const PAGE_TITLE = "Pipeline — From YouTube Niche to Finished AI Video in 8 Steps";
+const PAGE_DESC =
+  "Heclus's 8-step AI pipeline: niche identification, channel style DNA, topic and script, AI voiceover, bulk image and video generation, thumbnail creation, video assembly, and one-click export.";
+const PAGE_DESC_SHORT =
+  "8-step automated AI pipeline: niche → script → voiceover → images → video clips → thumbnails → export.";
+
 export const metadata: Metadata = {
-  title: "Pipeline — Heclus",
-  description:
-    "From niche to full video, automated and customizable: niche identification, style DNA, scripts, voiceover, image & video generation, thumbnails, assembly, and export.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   alternates: { canonical: `${SITE_URL}/pipeline` },
+  keywords: [
+    "AI YouTube pipeline",
+    "YouTube video generation pipeline",
+    "automated YouTube content pipeline",
+    "AI script to video",
+    "faceless YouTube workflow",
+    "AI niche cloning",
+    "AI video assembly",
+  ],
   openGraph: {
-    title: "Pipeline — Heclus",
-    description:
-      "From niche to full video, automated and customizable. Every step from research to export.",
+    title: PAGE_TITLE,
+    description: PAGE_DESC_SHORT,
     url: `${SITE_URL}/pipeline`,
     type: "website",
+    siteName: "Heclus",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: PAGE_DESC_SHORT,
   },
 };
 

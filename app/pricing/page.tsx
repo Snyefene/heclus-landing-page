@@ -7,17 +7,37 @@ import Footer from "@/components/Footer";
 
 const SITE_URL = "https://heclus.com";
 
+const PAGE_TITLE = "Pricing — From $19/mo. Founder Offer: $40/yr Full Access";
+const PAGE_DESC =
+  "Heclus pricing: limited-time Founder offer at $40 for a full year. Starter plan from $19/month, Pro from $49/month. Secure checkout via Paystack. Cancel anytime, no lock-in.";
+const PAGE_DESC_SHORT =
+  "Founder offer: $40 for a full year. Starter $19/mo, Pro $49/mo. Cancel anytime.";
+
 export const metadata: Metadata = {
-  title: "Pricing — Heclus",
-  description:
-    "Founder offer: $40 for a full year of access. Plus simple Starter and Pro monthly plans. Secure checkout via Paystack, cancel anytime.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   alternates: { canonical: `${SITE_URL}/pricing` },
+  keywords: [
+    "Heclus pricing",
+    "AI YouTube tool pricing",
+    "AI video generator price",
+    "YouTube automation pricing",
+    "AI YouTube subscription",
+    "founder offer",
+    "AI video SaaS pricing",
+  ],
   openGraph: {
-    title: "Pricing — Heclus",
-    description:
-      "Founder offer: $40 for a full year. Simple monthly plans. Secure checkout, cancel anytime.",
+    title: PAGE_TITLE,
+    description: PAGE_DESC_SHORT,
     url: `${SITE_URL}/pricing`,
     type: "website",
+    siteName: "Heclus",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: PAGE_DESC_SHORT,
   },
 };
 

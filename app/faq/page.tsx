@@ -7,17 +7,37 @@ import { FAQ_ITEMS } from "@/lib/faq-data";
 
 const SITE_URL = "https://heclus.com";
 
+const PAGE_TITLE = "FAQ — How Heclus AI YouTube Video Generation Works";
+const PAGE_DESC =
+  "Common questions about Heclus: what it does, which AI models it uses (Claude, ElevenLabs, Nano Banana, Seedance, Kling, Veo), what you get at the end, output formats, and how data privacy is handled.";
+const PAGE_DESC_SHORT =
+  "Heclus FAQ: features, supported AI models, output, privacy, and refund policy.";
+
 export const metadata: Metadata = {
-  title: "FAQ — Heclus",
-  description:
-    "Common questions about Heclus: what it is, which AI models it uses, what you get at the end, and how data privacy is handled.",
+  title: PAGE_TITLE,
+  description: PAGE_DESC,
   alternates: { canonical: `${SITE_URL}/faq` },
+  keywords: [
+    "Heclus FAQ",
+    "how does Heclus work",
+    "AI YouTube tool questions",
+    "AI video generator FAQ",
+    "Heclus models",
+    "Heclus privacy",
+    "Heclus refund",
+  ],
   openGraph: {
-    title: "FAQ — Heclus",
-    description:
-      "Common questions about Heclus answered: features, models, output, and privacy.",
+    title: PAGE_TITLE,
+    description: PAGE_DESC_SHORT,
     url: `${SITE_URL}/faq`,
     type: "website",
+    siteName: "Heclus",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: PAGE_DESC_SHORT,
   },
 };
 

@@ -69,7 +69,7 @@ export default function FinalCTA() {
             </svg>
           </a>
           <a
-            href="#pipeline"
+            href="/pipeline"
             className="inline-flex items-center gap-2 px-10 py-4 rounded-xl text-base font-medium transition-all duration-200 hover:text-white"
             style={{ border: "1px solid oklch(1 0 0 / 0.12)", color: "oklch(0.62 0 0)" }}
           >

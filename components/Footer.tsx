@@ -36,10 +36,10 @@ const SOCIALS = [
 
 const LINKS = {
   Product: [
-    { label: "Features",     href: "#features"  },
-    { label: "Pipeline",     href: "#pipeline"  },
-    { label: "Pricing",      href: "#pricing"   },
-    { label: "FAQ",          href: "#faq"        },
+    { label: "Features",     href: "/features"  },
+    { label: "Pipeline",     href: "/pipeline"  },
+    { label: "Pricing",      href: "/pricing"   },
+    { label: "FAQ",          href: "/faq"        },
   ],
   Company: [
     { label: "Sign In",      href: `${APP_URL}/login`  },

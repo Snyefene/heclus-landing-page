@@ -71,7 +71,7 @@ export default function Hero() {
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-4">
               <a
-                href="#pricing"
+                href="/pricing"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-base font-semibold transition-all duration-200 hover:scale-105 active:scale-95"
                 style={{
                   background: "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 295) 100%)",
@@ -85,7 +85,7 @@ export default function Hero() {
                 </svg>
               </a>
               <a
-                href="#pipeline"
+                href="/pipeline"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-base font-medium transition-all duration-200 hover:text-white"
                 style={{ border: "1px solid oklch(1 0 0 / 0.12)", color: "oklch(0.68 0 0)" }}
               >

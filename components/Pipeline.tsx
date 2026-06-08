@@ -186,7 +186,7 @@ export default function Pipeline() {
         {/* Bottom CTA */}
         <div className="mt-12 text-center">
           <a
-            href="#pricing"
+            href="/pricing"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-105"
             style={{
               background: "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 295) 100%)",
