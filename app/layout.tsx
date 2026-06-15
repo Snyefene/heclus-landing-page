@@ -271,7 +271,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
         />
       </head>
-      <body className="antialiased px-[10px] md:px-[25px]">{children}</body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
