@@ -43,7 +43,7 @@ export default function PrivacyPage() {
             <p>Heclus uses the following third-party services to operate:</p>
             <ul className="list-disc pl-5 mt-2 space-y-1">
               <li><strong style={{ color: "oklch(0.78 0 0)" }}>Supabase</strong> - user authentication and data storage</li>
-              <li><strong style={{ color: "oklch(0.78 0 0)" }}>Gumroad</strong> - payment processing</li>
+              <li><strong style={{ color: "oklch(0.78 0 0)" }}>Dodo</strong> - payment processing</li>
               <li><strong style={{ color: "oklch(0.78 0 0)" }}>Cloudflare R2</strong> - file storage</li>
               <li><strong style={{ color: "oklch(0.78 0 0)" }}>Resend</strong> - transactional email</li>
             </ul>

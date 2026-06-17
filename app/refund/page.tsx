@@ -68,7 +68,7 @@ export default function RefundPage() {
 
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
             <h2 className="text-base font-semibold mb-3" style={{ color: "oklch(0.88 0 0)" }}>Processing Time</h2>
-            <p>Approved refunds are processed within 5–10 business days and returned to your original payment method via Gumroad.</p>
+            <p>Approved refunds are processed within 5-10 business days and returned to your original payment method via Dodo.</p>
           </section>
 
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
