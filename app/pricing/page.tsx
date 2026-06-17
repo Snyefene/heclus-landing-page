@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 const SITE_URL = "https://heclus.com";
 
-const PAGE_TITLE = "Pricing — From $19/mo. Founder Offer: $40/yr Full Access";
+const PAGE_TITLE = "Pricing - From $19/mo. Founder Offer: $40/yr Full Access";
 const PAGE_DESC =
   "Heclus pricing: limited-time Founder offer at $40 for a full year. Starter plan from $19/month, Pro from $49/month. Secure checkout via Paystack. Cancel anytime, no lock-in.";
 const PAGE_DESC_SHORT =
@@ -51,14 +51,14 @@ const breadcrumbLd = {
 };
 
 // Product/Offer schema for the three plans. Mirrors the PLANS array
-// in components/Pricing.tsx — if a plan name/price/period changes there,
+// in components/Pricing.tsx - if a plan name/price/period changes there,
 // update it here too. (Kept inline rather than imported because the
 // component data carries CTA labels and disabled flags that don't
 // belong in the public-facing product schema.)
 const productLd = {
   "@context": "https://schema.org",
   "@type": "Product",
-  name: "Heclus — AI YouTube Video Factory",
+  name: "Heclus - AI YouTube Video Factory",
   description: "Clone any YouTube channel/niche with an end-to-end AI pipeline: niche research, script, voiceover, AI images and video clips, thumbnails, and assembly.",
   brand: { "@type": "Brand", name: "Heclus" },
   offers: [

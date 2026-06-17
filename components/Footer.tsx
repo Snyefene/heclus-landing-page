@@ -58,7 +58,7 @@ export default function Footer() {
       className="relative pt-16 pb-10"
       style={{ borderTop: "1px solid oklch(1 0 0 / 0.06)" }}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="col-span-2">
@@ -73,9 +73,9 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-            <p className="text-sm max-w-xs leading-relaxed mb-5" style={{ color: "oklch(0.48 0 0)" }}>
+            <p className="text-sm max-w-xs leading-relaxed mb-5" style={{ color: "oklch(0.76 0 0)" }}>
               The AI-powered YouTube video factory. Analyze channels, generate
-              scripts, voiceovers, images, and full videos — automated.
+              scripts, voiceovers, images, and full videos - automated.
             </p>
             <div className="flex items-center gap-3">
               {SOCIALS.map((s) => (
@@ -101,7 +101,7 @@ export default function Footer() {
           {/* Link columns */}
           {Object.entries(LINKS).map(([heading, links]) => (
             <div key={heading}>
-              <h4 className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "oklch(0.45 0 0)" }}>
+              <h4 className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "oklch(0.72 0 0)" }}>
                 {heading}
               </h4>
               <ul className="space-y-3">
@@ -126,7 +126,7 @@ export default function Footer() {
           className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8"
           style={{ borderTop: "1px solid oklch(1 0 0 / 0.05)" }}
         >
-          <p className="text-xs" style={{ color: "oklch(0.38 0 0)" }}>
+          <p className="text-xs" style={{ color: "oklch(0.62 0 0)" }}>
             © {new Date().getFullYear()} aiTrends. All rights reserved.
           </p>
         </div>

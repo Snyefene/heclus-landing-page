@@ -8,7 +8,7 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="py-24 relative">
-      <div className="mx-auto max-w-3xl px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-14">
           <div
@@ -53,7 +53,7 @@ export default function FAQ() {
                     className="flex-shrink-0 w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-200"
                     style={{
                       background: isOpen ? "oklch(0.72 0.25 285 / 0.15)" : "oklch(0.14 0 0)",
-                      color: isOpen ? "oklch(0.82 0.18 285)" : "oklch(0.45 0 0)",
+                      color: isOpen ? "oklch(0.82 0.18 285)" : "oklch(0.72 0 0)",
                       transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
                     }}
                   >

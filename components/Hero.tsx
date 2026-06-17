@@ -1,12 +1,41 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+// Each step loops 0%→100% at its own cadence so the cards look like
+// independent workers, not a single synchronized progress group.
+// durationMs = how long one fill takes; delayMs = how long before the
+// step's first cycle begins (creates the cascade on initial paint).
 const PIPELINE_STEPS = [
-  { name: "Niche Analysis", done: true  },
-  { name: "Script Generation & Editing",        done: true  },
-  { name: "Voiceover Generation",           done: true  },
-  { name: "Bulk Image Generation",        done: true  },
-  { name: "Bulk Video Clips",        done: false, active: true },
-  { name: "Thumbnail Generation",        done: false },
-  { name: "Export",           done: false },
+  { name: "Niche Analysis",              done: true,  durationMs: 1600, delayMs: 0    },
+  { name: "Script Generation & Editing", done: true,  durationMs: 2050, delayMs: 200  },
+  { name: "Voiceover Generation",        done: true,  durationMs: 2500, delayMs: 400  },
+  { name: "Bulk Image Generation",       done: true,  durationMs: 2950, delayMs: 600  },
+  { name: "Bulk Video Clips", done: false, active: true, durationMs: 3400, delayMs: 800 },
+  { name: "Thumbnail Generation",        done: false, durationMs: 3850, delayMs: 1000 },
+  { name: "Export",                      done: false, durationMs: 4300, delayMs: 1200 },
 ];
+
+function useLoaderProgress(): number[] {
+  const [progress, setProgress] = useState<number[]>(() => PIPELINE_STEPS.map(() => 0));
+
+  useEffect(() => {
+    const start = performance.now();
+    const id = setInterval(() => {
+      const elapsed = performance.now() - start;
+      setProgress(
+        PIPELINE_STEPS.map(({ durationMs, delayMs }) => {
+          if (elapsed < delayMs) return 0;
+          const t = (elapsed - delayMs) % durationMs;
+          return Math.min(100, Math.floor((t / durationMs) * 100));
+        }),
+      );
+    }, 50);
+    return () => clearInterval(id);
+  }, []);
+
+  return progress;
+}
 
 const STATS = [
   { value: "2,400", label: "words in script" },
@@ -15,6 +44,8 @@ const STATS = [
 ];
 
 export default function Hero() {
+  const loaderProgress = useLoaderProgress();
+
   return (
     <section className="relative min-h-screen flex items-center pt-16 pb-8 overflow-hidden">
       {/* Ambient glow blobs */}
@@ -29,7 +60,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 w-full">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 
           {/* ── Left column: copy ───────────────────────────────── */}
@@ -114,12 +145,12 @@ export default function Hero() {
               
                 <div
                   className="flex-1 h-7 rounded-md px-3 flex items-center text-xs font-mono gap-2"
-                  style={{ background: "oklch(0.14 0 0)", color: "oklch(0.50 0 0)" }}
+                  style={{ background: "oklch(0.14 0 0)", color: "oklch(0.82 0 0)" }}
                 >
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg>
-                  heclus.app — Analyzing youtube.com/c/MrBeast
+                  heclus.app - Analyzing youtube.com/c/MrBeast
                 </div>
               </div>
 
@@ -128,7 +159,7 @@ export default function Hero() {
                 {PIPELINE_STEPS.map((step, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-xs font-medium"
+                    className="relative overflow-hidden flex items-center gap-2 px-3 py-2.5 rounded-lg text-xs font-medium"
                     style={{
                       background: step.done
                         ? "oklch(0.72 0.25 285 / 0.10)"
@@ -146,7 +177,7 @@ export default function Hero() {
                         ? "oklch(0.82 0.18 285)"
                         : step.active
                         ? "oklch(0.88 0.15 285)"
-                        : "oklch(0.40 0 0)",
+                        : "oklch(0.66 0 0)",
                     }}
                   >
                     {step.done ? (
@@ -161,7 +192,29 @@ export default function Hero() {
                     ) : (
                       <span className="w-2 h-2 rounded-full" style={{ background: "oklch(0.22 0 0)", flexShrink: 0 }} />
                     )}
-                    {step.name}
+                    <span className="flex-1 truncate">{step.name}</span>
+                    <span
+                      className="text-[10px] font-mono tabular-nums shrink-0"
+                      style={{ color: "oklch(0.68 0.18 145)" }}
+                    >
+                      {loaderProgress[i]}%
+                    </span>
+
+                    {/* Per-step green progress loader — JS-driven so bar + text stay in sync */}
+                    <div
+                      className="absolute bottom-0 left-0 right-0 h-[2px]"
+                      style={{ background: "oklch(1 0 0 / 0.04)" }}
+                    >
+                      <div
+                        style={{
+                          height: "100%",
+                          width: `${loaderProgress[i]}%`,
+                          background: "oklch(0.68 0.18 145)",
+                          boxShadow: "0 0 6px oklch(0.68 0.18 145 / 0.55)",
+                          transition: "width 50ms linear",
+                        }}
+                      />
+                    </div>
                   </div>
                 ))}
               </div>
@@ -170,7 +223,7 @@ export default function Hero() {
               <div className="mb-5">
                 <div
                   className="flex justify-between text-xs mb-2"
-                  style={{ color: "oklch(0.48 0 0)" }}
+                  style={{ color: "oklch(0.76 0 0)" }}
                 >
                   <span>Generating AI images…</span>
                   <span style={{ color: "oklch(0.68 0.18 145)" }}>62%</span>
@@ -197,7 +250,7 @@ export default function Hero() {
                     <div className="text-sm font-semibold mb-0.5" style={{ color: "oklch(0.90 0 0)" }}>
                       {s.value}
                     </div>
-                    <div className="text-xs" style={{ color: "oklch(0.45 0 0)" }}>
+                    <div className="text-xs" style={{ color: "oklch(0.72 0 0)" }}>
                       {s.label}
                     </div>
                   </div>
@@ -226,7 +279,7 @@ export default function Hero() {
                 <div className="text-xs font-semibold" style={{ color: "oklch(0.90 0 0)" }}>
                   Video Ready
                 </div>
-                <div className="text-xs" style={{ color: "oklch(0.50 0 0)" }}>
+                <div className="text-xs" style={{ color: "oklch(0.78 0 0)" }}>
                   Export your full video
                 </div>
               </div>

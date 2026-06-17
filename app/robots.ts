@@ -16,7 +16,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: ["/"],
         disallow: ["/api/", "/_next/static/chunks/", "/og_image.png$"],
       },
-      // Googlebot — primary search crawler. Explicit allow lets us
+      // Googlebot - primary search crawler. Explicit allow lets us
       // diverge from the wildcard later (e.g. open up an internal route
       // to Google only) without forgetting to remove a disallow rule.
       {

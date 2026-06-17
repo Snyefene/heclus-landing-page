@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     // Promoted from homepage anchors so Google can index each as its
-    // own destination — the standalone pages are the strongest signal
+    // own destination - the standalone pages are the strongest signal
     // that these are real, separately-meaningful sections of the site
     // (the prerequisite for them ever appearing as sitelinks).
     {

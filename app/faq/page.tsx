@@ -7,7 +7,7 @@ import { FAQ_ITEMS } from "@/lib/faq-data";
 
 const SITE_URL = "https://heclus.com";
 
-const PAGE_TITLE = "FAQ — How Heclus AI YouTube Video Generation Works";
+const PAGE_TITLE = "FAQ - How Heclus AI YouTube Video Generation Works";
 const PAGE_DESC =
   "Common questions about Heclus: what it does, which AI models it uses (Claude, ElevenLabs, Nano Banana, Seedance, Kling, Veo), what you get at the end, output formats, and how data privacy is handled.";
 const PAGE_DESC_SHORT =

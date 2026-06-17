@@ -6,11 +6,11 @@ import Footer from "@/components/Footer";
 
 const SITE_URL = "https://heclus.com";
 
-const PAGE_TITLE = "Features — AI YouTube Video Tools, Voiceover, Thumbnails & Auto-Assembly";
+const PAGE_TITLE = "Features - AI YouTube Video Tools, Voiceover, Thumbnails & Auto-Assembly";
 const PAGE_DESC =
   "Everything you need in one AI YouTube tool: niche research, channel analysis, AI script writing, natural voiceover, bulk image and video generation, thumbnail creation, and one-click export.";
 const PAGE_DESC_SHORT =
-  "Niche research, AI scripts, voiceover, AI images, video clips, thumbnails — every step automated.";
+  "Niche research, AI scripts, voiceover, AI images, video clips, thumbnails - every step automated.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,

@@ -9,7 +9,7 @@ export default function FinalCTA() {
         }}
       />
 
-      <div className="relative mx-auto max-w-4xl px-6 lg:px-8 text-center">
+      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
         {/* Decorative dots */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-16"
           style={{ background: "linear-gradient(180deg, transparent 0%, oklch(0.72 0.25 285 / 0.40) 100%)" }} />
@@ -78,7 +78,7 @@ export default function FinalCTA() {
         </div>
 
         {/* Trust micro-copy */}
-        <p className="mt-8 text-sm" style={{ color: "oklch(0.40 0 0)" }}>
+        <p className="mt-8 text-sm" style={{ color: "oklch(0.66 0 0)" }}>
           No credit card lock-in · Cancel anytime · Full access from day one
         </p>
       </div>

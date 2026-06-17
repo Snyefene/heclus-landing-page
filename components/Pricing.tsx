@@ -1,7 +1,7 @@
 import { connection } from "next/server";
 import { supabase } from "@/lib/supabase";
 
-// Live founder counter — sourced from the same Supabase row the
+// Live founder counter - sourced from the same Supabase row the
 // youtube-engine /api/founder-spots route reads (product_config row
 // service='_global', columns founders_promo_limit /
 // founders_subscriptions_count). The RPC get_founder_promo_state returns
@@ -112,7 +112,7 @@ export default async function Pricing() {
         }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-16">
           <div
@@ -166,7 +166,7 @@ export default async function Pricing() {
                 $40 · Full access for 1 year
               </h3>
               <p className="text-sm" style={{ color: "oklch(0.55 0 0)" }}>
-                Pay once, get 20 niches + full AI pipeline for a full year — no monthly renewal. After your year, choose any monthly plan.
+                Pay once, get 20 niches + full AI pipeline for a full year - no monthly renewal. After your year, choose any monthly plan.
               </p>
             </div>
             <div className="shrink-0 flex flex-col items-stretch sm:items-end gap-2.5">
@@ -244,7 +244,7 @@ export default async function Pricing() {
                   <p className="text-sm font-semibold mb-1" style={{ color: "oklch(0.72 0.25 285)" }}>
                     {plan.name}
                   </p>
-                  <p className="text-xs leading-relaxed" style={{ color: "oklch(0.50 0 0)" }}>
+                  <p className="text-xs leading-relaxed" style={{ color: "oklch(0.78 0 0)" }}>
                     {plan.description}
                   </p>
                 </div>
@@ -255,7 +255,7 @@ export default async function Pricing() {
                     <span className="text-4xl font-bold tracking-tight" style={{ color: "oklch(0.95 0 0)" }}>
                       {plan.price}
                     </span>
-                    <span className="text-sm mb-1.5" style={{ color: "oklch(0.48 0 0)" }}>
+                    <span className="text-sm mb-1.5" style={{ color: "oklch(0.76 0 0)" }}>
                       {plan.period}
                     </span>
                   </div>
@@ -285,7 +285,7 @@ export default async function Pricing() {
                 {plan.disabled ? (
                   <div
                     className="flex items-center justify-center w-full py-3.5 rounded-xl text-sm font-medium cursor-not-allowed"
-                    style={{ background: "oklch(1 0 0 / 0.04)", color: "oklch(0.40 0 0)", border: "1px solid oklch(1 0 0 / 0.06)" }}
+                    style={{ background: "oklch(1 0 0 / 0.04)", color: "oklch(0.66 0 0)", border: "1px solid oklch(1 0 0 / 0.06)" }}
                   >
                     Coming Soon
                   </div>
@@ -315,7 +315,7 @@ export default async function Pricing() {
         </div>
 
         {/* Guarantee strip */}
-        <div className="mt-12 flex flex-wrap justify-center gap-8" style={{ color: "oklch(0.50 0 0)" }}>
+        <div className="mt-12 flex flex-wrap justify-center gap-8" style={{ color: "oklch(0.78 0 0)" }}>
           {[
             {
               text: "Secure checkout via Paystack",

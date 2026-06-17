@@ -97,7 +97,7 @@ export default function Pipeline() {
         style={{ background: "radial-gradient(ellipse 70% 40% at 50% 50%, oklch(0.72 0.25 285 / 0.04) 0%, transparent 70%)" }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-16">
           <div

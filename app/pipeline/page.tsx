@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 const SITE_URL = "https://heclus.com";
 
-const PAGE_TITLE = "Pipeline — From YouTube Niche to Finished AI Video in 8 Steps";
+const PAGE_TITLE = "Pipeline - From YouTube Niche to Finished AI Video in 8 Steps";
 const PAGE_DESC =
   "Heclus's 8-step AI pipeline: niche identification, channel style DNA, topic and script, AI voiceover, bulk image and video generation, thumbnail creation, video assembly, and one-click export.";
 const PAGE_DESC_SHORT =
@@ -52,13 +52,13 @@ const breadcrumbLd = {
 
 // HowTo schema mirrors the 8-step pipeline shown on the page. Kept
 // inline (rather than imported from Pipeline.tsx) because the
-// component data mixes JSX icons with text — extracting would force
+// component data mixes JSX icons with text - extracting would force
 // a separate icon registry. If you reword a step's name/description
 // in components/Pipeline.tsx, mirror it here too.
 const howToLd = {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  name: "From Niche to Full Video — the Heclus pipeline",
+  name: "From Niche to Full Video - the Heclus pipeline",
   description: "How Heclus turns a YouTube niche into a complete video, step by step.",
   step: [
     { "@type": "HowToStep", position: 1, name: "Niche Identification", text: "Identifying any trending YouTube niche." },

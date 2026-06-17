@@ -1,6 +1,6 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
-// Server-side only — uses the service role key. Never import this from a
+// Server-side only - uses the service role key. Never import this from a
 // Client Component. The pattern mirrors youtube-engine/lib/supabase/client.ts:
 // lazy singleton + cache-busting fetch so Next's data cache never freezes
 // a row read in a stale state.

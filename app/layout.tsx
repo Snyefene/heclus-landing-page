@@ -17,9 +17,9 @@ const OG_LOGO = `${SITE_URL}/heclus-icon.png`;
 // the SoftwareApplication JSON-LD so search results and social previews
 // stay consistent.
 const DESCRIPTION_SHORT =
-  "Clone any YouTube channel or niche with AI. Analyze a channel, generate scripts, voiceovers, AI images, thumbnails, and assemble complete videos — all in one automated pipeline.";
+  "Clone any YouTube channel or niche with AI. Analyze a channel, generate scripts, voiceovers, AI images, thumbnails, and assemble complete videos - all in one automated pipeline.";
 const DESCRIPTION_LONG =
-  "Heclus is an AI YouTube video factory. Paste any channel URL, pick a topic, and the pipeline produces a humanized script, natural voiceover, scene-level AI images, motion clips, and scroll-stopping thumbnails — assembled into a ready-to-upload video.";
+  "Heclus is an AI YouTube video factory. Paste any channel URL, pick a topic, and the pipeline produces a humanized script, natural voiceover, scene-level AI images, motion clips, and scroll-stopping thumbnails - assembled into a ready-to-upload video.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     google: "GCN0u5bvT9xqLHnEteWKp9tvDpHrk4Wn51oWxUte1VI",
   },
   title: {
-    default: "Heclus — AI YouTube Video Factory | Clone Any Niche, Auto-Generate Videos",
+    default: "Heclus - AI YouTube Video Factory | Clone Any Niche, Auto-Generate Videos",
     template: "%s | Heclus",
   },
   description: DESCRIPTION_SHORT,
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Heclus",
     locale: "en_US",
-    title: "Heclus — AI YouTube Video Factory | Clone Any Niche, Auto-Generate Videos",
+    title: "Heclus - AI YouTube Video Factory | Clone Any Niche, Auto-Generate Videos",
     description: DESCRIPTION_SHORT,
     url: SITE_URL,
     images: [
@@ -108,21 +108,21 @@ export const metadata: Metadata = {
         secureUrl: OG_IMAGE,
         width: 1887,
         height: 763,
-        alt: "Heclus — Clone any YouTube channel/niche with AI",
+        alt: "Heclus - Clone any YouTube channel/niche with AI",
         type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Heclus — AI YouTube Video Factory",
+    title: "Heclus - AI YouTube Video Factory",
     description: DESCRIPTION_SHORT,
     images: [OG_IMAGE],
     creator: "@heclus",
     site: "@heclus",
   },
   other: {
-    // Pinterest rich pin opt-in. Cheap to include — only fires when
+    // Pinterest rich pin opt-in. Cheap to include - only fires when
     // someone pins a page, but improves the pin's metadata for free.
     "pinterest-rich-pin": "true",
   },
@@ -183,7 +183,7 @@ const websiteLd = {
 };
 
 // SoftwareApplication is the schema Google leans on for SaaS rich
-// results — pricing, category, and platform show up directly in the
+// results - pricing, category, and platform show up directly in the
 // SERP under the brand result. Offers mirror the plans listed in
 // components/Pricing.tsx; keep them in sync if the plans change.
 const softwareLd = {
