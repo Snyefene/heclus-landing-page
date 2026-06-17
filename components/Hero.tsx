@@ -64,7 +64,7 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 
           {/* ── Left column: copy ───────────────────────────────── */}
-          <div className="animate-fade-up">
+          <div className="animate-fade-up text-center lg:text-left">
             {/* Badge */}
             <div
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mt-[25px] mb-[22px]"
@@ -95,12 +95,12 @@ export default function Hero() {
             </h2>
 
             {/* Sub */}
-            <p className="text-base lg:text-lg leading-relaxed mb-5 max-w-lg" style={{ color: "oklch(0.62 0 0)" }}>
+            <p className="text-base lg:text-lg leading-relaxed mb-5 max-w-lg mx-auto lg:mx-0" style={{ color: "oklch(0.62 0 0)" }}>
              Analyze any trending YouTube niche. Generate humanized scripts, voiceover narration, images, videos, and thumbnails
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
               <a
                 href="/pricing"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-base font-semibold transition-all duration-200 hover:scale-105 active:scale-95"
