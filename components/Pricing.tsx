@@ -1,33 +1,62 @@
+import { connection } from "next/server";
 import { supabase } from "@/lib/supabase";
 
 // Live founder counter — sourced from the same Supabase row the
 // youtube-engine /api/founder-spots route reads (product_config row
 // service='_global', columns founders_promo_limit /
-// founders_subscriptions_count, plus a derived active flag). The RPC
-// get_founder_promo_state returns { taken, remaining, active, limit }
-// as a single O(1) read. Constants below are a defensive fallback
-// only — used when the RPC errors or env vars are missing so the
-// banner never silently shows 0 spots left.
+// founders_subscriptions_count). The RPC get_founder_promo_state returns
+// { taken, remaining, active, limit } as a single O(1) read; if it isn't
+// deployed we fall back to reading product_config directly so the banner
+// still tracks reality. FOUNDER_TOTAL_FALLBACK is the last-resort value
+// used only when both reads fail.
 const FOUNDER_TOTAL_FALLBACK = 100;
 
 type FounderState = { spots_left: number; limit: number };
 
 async function fetchFounderState(): Promise<FounderState> {
+  // Opt the enclosing route out of static rendering so the counter
+  // reflects the DB on every request rather than the build snapshot.
+  await connection();
+
   try {
     const { data, error } = await supabase
       .rpc("get_founder_promo_state")
       .single();
-    if (error || !data) throw error ?? new Error("no data");
-    const row = data as { taken: number; remaining: number; active: boolean; limit?: number };
-    const limit = typeof row.limit === "number"
-      ? row.limit
-      : (typeof row.taken === "number" && typeof row.remaining === "number"
-        ? row.taken + row.remaining
-        : FOUNDER_TOTAL_FALLBACK);
-    return { spots_left: row.remaining ?? 0, limit };
-  } catch {
-    return { spots_left: FOUNDER_TOTAL_FALLBACK, limit: FOUNDER_TOTAL_FALLBACK };
+    if (error) throw error;
+    if (data) {
+      const row = data as { taken?: number; remaining?: number; active?: boolean; limit?: number };
+      const limit = typeof row.limit === "number"
+        ? row.limit
+        : (typeof row.taken === "number" && typeof row.remaining === "number"
+          ? row.taken + row.remaining
+          : FOUNDER_TOTAL_FALLBACK);
+      if (typeof row.remaining === "number") {
+        return { spots_left: row.remaining, limit };
+      }
+    }
+    throw new Error("get_founder_promo_state returned no usable row");
+  } catch (err) {
+    console.error("[Pricing] get_founder_promo_state RPC failed", err);
   }
+
+  try {
+    const { data, error } = await supabase
+      .from("product_config")
+      .select("founders_promo_limit, founders_subscriptions_count")
+      .eq("service", "_global")
+      .single();
+    if (error) throw error;
+    if (data) {
+      const row = data as { founders_promo_limit: number | null; founders_subscriptions_count: number | null };
+      const limit = row.founders_promo_limit ?? FOUNDER_TOTAL_FALLBACK;
+      const taken = row.founders_subscriptions_count ?? 0;
+      return { spots_left: Math.max(0, limit - taken), limit };
+    }
+  } catch (err) {
+    console.error("[Pricing] product_config fallback failed", err);
+  }
+
+  return { spots_left: FOUNDER_TOTAL_FALLBACK, limit: FOUNDER_TOTAL_FALLBACK };
 }
 
 const PLANS = [
