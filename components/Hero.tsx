@@ -6,14 +6,18 @@ import { useEffect, useState } from "react";
 // independent workers, not a single synchronized progress group.
 // durationMs = how long one fill takes; delayMs = how long before the
 // step's first cycle begins (creates the cascade on initial paint).
+// SPEED_MULTIPLIER is the single knob to tune the overall pace —
+// raise it to slow everything down proportionally without re-tuning
+// each step relative to the others.
+const SPEED_MULTIPLIER = 3;
 const PIPELINE_STEPS = [
-  { name: "Niche Analysis",              done: true,  durationMs: 1600, delayMs: 0    },
-  { name: "Script Generation & Editing", done: true,  durationMs: 2050, delayMs: 200  },
-  { name: "Voiceover Generation",        done: true,  durationMs: 2500, delayMs: 400  },
-  { name: "Bulk Image Generation",       done: true,  durationMs: 2950, delayMs: 600  },
-  { name: "Bulk Video Clips", done: false, active: true, durationMs: 3400, delayMs: 800 },
-  { name: "Thumbnail Generation",        done: false, durationMs: 3850, delayMs: 1000 },
-  { name: "Export",                      done: false, durationMs: 4300, delayMs: 1200 },
+  { name: "Niche Analysis",              done: true,  durationMs: 1600 * SPEED_MULTIPLIER, delayMs: 0    },
+  { name: "Script Generation & Editing", done: true,  durationMs: 2050 * SPEED_MULTIPLIER, delayMs: 200  },
+  { name: "Voiceover Generation",        done: true,  durationMs: 2500 * SPEED_MULTIPLIER, delayMs: 400  },
+  { name: "Bulk Image Generation",       done: true,  durationMs: 2950 * SPEED_MULTIPLIER, delayMs: 600  },
+  { name: "Bulk Video Clips", done: false, active: true, durationMs: 3400 * SPEED_MULTIPLIER, delayMs: 800 },
+  { name: "Thumbnail Generation",        done: false, durationMs: 3850 * SPEED_MULTIPLIER, delayMs: 1000 },
+  { name: "Export",                      done: false, durationMs: 4300 * SPEED_MULTIPLIER, delayMs: 1200 },
 ];
 
 function useLoaderProgress(): number[] {
