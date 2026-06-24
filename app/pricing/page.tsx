@@ -7,11 +7,11 @@ import Footer from "@/components/Footer";
 
 const SITE_URL = "https://heclus.com";
 
-const PAGE_TITLE = "Pricing - From $19/mo. Founder Offer: $40/yr Full Access";
+const PAGE_TITLE = "Pricing - From $21/mo. Founder Offer: $40/yr Full Access";
 const PAGE_DESC =
-  "Heclus pricing: limited-time Founder offer at $40 for a full year. Starter plan from $19/month, Pro from $49/month. Secure checkout via Paystack. Cancel anytime, no lock-in.";
+  "Heclus pricing: limited-time Founder offer at $40 for a full year. Starter plan from $21/month, Pro from $39/month. Secure checkout via Paystack. Cancel anytime, no lock-in.";
 const PAGE_DESC_SHORT =
-  "Founder offer: $40 for a full year. Starter $19/mo, Pro $49/mo. Cancel anytime.";
+  "Founder offer: $40 for a full year. Starter $21/mo, Pro $39/mo. Cancel anytime.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -74,20 +74,20 @@ const productLd = {
     {
       "@type": "Offer",
       name: "Starter",
-      price: "19.00",
+      price: "21.00",
       priceCurrency: "USD",
       url: `${SITE_URL}/pricing`,
       availability: "https://schema.org/InStock",
-      description: "5 niches per month, full 8-step AI pipeline.",
+      description: "5 niches per month, full AI pipeline, up to 1080p output.",
     },
     {
       "@type": "Offer",
       name: "Pro",
-      price: "49.00",
+      price: "39.00",
       priceCurrency: "USD",
       url: `${SITE_URL}/pricing`,
       availability: "https://schema.org/InStock",
-      description: "Unlimited niches, priority processing, full 8-step AI pipeline.",
+      description: "10 niches/month, unlimited videos, bulk generation, priority queue, 2K+ premium output.",
     },
   ],
 };

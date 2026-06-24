@@ -62,16 +62,17 @@ async function fetchFounderState(): Promise<FounderState> {
 const PLANS = [
   {
     name: "Starter",
-    price: "$19",
+    price: "$21",
     period: "/month",
     description: "Perfect for creators just getting started.",
     limit: "5 niches/month",
     features: [
       "5 niches per month",
       "Standard image processing",
-      "Full 8-step AI pipeline",
+      "Full AI pipeline",
       "All features included",
       "Community support",
+      "Up to 1080p output",
     ],
     cta: "Get Started",
     highlighted: false,
@@ -79,17 +80,18 @@ const PLANS = [
   },
   {
     name: "Pro",
-    price: "$49",
+    price: "$39",
     period: "/month",
     description: "For creators scaling their content output.",
-    limit: "Unlimited niches",
+    limit: "10 niches/month",
     features: [
       "Everything in Starter",
-      "Clone unlimited YouTube niches",
-      "Unlimited video creation",
+      "10 niches",
+      "Unlimited videos",
       "Bulk video generation",
       "Priority rendering queue",
       "Priority support",
+      "2K+ premium output",
     ],
     cta: "Start Pro",
     highlighted: true,
@@ -165,8 +167,11 @@ export default async function Pricing() {
               <h3 className="text-xl font-bold mb-1" style={{ color: "oklch(0.95 0 0)" }}>
                 $40 · Full access for 1 year
               </h3>
+              <p className="text-sm font-semibold mb-1" style={{ color: "oklch(0.82 0.18 285)" }}>
+                Everything in Starter
+              </p>
               <p className="text-sm" style={{ color: "oklch(0.55 0 0)" }}>
-                Pay once, get 20 niches + full AI pipeline for a full year - no monthly renewal. After your year, choose any monthly plan.
+                Pay once, get 20 niches + full AI pipeline for a full year - no monthly renewal. After one year, choose any monthly plan.
               </p>
             </div>
             <div className="shrink-0 flex flex-col items-stretch sm:items-end gap-2.5">
