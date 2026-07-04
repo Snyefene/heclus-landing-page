@@ -15,11 +15,10 @@ export type TestimonialsData = {
 };
 
 // Threshold for lighting up the on-page section AND the aggregateRating
-// / review JSON-LD on /pricing. Temporarily set to 1 while the review
-// pool builds up - Google won't render SERP stars from such a small
-// sample, but the on-page section still shows social proof. Bump back
-// to 5 once there's enough content.
-const MIN_REVIEWS_THRESHOLD = 1;
+// / review JSON-LD on /pricing. Below this we render nothing and emit no
+// rating schema, since a 1-2 review sample is spammy and Google won't
+// render SERP stars from it anyway.
+const MIN_REVIEWS_THRESHOLD = 5;
 const MIN_TEXT_LENGTH = 20;
 const MIN_RATING = 4;
 const MAX_REVIEWS_ON_PAGE = 6;
