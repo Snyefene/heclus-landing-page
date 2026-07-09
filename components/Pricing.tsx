@@ -99,6 +99,68 @@ const PLANS = [
   },
 ];
 
+// Feature comparison matrix. Columns mirror the offerings above
+// (Founder promo + the two monthly plans). A cell value of true renders
+// a check, false renders a dash, and a string renders as-is.
+const COMPARE_COLUMNS = [
+  { key: "founder", label: "Founder", sub: "$40 · one-time / yr", highlighted: false },
+  { key: "starter", label: "Starter", sub: "$21 / mo", highlighted: false },
+  { key: "pro", label: "Pro", sub: "$39 / mo", highlighted: true },
+] as const;
+
+const COMPARE_ROWS: {
+  feature: string;
+  founder: boolean | string;
+  starter: boolean | string;
+  pro: boolean | string;
+}[] = [
+  { feature: "Niches included", founder: "20 / year", starter: "5 / month", pro: "10 / month" },
+  { feature: "Full AI pipeline", founder: true, starter: true, pro: true },
+  { feature: "Video generation", founder: "Unlimited", starter: "Unlimited", pro: "Unlimited" },
+  { feature: "Image processing", founder: "Standard", starter: "Standard", pro: "Standard" },
+  { feature: "Output quality", founder: "Up to 1080p", starter: "Up to 1080p", pro: "Up to 4K premium" },
+  { feature: "Bulk image generation", founder: true, starter: true, pro: true },
+  { feature: "Bulk video generation", founder: true, starter: true, pro: true },
+  { feature: "Priority rendering queue", founder: false, starter: false, pro: true },
+  { feature: "Support", founder: "Community", starter: "Community", pro: "Priority" },
+  { feature: "Billing", founder: "One-time (1 year)", starter: "Monthly", pro: "Monthly" },
+];
+
+function CompareCell({ value, highlighted }: { value: boolean | string; highlighted: boolean }) {
+  if (value === true) {
+    return (
+      <span
+        className="inline-flex w-5 h-5 rounded-full items-center justify-center"
+        style={{
+          background: highlighted ? "oklch(0.72 0.25 285 / 0.20)" : "oklch(0.72 0.25 285 / 0.12)",
+          color: "oklch(0.82 0.18 285)",
+        }}
+      >
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+      </span>
+    );
+  }
+  if (value === false) {
+    return (
+      <span className="inline-block" style={{ color: "oklch(0.40 0 0)" }} aria-label="Not included">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+      </span>
+    );
+  }
+  return (
+    <span
+      className="text-xs font-medium"
+      style={{ color: highlighted ? "oklch(0.88 0 0)" : "oklch(0.72 0 0)" }}
+    >
+      {value}
+    </span>
+  );
+}
+
 export default async function Pricing() {
   const founder = await fetchFounderState();
   const claimedPct = founder.limit > 0
@@ -319,11 +381,97 @@ export default async function Pricing() {
           ))}
         </div>
 
+        {/* Comparison table */}
+        <div className="mt-16 max-w-4xl mx-auto">
+          <h3 className="text-center text-2xl font-bold tracking-tight mb-2" style={{ color: "oklch(0.95 0 0)" }}>
+            Compare plans
+          </h3>
+          <p className="text-center text-sm mb-8" style={{ color: "oklch(0.55 0 0)" }}>
+            Every feature, side by side.
+          </p>
+
+          <div
+            className="rounded-3xl overflow-hidden"
+            style={{
+              background: "oklch(0.08 0.004 280)",
+              border: "1px solid oklch(1 0 0 / 0.08)",
+              boxShadow: "0 8px 32px oklch(0 0 0 / 0.30)",
+            }}
+          >
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse text-left" style={{ minWidth: "560px" }}>
+                <thead>
+                  <tr>
+                    <th className="py-5 px-5 sm:px-6 text-xs font-semibold uppercase tracking-widest" style={{ color: "oklch(0.55 0 0)" }}>
+                      Feature
+                    </th>
+                    {COMPARE_COLUMNS.map((col) => (
+                      <th
+                        key={col.key}
+                        className="py-5 px-4 text-center align-bottom relative"
+                        style={{
+                          background: col.highlighted ? "oklch(0.72 0.25 285 / 0.06)" : "transparent",
+                        }}
+                      >
+                        {col.highlighted && (
+                          <span
+                            className="absolute top-0 left-0 right-0 h-0.5"
+                            style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.25 285), transparent)" }}
+                          />
+                        )}
+                        <span className="block text-sm font-bold" style={{ color: col.highlighted ? "oklch(0.82 0.18 285)" : "oklch(0.90 0 0)" }}>
+                          {col.label}
+                        </span>
+                        <span className="block text-xs mt-0.5 font-medium whitespace-nowrap" style={{ color: "oklch(0.55 0 0)" }}>
+                          {col.sub}
+                        </span>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {COMPARE_ROWS.map((row, i) => (
+                    <tr
+                      key={row.feature}
+                      style={{ borderTop: "1px solid oklch(1 0 0 / 0.06)" }}
+                    >
+                      <td
+                        className="py-3.5 px-5 sm:px-6 text-sm font-medium"
+                        style={{
+                          color: "oklch(0.78 0 0)",
+                          background: i % 2 === 1 ? "oklch(1 0 0 / 0.012)" : "transparent",
+                        }}
+                      >
+                        {row.feature}
+                      </td>
+                      {COMPARE_COLUMNS.map((col) => (
+                        <td
+                          key={col.key}
+                          className="py-3.5 px-4 text-center"
+                          style={{
+                            background: col.highlighted
+                              ? "oklch(0.72 0.25 285 / 0.06)"
+                              : i % 2 === 1
+                                ? "oklch(1 0 0 / 0.012)"
+                                : "transparent",
+                          }}
+                        >
+                          <CompareCell value={row[col.key]} highlighted={col.highlighted} />
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
         {/* Guarantee strip */}
         <div className="mt-12 flex flex-wrap justify-center gap-8" style={{ color: "oklch(0.78 0 0)" }}>
           {[
             {
-              text: "Secure checkout via Paystack",
+              text: "Secure checkout via Dodo",
               icon: (
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />

@@ -4,6 +4,7 @@ import StatsBar    from "@/components/StatsBar";
 import Pipeline    from "@/components/Pipeline";
 import Features    from "@/components/Features";
 import HowItWorks  from "@/components/HowItWorks";
+import VideoDemo   from "@/components/VideoDemo";
 import Pricing     from "@/components/Pricing";
 import FAQ         from "@/components/FAQ";
 import FinalCTA    from "@/components/FinalCTA";
@@ -18,6 +19,7 @@ export default function LandingPage() {
       <Pipeline />
       <Features />
       <HowItWorks />
+      <VideoDemo />
       <Pricing />
       <FAQ />
       <FinalCTA />
