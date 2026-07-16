@@ -60,7 +60,7 @@ export default function Features() {
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
             Everything you need
             <br />
-            <span className="accent-serif" style={{ color: "oklch(0.74 0.10 285)" }}>in one single tool</span>
+            <span style={{ color: "oklch(0.74 0.10 285)" }}>in one single tool</span>
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "oklch(0.58 0 0)" }}>
             Don&rsquo;t miss the next trending niche. Speed up your production

@@ -19,7 +19,7 @@ export default function VideoDemo() {
             Demo
           </p>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
-            See it in <span className="accent-serif" style={{ color: "oklch(0.74 0.10 285)" }}>action.</span>
+            See it in <span style={{ color: "oklch(0.74 0.10 285)" }}>action.</span>
           </h2>
           <p className="text-lg max-w-xl mx-auto" style={{ color: "oklch(0.58 0 0)" }}>
             Watch the full pipeline turn a single niche into finished content.

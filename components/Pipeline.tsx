@@ -100,7 +100,7 @@ export default function Pipeline() {
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
             From niche to full video:
             <br />
-            <span className="accent-serif" style={{ color: "oklch(0.74 0.10 285)" }}>automated &amp; customizable</span>
+            <span style={{ color: "oklch(0.74 0.10 285)" }}>automated &amp; customizable</span>
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "oklch(0.58 0 0)" }}>
             Heclus handles every stage of production so you never face a blank page

@@ -177,7 +177,7 @@ export default async function Pricing() {
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
             Simple, transparent
             <br />
-            <span className="accent-serif" style={{ color: "oklch(0.74 0.10 285)" }}>pricing.</span>
+            <span style={{ color: "oklch(0.74 0.10 285)" }}>pricing.</span>
           </h2>
           <p className="text-lg max-w-xl mx-auto" style={{ color: "oklch(0.58 0 0)" }}>
             Pick the plan that fits your output. Upgrade or cancel anytime.

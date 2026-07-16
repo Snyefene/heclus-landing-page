@@ -12,7 +12,7 @@ export default function FinalCTA() {
         <h2 className="text-5xl sm:text-6xl font-bold tracking-tight mb-6 leading-[1.05]">
           Stop planning.
           <br />
-          <span className="accent-serif" style={{ color: "oklch(0.74 0.10 285)" }}>Start shipping videos.</span>
+          <span style={{ color: "oklch(0.74 0.10 285)" }}>Start shipping videos.</span>
         </h2>
 
         <p className="text-xl max-w-2xl mx-auto mb-12" style={{ color: "oklch(0.58 0 0)" }}>

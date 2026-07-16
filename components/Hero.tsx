@@ -77,8 +77,7 @@ export default function Hero() {
             <h1 className="text-5xl sm:text-6xl lg:text-[4.25rem] font-bold leading-[1.05] tracking-tight mb-6">
               Clone any
               <br />
-              <span className="accent-serif">YouTube niche</span>
-              <span style={{ color: "oklch(0.62 0.15 285)" }}>.</span>
+              YouTube niche<span style={{ color: "oklch(0.62 0.15 285)" }}>.</span>
             </h1>
 
             {/* Sub */}
