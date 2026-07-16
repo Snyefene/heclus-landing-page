@@ -68,7 +68,7 @@ export default function Features() {
         </div>
 
         {/* Feature cards */}
-        <div className="grid md:grid-cols-2 gap-5" data-reveal="group">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5" data-reveal="group">
           {FEATURES.map((f, i) => (
             <div
               key={i}

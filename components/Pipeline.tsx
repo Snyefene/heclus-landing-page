@@ -109,7 +109,7 @@ export default function Pipeline() {
         </div>
 
         {/* Steps grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4" data-reveal="group">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" data-reveal="group">
           {STEPS.map((step, i) => (
             <div
               key={i}

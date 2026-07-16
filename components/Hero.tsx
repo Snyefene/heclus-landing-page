@@ -61,7 +61,10 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center pt-16 pb-8 overflow-hidden">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+        {/* grid-cols-1 is load-bearing: minmax(0,1fr) lets the column shrink
+            below content min-width on phones (an auto track would be forced
+            wide by the nowrap URL-bar text and clipped by overflow-hidden). */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 
           {/* ── Left column: copy ───────────────────────────────── */}
           <div className="animate-fade-up">
@@ -133,7 +136,7 @@ export default function Hero() {
                   ))}
                 </div>
                 <div
-                  className="flex-1 min-w-0 h-7 rounded-md px-3 flex items-center text-xs font-mono gap-2"
+                  className="flex-1 min-w-0 overflow-hidden h-7 rounded-md px-3 flex items-center text-xs font-mono gap-2"
                   style={{ background: "oklch(0.09 0.004 285)", color: "oklch(0.62 0 0)", border: "1px solid oklch(1 0 0 / 0.06)" }}
                 >
                   <svg className="shrink-0" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
