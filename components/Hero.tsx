@@ -52,66 +52,40 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-16 pb-8 overflow-hidden">
-      {/* Ambient glow blobs */}
-      <div className="pointer-events-none absolute inset-0">
-        <div
-          className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full"
-          style={{ background: "radial-gradient(ellipse, oklch(0.72 0.25 285 / 0.08) 0%, transparent 70%)" }}
-        />
-        <div
-          className="absolute bottom-0 right-0 w-[600px] h-[400px] rounded-full"
-          style={{ background: "radial-gradient(ellipse, oklch(0.5 0.18 200 / 0.06) 0%, transparent 70%)" }}
-        />
-      </div>
-
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 
           {/* ── Left column: copy ───────────────────────────────── */}
           <div className="animate-fade-up">
-            {/* Badge */}
-            <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mt-[25px] mb-[22px]"
-              style={{
-                background: "oklch(0.72 0.25 285 / 0.10)",
-                border: "1px solid oklch(0.72 0.25 285 / 0.25)",
-                color: "oklch(0.82 0.18 285)",
-              }}
+            {/* Eyebrow */}
+            <p
+              className="text-xs font-semibold uppercase tracking-[0.22em] mt-[25px] mb-6"
+              style={{ color: "oklch(0.66 0.10 285)" }}
             >
-              <span className="relative flex h-2 w-2">
-                <span
-                  className="absolute inline-flex h-full w-full rounded-full animate-ping-slow"
-                  style={{ background: "oklch(0.72 0.25 285 / 0.6)" }}
-                />
-                <span className="relative inline-flex rounded-full h-2 w-2" style={{ background: "oklch(0.72 0.25 285)" }} />
-              </span>
-              AI-Powered YouTube Automation
-            </div>
+              Heclus — AI YouTube Automation
+            </p>
 
             {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.04] tracking-tight mb-1">
-              Heclus
+            <h1 className="text-5xl sm:text-6xl lg:text-[4.25rem] font-bold leading-[1.05] tracking-tight mb-6">
+              Clone any
+              <br />
+              YouTube niche<span style={{ color: "oklch(0.62 0.15 285)" }}>.</span>
             </h1>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight mb-[43px]">
-              <span style={{ color: "oklch(0.72 0.25 285)" }}>
-                Clone any YouTube Niche
-              </span>
-            </h2>
 
             {/* Sub */}
-            <p className="text-base lg:text-lg leading-relaxed mb-5 max-w-lg" style={{ color: "oklch(0.62 0 0)" }}>
-             Analyze any trending YouTube niche. Generate humanized scripts, voiceover narration, images, videos, and thumbnails
+            <p className="text-base lg:text-lg leading-relaxed mb-9 max-w-lg" style={{ color: "oklch(0.62 0 0)" }}>
+              Analyze any trending YouTube niche. Generate humanized scripts, voiceover
+              narration, images, videos, and thumbnails.
             </p>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3">
               <a
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-base font-semibold transition-all duration-200 hover:scale-105 active:scale-95"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-base font-semibold transition-opacity duration-150 hover:opacity-90"
                 style={{
-                  background: "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 295) 100%)",
+                  background: "oklch(0.55 0.16 285)",
                   color: "white",
-                  boxShadow: "0 0 30px oklch(0.72 0.25 285 / 0.35), 0 4px 20px oklch(0 0 0 / 0.4)",
                 }}
               >
                 Start Creating
@@ -121,40 +95,43 @@ export default function Hero() {
               </a>
               <a
                 href="/pipeline"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-base font-medium transition-all duration-200 hover:text-white"
-                style={{ border: "1px solid oklch(1 0 0 / 0.12)", color: "oklch(0.68 0 0)" }}
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-base font-medium transition-colors duration-150 hover:text-white"
+                style={{ border: "1px solid oklch(1 0 0 / 0.14)", color: "oklch(0.70 0 0)" }}
               >
                 See the Pipeline
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M12 5v14M5 12l7 7 7-7" />
-                </svg>
               </a>
             </div>
+
+            {/* Trust line */}
+            <p className="mt-8 text-sm" style={{ color: "oklch(0.48 0 0)" }}>
+              Full access from day one · Cancel anytime
+            </p>
           </div>
 
           {/* ── Right column: product mockup ────────────────────── */}
-          <div className="animate-fade-up animation-delay-200">
+          <div className="animate-fade-up animation-delay-200 relative">
             <div
-              className="rounded-2xl p-6 animate-float glow-purple"
+              className="rounded-2xl p-6 elevated"
               style={{
-                background: "oklch(0.09 0.006 280 / 0.90)",
-                border: "1px solid oklch(1 0 0 / 0.08)",
-                backdropFilter: "blur(24px)",
-                WebkitBackdropFilter: "blur(24px)",
-                boxShadow: "0 32px 64px oklch(0 0 0 / 0.6)",
+                background: "oklch(0.115 0.004 285)",
+                border: "1px solid oklch(1 0 0 / 0.09)",
               }}
             >
               {/* Window chrome */}
               <div className="flex items-center gap-3 mb-5">
-              
+                <div className="flex items-center gap-1.5" aria-hidden>
+                  {[0, 1, 2].map((i) => (
+                    <span key={i} className="w-2.5 h-2.5 rounded-full" style={{ background: "oklch(0.22 0 0)" }} />
+                  ))}
+                </div>
                 <div
                   className="flex-1 h-7 rounded-md px-3 flex items-center text-xs font-mono gap-2"
-                  style={{ background: "oklch(0.14 0 0)", color: "oklch(0.82 0 0)" }}
+                  style={{ background: "oklch(0.09 0.004 285)", color: "oklch(0.62 0 0)", border: "1px solid oklch(1 0 0 / 0.06)" }}
                 >
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg>
-                  heclus.app - Analyzing youtube.com/c/MrBeast
+                  heclus.app — Analyzing youtube.com/c/MrBeast
                 </div>
               </div>
 
@@ -165,46 +142,32 @@ export default function Hero() {
                     key={i}
                     className="relative overflow-hidden flex items-center gap-2 px-3 py-2.5 rounded-lg text-xs font-medium"
                     style={{
-                      background: step.done
-                        ? "oklch(0.72 0.25 285 / 0.10)"
-                        : step.active
-                        ? "oklch(0.72 0.25 285 / 0.06)"
-                        : "oklch(0.12 0 0)",
-                      border: `1px solid ${
-                        step.done
-                          ? "oklch(0.72 0.25 285 / 0.30)"
-                          : step.active
-                          ? "oklch(0.72 0.25 285 / 0.18)"
-                          : "oklch(1 0 0 / 0.05)"
-                      }`,
-                      color: step.done
-                        ? "oklch(0.82 0.18 285)"
-                        : step.active
-                        ? "oklch(0.88 0.15 285)"
-                        : "oklch(0.66 0 0)",
+                      background: step.done || step.active ? "oklch(1 0 0 / 0.035)" : "oklch(1 0 0 / 0.015)",
+                      border: `1px solid ${step.done || step.active ? "oklch(1 0 0 / 0.10)" : "oklch(1 0 0 / 0.05)"}`,
+                      color: step.done || step.active ? "oklch(0.84 0 0)" : "oklch(0.55 0 0)",
                     }}
                   >
                     {step.done ? (
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="oklch(0.70 0.11 285)" strokeWidth="3">
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
                     ) : step.active ? (
                       <span
                         className="w-2 h-2 rounded-full animate-pulse"
-                        style={{ background: "oklch(0.72 0.25 285)", flexShrink: 0 }}
+                        style={{ background: "oklch(0.62 0.15 285)", flexShrink: 0 }}
                       />
                     ) : (
-                      <span className="w-2 h-2 rounded-full" style={{ background: "oklch(0.22 0 0)", flexShrink: 0 }} />
+                      <span className="w-2 h-2 rounded-full" style={{ background: "oklch(0.24 0 0)", flexShrink: 0 }} />
                     )}
                     <span className="flex-1 truncate">{step.name}</span>
                     <span
                       className="text-[10px] font-mono tabular-nums shrink-0"
-                      style={{ color: "oklch(0.68 0.18 145)" }}
+                      style={{ color: "oklch(0.55 0 0)" }}
                     >
                       {loaderProgress[i]}%
                     </span>
 
-                    {/* Per-step green progress loader — JS-driven so bar + text stay in sync */}
+                    {/* Per-step progress loader — JS-driven so bar + text stay in sync */}
                     <div
                       className="absolute bottom-0 left-0 right-0 h-[2px]"
                       style={{ background: "oklch(1 0 0 / 0.04)" }}
@@ -213,8 +176,7 @@ export default function Hero() {
                         style={{
                           height: "100%",
                           width: `${loaderProgress[i]}%`,
-                          background: "oklch(0.68 0.18 145)",
-                          boxShadow: "0 0 6px oklch(0.68 0.18 145 / 0.55)",
+                          background: "oklch(0.62 0.15 285)",
                           transition: "width 50ms linear",
                         }}
                       />
@@ -227,16 +189,16 @@ export default function Hero() {
               <div className="mb-5">
                 <div
                   className="flex justify-between text-xs mb-2"
-                  style={{ color: "oklch(0.76 0 0)" }}
+                  style={{ color: "oklch(0.64 0 0)" }}
                 >
                   <span>Generating AI images…</span>
-                  <span style={{ color: "oklch(0.68 0.18 145)" }}>62%</span>
+                  <span className="font-mono tabular-nums" style={{ color: "oklch(0.74 0.10 285)" }}>62%</span>
                 </div>
-                <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "oklch(0.14 0 0)" }}>
+                <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "oklch(1 0 0 / 0.06)" }}>
                   <div
                     className="h-full rounded-full animate-progress"
                     style={{
-                      background: "oklch(0.68 0.18 145)",
+                      background: "oklch(0.62 0.15 285)",
                       width: "62%",
                     }}
                   />
@@ -249,12 +211,12 @@ export default function Hero() {
                   <div
                     key={s.label}
                     className="rounded-lg p-3 text-center"
-                    style={{ background: "oklch(0.12 0 0)", border: "1px solid oklch(1 0 0 / 0.05)" }}
+                    style={{ background: "oklch(1 0 0 / 0.02)", border: "1px solid oklch(1 0 0 / 0.06)" }}
                   >
-                    <div className="text-sm font-semibold mb-0.5" style={{ color: "oklch(0.90 0 0)" }}>
+                    <div className="text-sm font-semibold mb-0.5 tabular-nums" style={{ color: "oklch(0.92 0 0)" }}>
                       {s.value}
                     </div>
-                    <div className="text-xs" style={{ color: "oklch(0.72 0 0)" }}>
+                    <div className="text-xs" style={{ color: "oklch(0.55 0 0)" }}>
                       {s.label}
                     </div>
                   </div>
@@ -262,28 +224,28 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Floating badge */}
+            {/* Status chip */}
             <div
-              className="absolute -bottom-1 -left-1 flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-2xl animate-slide-in-right animation-delay-400"
+              className="absolute -bottom-4 left-6 flex items-center gap-2.5 px-4 py-3 rounded-xl elevated animate-fade-up animation-delay-400"
               style={{
-                background: "oklch(0.11 0.006 280)",
-                border: "1px solid oklch(0.72 0.25 285 / 0.25)",
+                background: "oklch(0.13 0.004 285)",
+                border: "1px solid oklch(1 0 0 / 0.10)",
               }}
             >
               <div
                 className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-                style={{ background: "oklch(0.72 0.25 285 / 0.15)" }}
+                style={{ background: "oklch(0.58 0.15 285 / 0.12)" }}
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.82 0.18 285)" strokeWidth="2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.74 0.10 285)" strokeWidth="2">
                   <polygon points="23 7 16 12 23 17 23 7" />
                   <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
                 </svg>
               </div>
               <div>
-                <div className="text-xs font-semibold" style={{ color: "oklch(0.90 0 0)" }}>
+                <div className="text-xs font-semibold" style={{ color: "oklch(0.92 0 0)" }}>
                   Video Ready
                 </div>
-                <div className="text-xs" style={{ color: "oklch(0.78 0 0)" }}>
+                <div className="text-xs" style={{ color: "oklch(0.58 0 0)" }}>
                   Export your full video
                 </div>
               </div>

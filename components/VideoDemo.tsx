@@ -11,43 +11,15 @@ export default function VideoDemo() {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <section id="demo" className="py-24 relative overflow-hidden">
-      {/* Glow */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 50% at 50% 40%, oklch(0.72 0.25 285 / 0.06) 0%, transparent 70%)",
-        }}
-      />
-
+    <section id="demo" className="py-28 relative">
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-12">
-          <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-5"
-            style={{
-              background: "oklch(0.72 0.25 285 / 0.08)",
-              border: "1px solid oklch(0.72 0.25 285 / 0.20)",
-              color: "oklch(0.75 0.20 285)",
-            }}
-          >
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-5" style={{ color: "oklch(0.66 0.10 285)" }}>
             Demo
-          </div>
+          </p>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
-            See it in{" "}
-            <span
-              style={{
-                backgroundImage:
-                  "linear-gradient(120deg, oklch(0.88 0.18 285) 0%, oklch(0.72 0.25 285) 60%, oklch(0.72 0.25 285) 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                color: "transparent",
-              }}
-            >
-              action.
-            </span>
+            See it in <span style={{ color: "oklch(0.74 0.10 285)" }}>action.</span>
           </h2>
           <p className="text-lg max-w-xl mx-auto" style={{ color: "oklch(0.58 0 0)" }}>
             Watch the full pipeline turn a single niche into finished content.
@@ -56,13 +28,11 @@ export default function VideoDemo() {
 
         {/* Player */}
         <div
-          className="relative rounded-3xl overflow-hidden"
+          className="relative rounded-2xl overflow-hidden elevated"
           style={{
             aspectRatio: "16 / 9",
-            border: "1px solid oklch(0.72 0.25 285 / 0.25)",
-            boxShadow:
-              "0 0 60px oklch(0.72 0.25 285 / 0.12), 0 32px 64px oklch(0 0 0 / 0.45)",
-            background: "oklch(0.06 0.004 280)",
+            border: "1px solid oklch(1 0 0 / 0.10)",
+            background: "oklch(0.07 0.004 285)",
           }}
         >
           {playing ? (
@@ -99,13 +69,12 @@ export default function VideoDemo() {
               {/* Play button */}
               <span className="absolute inset-0 flex items-center justify-center">
                 <span
-                  className="flex items-center justify-center rounded-full transition-transform duration-200 group-hover:scale-110"
+                  className="flex items-center justify-center rounded-full transition-transform duration-200 group-hover:scale-105"
                   style={{
                     width: "84px",
                     height: "84px",
-                    background:
-                      "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 295) 100%)",
-                    boxShadow: "0 0 40px oklch(0.72 0.25 285 / 0.50)",
+                    background: "oklch(0.55 0.16 285)",
+                    boxShadow: "0 8px 32px oklch(0 0 0 / 0.5)",
                   }}
                 >
                   <svg width="30" height="30" viewBox="0 0 24 24" fill="white" aria-hidden>

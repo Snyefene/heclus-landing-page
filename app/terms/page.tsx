@@ -34,12 +34,12 @@ export default function TermsPage() {
 
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
             <h2 className="text-base font-semibold mb-3" style={{ color: "oklch(0.88 0 0)" }}>3. Service Limits</h2>
-            <p>Generated videos are currently capped at a maximum length of 45 minutes per video. This limit applies to the assembled output produced by the Service and may change as the platform evolves; any changes will take effect for videos generated after the change date. Accounts that need to generate videos longer than 45 minutes must submit a custom request to <a href="mailto:support@heclus.com" className="underline" style={{ color: "oklch(0.72 0.25 285)" }}>support@heclus.com</a>; extended limits are granted on a case-by-case basis and may be subject to additional terms or fees.</p>
+            <p>Generated videos are currently capped at a maximum length of 45 minutes per video. This limit applies to the assembled output produced by the Service and may change as the platform evolves; any changes will take effect for videos generated after the change date. Accounts that need to generate videos longer than 45 minutes must submit a custom request to <a href="mailto:support@heclus.com" className="underline" style={{ color: "oklch(0.74 0.10 285)" }}>support@heclus.com</a>; extended limits are granted on a case-by-case basis and may be subject to additional terms or fees.</p>
           </section>
 
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
             <h2 className="text-base font-semibold mb-3" style={{ color: "oklch(0.88 0 0)" }}>4. User Accounts</h2>
-            <p>You must provide accurate information when creating an account. You are responsible for maintaining the security of your account credentials and for all activity under your account. Notify us immediately at <a href="mailto:support@heclus.com" className="underline" style={{ color: "oklch(0.72 0.25 285)" }}>support@heclus.com</a> if you suspect unauthorized access.</p>
+            <p>You must provide accurate information when creating an account. You are responsible for maintaining the security of your account credentials and for all activity under your account. Notify us immediately at <a href="mailto:support@heclus.com" className="underline" style={{ color: "oklch(0.74 0.10 285)" }}>support@heclus.com</a> if you suspect unauthorized access.</p>
           </section>
 
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
@@ -74,13 +74,13 @@ export default function TermsPage() {
 
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
             <h2 className="text-base font-semibold mb-3" style={{ color: "oklch(0.88 0 0)" }}>11. Contact</h2>
-            <p>For questions about these Terms, contact us at <a href="mailto:support@heclus.com" className="underline" style={{ color: "oklch(0.72 0.25 285)" }}>support@heclus.com</a>.</p>
+            <p>For questions about these Terms, contact us at <a href="mailto:support@heclus.com" className="underline" style={{ color: "oklch(0.74 0.10 285)" }}>support@heclus.com</a>.</p>
           </section>
 
         </div>
 
         <div className="mt-16">
-          <a href="/" className="text-sm hover:underline" style={{ color: "oklch(0.72 0.25 285)" }}>← Back to home</a>
+          <a href="/" className="text-sm hover:underline" style={{ color: "oklch(0.74 0.10 285)" }}>← Back to home</a>
         </div>
       </div>
     </div>

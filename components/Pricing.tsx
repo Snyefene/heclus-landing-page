@@ -132,8 +132,8 @@ function CompareCell({ value, highlighted }: { value: boolean | string; highligh
       <span
         className="inline-flex w-5 h-5 rounded-full items-center justify-center"
         style={{
-          background: highlighted ? "oklch(0.72 0.25 285 / 0.20)" : "oklch(0.72 0.25 285 / 0.12)",
-          color: "oklch(0.82 0.18 285)",
+          background: "oklch(1 0 0 / 0.06)",
+          color: "oklch(0.72 0.11 285)",
         }}
       >
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
@@ -167,42 +167,17 @@ export default async function Pricing() {
     ? Math.min(100, ((founder.limit - founder.spots_left) / founder.limit) * 100)
     : 0;
   return (
-    <section id="pricing" className="py-24 relative">
-      {/* Glow */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: "radial-gradient(ellipse 60% 50% at 50% 50%, oklch(0.72 0.25 285 / 0.05) 0%, transparent 70%)",
-        }}
-      />
-
+    <section id="pricing" className="py-28 relative">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-16">
-          <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-5"
-            style={{
-              background: "oklch(0.72 0.25 285 / 0.08)",
-              border: "1px solid oklch(0.72 0.25 285 / 0.20)",
-              color: "oklch(0.75 0.20 285)",
-            }}
-          >
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-5" style={{ color: "oklch(0.66 0.10 285)" }}>
             Pricing
-          </div>
+          </p>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
             Simple, transparent
             <br />
-            <span
-              style={{
-                backgroundImage: "linear-gradient(120deg, oklch(0.88 0.18 285) 0%, oklch(0.72 0.25 285) 60%, oklch(0.72 0.25 285) 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                color: "transparent",
-              }}
-            >
-              pricing.
-            </span>
+            <span style={{ color: "oklch(0.74 0.10 285)" }}>pricing.</span>
           </h2>
           <p className="text-lg max-w-xl mx-auto" style={{ color: "oklch(0.58 0 0)" }}>
             Pick the plan that fits your output. Upgrade or cancel anytime.
@@ -210,26 +185,23 @@ export default async function Pricing() {
         </div>
 
         {/* Founder promo */}
-        <div className="max-w-3xl mx-auto mb-10 rounded-2xl p-6 relative overflow-hidden"
+        <div className="max-w-3xl mx-auto mb-10 rounded-2xl p-6 relative overflow-hidden elevated"
           style={{
-            background: "linear-gradient(135deg, oklch(0.12 0.015 285) 0%, oklch(0.10 0.010 285) 100%)",
-            border: "1px solid oklch(0.72 0.25 285 / 0.40)",
-            boxShadow: "0 0 40px oklch(0.72 0.25 285 / 0.10)",
+            background: "oklch(0.13 0.006 285)",
+            border: "1px solid oklch(0.58 0.15 285 / 0.35)",
           }}>
-          <div className="pointer-events-none absolute top-0 right-0 w-64 h-32"
-            style={{ background: "radial-gradient(ellipse at top right, oklch(0.72 0.25 285 / 0.12), transparent 70%)" }} />
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 relative">
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-xs font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
-                  style={{ background: "oklch(0.72 0.25 285 / 0.20)", color: "oklch(0.82 0.18 285)" }}>
-                  🔥 Founder Offer · First {founder.limit} only
+                  style={{ background: "oklch(0.58 0.15 285 / 0.14)", color: "oklch(0.76 0.10 285)" }}>
+                  Founder Offer · First {founder.limit} only
                 </span>
               </div>
               <h3 className="text-xl font-bold mb-1" style={{ color: "oklch(0.95 0 0)" }}>
                 $40 · Full access for 1 year
               </h3>
-              <p className="text-sm font-semibold mb-1" style={{ color: "oklch(0.82 0.18 285)" }}>
+              <p className="text-sm font-semibold mb-1" style={{ color: "oklch(0.74 0.10 285)" }}>
                 Everything in Starter
               </p>
               <p className="text-sm" style={{ color: "oklch(0.55 0 0)" }}>
@@ -239,26 +211,25 @@ export default async function Pricing() {
             <div className="shrink-0 flex flex-col items-stretch sm:items-end gap-2.5">
               <a
                 href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup?plan=founder`}
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-opacity duration-150 hover:opacity-90 whitespace-nowrap"
                 style={{
-                  background: "linear-gradient(135deg, oklch(0.72 0.25 285), oklch(0.58 0.28 300))",
+                  background: "oklch(0.55 0.16 285)",
                   color: "white",
-                  boxShadow: "0 0 20px oklch(0.72 0.25 285 / 0.30)",
                 }}
               >
                 Claim Founder Spot →
               </a>
               <div className="flex items-center gap-2.5 w-full sm:w-auto">
                 <div className="flex-1 sm:w-[140px] h-1.5 rounded-full overflow-hidden"
-                  style={{ background: "oklch(0.14 0.008 285)" }}>
+                  style={{ background: "oklch(1 0 0 / 0.07)" }}>
                   <div className="h-full rounded-full"
                     style={{
-                      background: "oklch(0.72 0.25 285)",
+                      background: "oklch(0.62 0.15 285)",
                       width: `${claimedPct}%`,
                     }} />
                 </div>
                 <span className="text-xs font-semibold tabular-nums whitespace-nowrap"
-                  style={{ color: "oklch(0.82 0.18 285)" }}>
+                  style={{ color: "oklch(0.74 0.10 285)" }}>
                   {founder.spots_left} spots left
                 </span>
               </div>
@@ -273,42 +244,30 @@ export default async function Pricing() {
               key={plan.name}
               className="relative rounded-3xl p-8 flex flex-col"
               style={{
-                background: plan.disabled ? "oklch(0.07 0.002 280)" : plan.highlighted ? "oklch(0.10 0.008 280)" : "oklch(0.08 0.004 280)",
+                background: plan.disabled ? "oklch(0.10 0.002 285)" : "oklch(0.115 0.004 285)",
                 border: plan.disabled ? "1px solid oklch(1 0 0 / 0.05)" : plan.highlighted
-                  ? "1px solid oklch(0.72 0.25 285 / 0.35)"
+                  ? "1px solid oklch(0.58 0.15 285 / 0.40)"
                   : "1px solid oklch(1 0 0 / 0.08)",
-                boxShadow: plan.disabled ? "none" : plan.highlighted
-                  ? "0 0 60px oklch(0.72 0.25 285 / 0.12), 0 32px 64px oklch(0 0 0 / 0.40)"
-                  : "0 8px 32px oklch(0 0 0 / 0.30)",
+                boxShadow: plan.disabled ? "none" : "0 8px 32px oklch(0 0 0 / 0.30)",
                 opacity: plan.disabled ? 0.5 : 1,
               }}
             >
-              {/* Card glow for highlighted */}
               {plan.highlighted && (
-                <>
-                  <div
-                    className="absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-1.5 rounded-full text-xs font-semibold z-10 whitespace-nowrap"
-                    style={{
-                      background: "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 295) 100%)",
-                      color: "white",
-                      boxShadow: "0 0 20px oklch(0.72 0.25 285 / 0.40)",
-                    }}
-                  >
-                    Most Popular
-                  </div>
-                  <div
-                    className="pointer-events-none absolute top-0 left-0 right-0 h-48"
-                    style={{
-                      background: "radial-gradient(ellipse 80% 60% at 50% 0%, oklch(0.72 0.25 285 / 0.10) 0%, transparent 70%)",
-                    }}
-                  />
-                </>
+                <div
+                  className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full text-xs font-semibold z-10 whitespace-nowrap"
+                  style={{
+                    background: "oklch(0.55 0.16 285)",
+                    color: "white",
+                  }}
+                >
+                  Most Popular
+                </div>
               )}
 
               <div className="relative flex flex-col flex-1">
                 {/* Plan name + description */}
                 <div className="mb-6">
-                  <p className="text-sm font-semibold mb-1" style={{ color: "oklch(0.72 0.25 285)" }}>
+                  <p className="text-sm font-semibold mb-1" style={{ color: "oklch(0.74 0.10 285)" }}>
                     {plan.name}
                   </p>
                   <p className="text-xs leading-relaxed" style={{ color: "oklch(0.78 0 0)" }}>
@@ -337,7 +296,7 @@ export default async function Pricing() {
                     <li key={f} className="flex items-center gap-3 text-sm" style={{ color: "oklch(0.68 0 0)" }}>
                       <span
                         className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
-                        style={{ background: "oklch(0.72 0.25 285 / 0.15)", color: "oklch(0.82 0.18 285)" }}
+                        style={{ background: "oklch(1 0 0 / 0.06)", color: "oklch(0.72 0.11 285)" }}
                       >
                         <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                           <polyline points="20 6 9 17 4 12" />
@@ -359,14 +318,13 @@ export default async function Pricing() {
                 ) : (
                   <a
                     href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup?plan=${plan.name.toLowerCase()}`}
-                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-semibold transition-opacity duration-150 hover:opacity-90"
                     style={plan.highlighted ? {
-                      background: "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 295) 100%)",
+                      background: "oklch(0.55 0.16 285)",
                       color: "white",
-                      boxShadow: "0 0 24px oklch(0.72 0.25 285 / 0.30)",
                     } : {
                       background: "oklch(1 0 0 / 0.06)",
-                      color: "oklch(0.75 0 0)",
+                      color: "oklch(0.78 0 0)",
                       border: "1px solid oklch(1 0 0 / 0.10)",
                     }}
                   >
@@ -391,9 +349,9 @@ export default async function Pricing() {
           </p>
 
           <div
-            className="rounded-3xl overflow-hidden"
+            className="rounded-2xl overflow-hidden"
             style={{
-              background: "oklch(0.08 0.004 280)",
+              background: "oklch(0.115 0.004 285)",
               border: "1px solid oklch(1 0 0 / 0.08)",
               boxShadow: "0 8px 32px oklch(0 0 0 / 0.30)",
             }}
@@ -410,16 +368,16 @@ export default async function Pricing() {
                         key={col.key}
                         className="py-5 px-4 text-center align-bottom relative"
                         style={{
-                          background: col.highlighted ? "oklch(0.72 0.25 285 / 0.06)" : "transparent",
+                          background: col.highlighted ? "oklch(1 0 0 / 0.025)" : "transparent",
                         }}
                       >
                         {col.highlighted && (
                           <span
                             className="absolute top-0 left-0 right-0 h-0.5"
-                            style={{ background: "linear-gradient(90deg, transparent, oklch(0.72 0.25 285), transparent)" }}
+                            style={{ background: "oklch(0.58 0.15 285)" }}
                           />
                         )}
-                        <span className="block text-sm font-bold" style={{ color: col.highlighted ? "oklch(0.82 0.18 285)" : "oklch(0.90 0 0)" }}>
+                        <span className="block text-sm font-bold" style={{ color: col.highlighted ? "oklch(0.76 0.10 285)" : "oklch(0.90 0 0)" }}>
                           {col.label}
                         </span>
                         <span className="block text-xs mt-0.5 font-medium whitespace-nowrap" style={{ color: "oklch(0.55 0 0)" }}>
@@ -450,7 +408,7 @@ export default async function Pricing() {
                           className="py-3.5 px-4 text-center"
                           style={{
                             background: col.highlighted
-                              ? "oklch(0.72 0.25 285 / 0.06)"
+                              ? "oklch(1 0 0 / 0.025)"
                               : i % 2 === 1
                                 ? "oklch(1 0 0 / 0.012)"
                                 : "transparent",
@@ -498,7 +456,7 @@ export default async function Pricing() {
             },
           ].map((item) => (
             <div key={item.text} className="flex items-center gap-2 text-sm">
-              <span style={{ color: "oklch(0.72 0.25 285)" }}>{item.icon}</span>
+              <span style={{ color: "oklch(0.70 0.11 285)" }}>{item.icon}</span>
               {item.text}
             </div>
           ))}

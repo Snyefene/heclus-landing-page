@@ -73,11 +73,10 @@ export default function Navbar() {
           </a>
           <a
             href={`${APP_URL}/signup`}
-            className="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-sm font-semibold transition-opacity duration-150 hover:opacity-90"
             style={{
-              background: "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 290) 100%)",
+              background: "oklch(0.55 0.16 285)",
               color: "white",
-              boxShadow: "0 0 20px oklch(0.72 0.25 285 / 0.25)",
             }}
           >
             Get Started
@@ -138,7 +137,7 @@ export default function Navbar() {
             <a
               href={`${APP_URL}/signup`}
               className="text-sm text-center py-2.5 rounded-lg font-semibold text-white"
-              style={{ background: "linear-gradient(135deg, oklch(0.72 0.25 285) 0%, oklch(0.60 0.22 290) 100%)" }}
+              style={{ background: "oklch(0.55 0.16 285)" }}
             >
               Get Started
             </a>

@@ -11,16 +11,9 @@ export default function FAQ() {
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-14">
-          <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-5"
-            style={{
-              background: "oklch(0.72 0.25 285 / 0.08)",
-              border: "1px solid oklch(0.72 0.25 285 / 0.20)",
-              color: "oklch(0.75 0.20 285)",
-            }}
-          >
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-5" style={{ color: "oklch(0.66 0.10 285)" }}>
             FAQ
-          </div>
+          </p>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
             Common Questions
           </h2>
@@ -38,8 +31,8 @@ export default function FAQ() {
                 key={i}
                 className="rounded-2xl overflow-hidden transition-all duration-200"
                 style={{
-                  background: isOpen ? "oklch(0.11 0.008 280)" : "oklch(0.09 0.006 280 / 0.70)",
-                  border: `1px solid ${isOpen ? "oklch(0.72 0.25 285 / 0.20)" : "oklch(1 0 0 / 0.06)"}`,
+                  background: isOpen ? "oklch(0.13 0.004 285)" : "oklch(0.115 0.004 285)",
+                  border: `1px solid ${isOpen ? "oklch(1 0 0 / 0.14)" : "oklch(1 0 0 / 0.07)"}`,
                 }}
               >
                 <button
@@ -52,8 +45,8 @@ export default function FAQ() {
                   <span
                     className="flex-shrink-0 w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-200"
                     style={{
-                      background: isOpen ? "oklch(0.72 0.25 285 / 0.15)" : "oklch(0.14 0 0)",
-                      color: isOpen ? "oklch(0.82 0.18 285)" : "oklch(0.72 0 0)",
+                      background: "oklch(1 0 0 / 0.05)",
+                      color: isOpen ? "oklch(0.74 0.10 285)" : "oklch(0.62 0 0)",
                       transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
                     }}
                   >

@@ -58,7 +58,7 @@ export default function RefundPage() {
 
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
             <h2 className="text-base font-semibold mb-3" style={{ color: "oklch(0.88 0 0)" }}>How to Request a Refund</h2>
-            <p>Email us at <a href="mailto:support@heclus.com" className="underline" style={{ color: "oklch(0.72 0.25 285)" }}>support@heclus.com</a> with:</p>
+            <p>Email us at <a href="mailto:support@heclus.com" className="underline" style={{ color: "oklch(0.74 0.10 285)" }}>support@heclus.com</a> with:</p>
             <ul className="list-disc pl-5 mt-2 space-y-1">
               <li>Your account email address</li>
               <li>Date of purchase</li>
@@ -74,13 +74,13 @@ export default function RefundPage() {
 
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
             <h2 className="text-base font-semibold mb-3" style={{ color: "oklch(0.88 0 0)" }}>Contact</h2>
-            <p>Questions about refunds? Reach us at <a href="mailto:support@heclus.com" className="underline" style={{ color: "oklch(0.72 0.25 285)" }}>support@heclus.com</a>.</p>
+            <p>Questions about refunds? Reach us at <a href="mailto:support@heclus.com" className="underline" style={{ color: "oklch(0.74 0.10 285)" }}>support@heclus.com</a>.</p>
           </section>
 
         </div>
 
         <div className="mt-16">
-          <a href="/" className="text-sm hover:underline" style={{ color: "oklch(0.72 0.25 285)" }}>← Back to home</a>
+          <a href="/" className="text-sm hover:underline" style={{ color: "oklch(0.74 0.10 285)" }}>← Back to home</a>
         </div>
       </div>
     </div>

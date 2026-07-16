@@ -56,52 +56,24 @@ const MODELS = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Background stripe */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, transparent 0%, oklch(0.08 0.006 280 / 0.40) 50%, transparent 100%)",
-        }}
-      />
-
+    <section className="py-28 relative">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-14">
-          <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-5"
-            style={{
-              background: "oklch(0.72 0.25 285 / 0.08)",
-              border: "1px solid oklch(0.72 0.25 285 / 0.20)",
-              color: "oklch(0.75 0.20 285)",
-            }}
-          >
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-5" style={{ color: "oklch(0.66 0.10 285)" }}>
             Models
-          </div>
+          </p>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
-            <span
-              style={{
-                backgroundImage:
-                  "linear-gradient(120deg, oklch(0.88 0.18 285) 0%, oklch(0.72 0.25 285) 60%, oklch(0.72 0.25 285) 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                color: "transparent",
-              }}
-            >
-              Access the latest models
-            </span>
+            Access the latest models
           </h2>
         </div>
 
         {/* Models grid */}
         <div
-          className="rounded-3xl p-8 sm:p-10"
+          className="rounded-2xl p-8 sm:p-10"
           style={{
-            background: "oklch(0.09 0.006 280 / 0.70)",
-            border: "1px solid oklch(1 0 0 / 0.06)",
-            boxShadow: "0 0 40px oklch(0.72 0.25 285 / 0.06)",
+            background: "oklch(0.115 0.004 285)",
+            border: "1px solid oklch(1 0 0 / 0.07)",
           }}
         >
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 items-start">

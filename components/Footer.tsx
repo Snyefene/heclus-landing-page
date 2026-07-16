@@ -85,11 +85,11 @@ export default function Footer() {
                   aria-label={s.label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-lg flex items-center justify-center transition-all hover:scale-110"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors hover:text-white"
                   style={{
-                    background: "oklch(0.72 0.25 285 / 0.10)",
-                    border: "1px solid oklch(0.72 0.25 285 / 0.25)",
-                    color: "oklch(0.82 0.18 285)",
+                    background: "oklch(1 0 0 / 0.04)",
+                    border: "1px solid oklch(1 0 0 / 0.08)",
+                    color: "oklch(0.62 0 0)",
                   }}
                 >
                   {s.icon}
