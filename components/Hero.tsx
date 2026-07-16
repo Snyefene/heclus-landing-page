@@ -70,7 +70,7 @@ export default function Hero() {
               className="text-xs font-semibold uppercase tracking-[0.22em] mt-[25px] mb-6"
               style={{ color: "oklch(0.66 0.10 285)" }}
             >
-              Heclus — AI YouTube Automation
+              Heclus: AI YouTube Automation
             </p>
 
             {/* Headline */}
@@ -134,13 +134,13 @@ export default function Hero() {
                   ))}
                 </div>
                 <div
-                  className="flex-1 h-7 rounded-md px-3 flex items-center text-xs font-mono gap-2"
+                  className="flex-1 min-w-0 h-7 rounded-md px-3 flex items-center text-xs font-mono gap-2"
                   style={{ background: "oklch(0.09 0.004 285)", color: "oklch(0.62 0 0)", border: "1px solid oklch(1 0 0 / 0.06)" }}
                 >
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg className="shrink-0" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg>
-                  heclus.app — Analyzing youtube.com/c/MrBeast
+                  <span className="truncate">heclus.app - Analyzing youtube.com/c/MrBeast</span>
                 </div>
               </div>
 

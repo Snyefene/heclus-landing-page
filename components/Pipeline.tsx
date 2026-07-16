@@ -98,7 +98,7 @@ export default function Pipeline() {
             The Pipeline
           </p>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
-            From niche to full video —
+            From niche to full video:
             <br />
             <span className="accent-serif" style={{ color: "oklch(0.74 0.10 285)" }}>automated &amp; customizable</span>
           </h2>

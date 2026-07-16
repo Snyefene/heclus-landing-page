@@ -48,7 +48,7 @@ export default function RefundPage() {
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
             <h2 className="text-base font-semibold mb-3" style={{ color: "oklch(0.88 0 0)" }}>Non-Refundable Situations</h2>
             <ul className="list-disc pl-5 space-y-2">
-              <li><strong style={{ color: "oklch(0.78 0 0)" }}>Accounts that have created one or more niches</strong> — once a niche is generated, the Service has been used and the underlying costs have been incurred</li>
+              <li><strong style={{ color: "oklch(0.78 0 0)" }}>Accounts that have created one or more niches</strong>: once a niche is generated, the Service has been used and the underlying costs have been incurred</li>
               <li>Requests made after the applicable refund window</li>
               <li>Accounts terminated for violation of our Terms of Service</li>
               <li>Dissatisfaction with AI-generated output quality (as results depend on third-party AI services)</li>
