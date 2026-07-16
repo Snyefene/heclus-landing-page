@@ -24,18 +24,26 @@ function useLoaderProgress(): number[] {
   const [progress, setProgress] = useState<number[]>(() => PIPELINE_STEPS.map(() => 0));
 
   useEffect(() => {
+    // Freeze mid-run for reduced motion: looks like a paused snapshot.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setProgress(PIPELINE_STEPS.map((_, i) => (i < 4 ? 100 : 40 - i * 4)));
+      return;
+    }
     const start = performance.now();
-    const id = setInterval(() => {
-      const elapsed = performance.now() - start;
+    let raf: number;
+    const tick = (now: number) => {
+      const elapsed = now - start;
       setProgress(
         PIPELINE_STEPS.map(({ durationMs, delayMs }) => {
           if (elapsed < delayMs) return 0;
           const t = (elapsed - delayMs) % durationMs;
-          return Math.min(100, Math.floor((t / durationMs) * 100));
+          return Math.min(100, (t / durationMs) * 100);
         }),
       );
-    }, 50);
-    return () => clearInterval(id);
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
   }, []);
 
   return progress;
@@ -69,7 +77,8 @@ export default function Hero() {
             <h1 className="text-5xl sm:text-6xl lg:text-[4.25rem] font-bold leading-[1.05] tracking-tight mb-6">
               Clone any
               <br />
-              YouTube niche<span style={{ color: "oklch(0.62 0.15 285)" }}>.</span>
+              <span className="accent-serif">YouTube niche</span>
+              <span style={{ color: "oklch(0.62 0.15 285)" }}>.</span>
             </h1>
 
             {/* Sub */}
@@ -82,7 +91,7 @@ export default function Hero() {
             <div className="flex flex-wrap items-center gap-3">
               <a
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-base font-semibold transition-opacity duration-150 hover:opacity-90"
+                className="lift inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-base font-semibold"
                 style={{
                   background: "oklch(0.55 0.16 285)",
                   color: "white",
@@ -164,7 +173,7 @@ export default function Hero() {
                       className="text-[10px] font-mono tabular-nums shrink-0"
                       style={{ color: "oklch(0.55 0 0)" }}
                     >
-                      {loaderProgress[i]}%
+                      {Math.floor(loaderProgress[i])}%
                     </span>
 
                     {/* Per-step progress loader — JS-driven so bar + text stay in sync */}
@@ -177,7 +186,6 @@ export default function Hero() {
                           height: "100%",
                           width: `${loaderProgress[i]}%`,
                           background: "oklch(0.62 0.15 285)",
-                          transition: "width 50ms linear",
                         }}
                       />
                     </div>

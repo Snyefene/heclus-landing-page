@@ -10,7 +10,7 @@ export default function FAQ() {
     <section id="faq" className="py-24 relative">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-14" data-reveal>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-5" style={{ color: "oklch(0.66 0.10 285)" }}>
             FAQ
           </p>
@@ -23,7 +23,7 @@ export default function FAQ() {
         </div>
 
         {/* Accordion */}
-        <div className="space-y-3">
+        <div className="space-y-3" data-reveal="group">
           {QUESTIONS.map((item, i) => {
             const isOpen = open === i;
             return (
@@ -38,6 +38,7 @@ export default function FAQ() {
                 <button
                   className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 transition-colors"
                   onClick={() => setOpen(isOpen ? null : i)}
+                  aria-expanded={isOpen}
                 >
                   <span className="text-base font-medium" style={{ color: "oklch(0.88 0 0)" }}>
                     {item.q}
@@ -57,13 +58,18 @@ export default function FAQ() {
                   </span>
                 </button>
 
-                {isOpen && (
-                  <div className="px-6 pb-5">
-                    <p className="text-sm leading-relaxed" style={{ color: "oklch(0.58 0 0)" }}>
+                {/* Height animates via the 0fr→1fr grid-rows trick; the
+                    answer stays in the DOM so crawlers always see it. */}
+                <div
+                  className="grid transition-[grid-template-rows,opacity] duration-300 ease-out"
+                  style={{ gridTemplateRows: isOpen ? "1fr" : "0fr", opacity: isOpen ? 1 : 0 }}
+                >
+                  <div className="overflow-hidden">
+                    <p className="px-6 pb-5 text-sm leading-relaxed" style={{ color: "oklch(0.58 0 0)" }}>
                       {item.a}
                     </p>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}

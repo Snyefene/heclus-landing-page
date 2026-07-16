@@ -177,7 +177,7 @@ export default async function Pricing() {
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
             Simple, transparent
             <br />
-            <span style={{ color: "oklch(0.74 0.10 285)" }}>pricing.</span>
+            <span className="accent-serif" style={{ color: "oklch(0.74 0.10 285)" }}>pricing.</span>
           </h2>
           <p className="text-lg max-w-xl mx-auto" style={{ color: "oklch(0.58 0 0)" }}>
             Pick the plan that fits your output. Upgrade or cancel anytime.
@@ -185,7 +185,7 @@ export default async function Pricing() {
         </div>
 
         {/* Founder promo */}
-        <div className="max-w-3xl mx-auto mb-10 rounded-2xl p-6 relative overflow-hidden elevated"
+        <div data-reveal className="max-w-3xl mx-auto mb-10 rounded-2xl p-6 relative overflow-hidden elevated"
           style={{
             background: "oklch(0.13 0.006 285)",
             border: "1px solid oklch(0.58 0.15 285 / 0.35)",
@@ -211,7 +211,7 @@ export default async function Pricing() {
             <div className="shrink-0 flex flex-col items-stretch sm:items-end gap-2.5">
               <a
                 href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup?plan=founder`}
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-opacity duration-150 hover:opacity-90 whitespace-nowrap"
+                className="lift flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap"
                 style={{
                   background: "oklch(0.55 0.16 285)",
                   color: "white",
@@ -238,7 +238,7 @@ export default async function Pricing() {
         </div>
 
         {/* Plan cards */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mt-6">
+        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mt-6" data-reveal="group">
           {PLANS.map((plan) => (
             <div
               key={plan.name}
@@ -318,7 +318,7 @@ export default async function Pricing() {
                 ) : (
                   <a
                     href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup?plan=${plan.name.toLowerCase()}`}
-                    className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-semibold transition-opacity duration-150 hover:opacity-90"
+                    className="lift flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-sm font-semibold"
                     style={plan.highlighted ? {
                       background: "oklch(0.55 0.16 285)",
                       color: "white",
@@ -340,7 +340,7 @@ export default async function Pricing() {
         </div>
 
         {/* Comparison table */}
-        <div className="mt-16 max-w-4xl mx-auto">
+        <div className="mt-16 max-w-4xl mx-auto" data-reveal>
           <h3 className="text-center text-2xl font-bold tracking-tight mb-2" style={{ color: "oklch(0.95 0 0)" }}>
             Compare plans
           </h3>

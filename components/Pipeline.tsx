@@ -93,14 +93,14 @@ export default function Pipeline() {
     <section id="pipeline" className="py-28 relative">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-reveal>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-5" style={{ color: "oklch(0.66 0.10 285)" }}>
             The Pipeline
           </p>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
             From niche to full video —
             <br />
-            <span style={{ color: "oklch(0.74 0.10 285)" }}>automated &amp; customizable</span>
+            <span className="accent-serif" style={{ color: "oklch(0.74 0.10 285)" }}>automated &amp; customizable</span>
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "oklch(0.58 0 0)" }}>
             Heclus handles every stage of production so you never face a blank page
@@ -109,11 +109,11 @@ export default function Pipeline() {
         </div>
 
         {/* Steps grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4" data-reveal="group">
           {STEPS.map((step, i) => (
             <div
               key={i}
-              className="group relative rounded-xl p-6 transition-colors duration-200"
+              className="group relative rounded-xl p-6 card-hover"
               style={{
                 background: "oklch(0.115 0.004 285)",
                 border: "1px solid oklch(1 0 0 / 0.07)",
@@ -146,10 +146,10 @@ export default function Pipeline() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-14 text-center">
+        <div className="mt-14 text-center" data-reveal>
           <a
             href="/pricing"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold transition-opacity duration-150 hover:opacity-90"
+            className="lift inline-flex items-center gap-2 px-8 py-3.5 rounded-xl text-sm font-semibold"
             style={{
               background: "oklch(0.55 0.16 285)",
               color: "white",

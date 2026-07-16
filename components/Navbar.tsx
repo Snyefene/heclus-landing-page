@@ -73,7 +73,7 @@ export default function Navbar() {
           </a>
           <a
             href={`${APP_URL}/signup`}
-            className="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-sm font-semibold transition-opacity duration-150 hover:opacity-90"
+            className="lift inline-flex items-center gap-1.5 px-5 py-2 rounded-lg text-sm font-semibold"
             style={{
               background: "oklch(0.55 0.16 285)",
               color: "white",

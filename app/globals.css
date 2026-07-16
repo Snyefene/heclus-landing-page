@@ -6,7 +6,9 @@
    One accent (muted violet), neutral surfaces, hairline borders.
    No glows, no gradient text, no colored shadows. */
 @theme inline {
-  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", monospace;
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
   --color-bg: oklch(0.09 0.004 285);
   --color-fg: oklch(0.96 0 0);
   --color-muted: oklch(0.58 0 0);
@@ -30,13 +32,42 @@ html {
 body {
   background-color: oklch(0.09 0.004 285);
   color: oklch(0.96 0 0);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-geist), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* Single, barely-there top sheen — light, not color. */
   background-image:
     radial-gradient(ellipse 90% 55% at 50% -15%, oklch(1 0 0 / 0.045) 0%, transparent 60%);
   background-attachment: fixed;
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+::selection {
+  background: oklch(0.58 0.15 285 / 0.35);
+  color: oklch(0.98 0 0);
+}
+
+:focus-visible {
+  outline: 2px solid oklch(0.62 0.15 285 / 0.7);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Typography accents ──────────────────────────────────────────── */
+
+/* Serif italic accent inside bold sans headlines. Instrument Serif
+   sits a touch smaller than Geist at equal size, so scale up slightly
+   without affecting line box height. */
+.accent-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.04em;
+  line-height: 1;
+  letter-spacing: -0.005em;
 }
 
 /* ── Animations — entrance only, nothing loops ───────────────────── */
@@ -58,6 +89,81 @@ body {
 .animation-delay-200 { animation-delay: 0.2s; }
 .animation-delay-300 { animation-delay: 0.3s; }
 .animation-delay-400 { animation-delay: 0.4s; }
+
+/* ── Scroll reveal ────────────────────────────────────────────────
+   Driven by components/Reveal.tsx (IntersectionObserver adds .in-view).
+   Hidden state is gated on html.js so content stays visible without
+   JS (crawlers, reader modes, script failures). */
+
+/* Animations (not transitions) so entrance motion never lingers on the
+   element's transition property and fights .card-hover / .lift. */
+
+html.js [data-reveal]:not([data-reveal="group"]):not(.in-view) { opacity: 0; }
+html.js [data-reveal]:not([data-reveal="group"]).in-view {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Group variant: the container stays put, direct children stagger in
+   (backwards fill keeps late children hidden through their delay). */
+html.js [data-reveal="group"]:not(.in-view) > * { opacity: 0; }
+html.js [data-reveal="group"].in-view > * {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+html.js [data-reveal="group"].in-view > :nth-child(2) { animation-delay: 0.07s; }
+html.js [data-reveal="group"].in-view > :nth-child(3) { animation-delay: 0.14s; }
+html.js [data-reveal="group"].in-view > :nth-child(4) { animation-delay: 0.21s; }
+html.js [data-reveal="group"].in-view > :nth-child(5) { animation-delay: 0.28s; }
+html.js [data-reveal="group"].in-view > :nth-child(6) { animation-delay: 0.35s; }
+html.js [data-reveal="group"].in-view > :nth-child(7) { animation-delay: 0.42s; }
+html.js [data-reveal="group"].in-view > :nth-child(n + 8) { animation-delay: 0.49s; }
+
+/* ── Interaction ──────────────────────────────────────────────────── */
+
+/* Primary CTA hover: a whisper of lift, settle on press. */
+.lift {
+  transition:
+    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.15s ease;
+  will-change: transform;
+}
+.lift:hover {
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 20px oklch(0 0 0 / 0.35);
+}
+.lift:active {
+  transform: translateY(0);
+  transition-duration: 0.06s;
+}
+
+/* Card hover: hairline brightens (inset ring outdraws the inline border)
+   and the card floats up 2px. Quiet, no color. */
+.card-hover {
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 0 1px oklch(1 0 0 / 0.07),
+    0 8px 28px oklch(0 0 0 / 0.32);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-fade-up,
+  .animate-progress {
+    animation: none;
+    opacity: 1;
+  }
+  html.js [data-reveal]:not([data-reveal="group"]):not(.in-view),
+  html.js [data-reveal="group"]:not(.in-view) > * { opacity: 1; }
+  html.js [data-reveal]:not([data-reveal="group"]).in-view,
+  html.js [data-reveal="group"].in-view > * { animation: none; }
+  .lift, .lift:hover, .lift:active,
+  .card-hover, .card-hover:hover { transform: none; transition: none; }
+}
 
 /* ── Surfaces ─────────────────────────────────────────────────────── */
 

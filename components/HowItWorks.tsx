@@ -59,7 +59,7 @@ export default function HowItWorks() {
     <section className="py-28 relative">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-14" data-reveal>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-5" style={{ color: "oklch(0.66 0.10 285)" }}>
             Models
           </p>
@@ -70,6 +70,7 @@ export default function HowItWorks() {
 
         {/* Models grid */}
         <div
+          data-reveal
           className="rounded-2xl p-8 sm:p-10"
           style={{
             background: "oklch(0.115 0.004 285)",

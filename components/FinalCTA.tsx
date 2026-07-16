@@ -1,7 +1,7 @@
 export default function FinalCTA() {
   return (
     <section className="py-28 relative">
-      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center" data-reveal>
         <p
           className="text-xs font-semibold uppercase tracking-[0.22em] mb-7"
           style={{ color: "oklch(0.66 0.10 285)" }}
@@ -12,7 +12,7 @@ export default function FinalCTA() {
         <h2 className="text-5xl sm:text-6xl font-bold tracking-tight mb-6 leading-[1.05]">
           Stop planning.
           <br />
-          <span style={{ color: "oklch(0.74 0.10 285)" }}>Start shipping videos.</span>
+          <span className="accent-serif" style={{ color: "oklch(0.74 0.10 285)" }}>Start shipping videos.</span>
         </h2>
 
         <p className="text-xl max-w-2xl mx-auto mb-12" style={{ color: "oklch(0.58 0 0)" }}>
@@ -23,7 +23,7 @@ export default function FinalCTA() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <a
             href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup`}
-            className="inline-flex items-center gap-2 px-9 py-4 rounded-xl text-base font-semibold transition-opacity duration-150 hover:opacity-90"
+            className="lift inline-flex items-center gap-2 px-9 py-4 rounded-xl text-base font-semibold"
             style={{
               background: "oklch(0.55 0.16 285)",
               color: "white",

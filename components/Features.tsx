@@ -53,14 +53,14 @@ export default function Features() {
     <section id="features" className="py-28 relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-reveal>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-5" style={{ color: "oklch(0.66 0.10 285)" }}>
             Features
           </p>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
             Everything you need
             <br />
-            <span style={{ color: "oklch(0.74 0.10 285)" }}>in one single tool</span>
+            <span className="accent-serif" style={{ color: "oklch(0.74 0.10 285)" }}>in one single tool</span>
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "oklch(0.58 0 0)" }}>
             Don&rsquo;t miss the next trending niche. Speed up your production
@@ -68,11 +68,11 @@ export default function Features() {
         </div>
 
         {/* Feature cards */}
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-5" data-reveal="group">
           {FEATURES.map((f, i) => (
             <div
               key={i}
-              className="rounded-2xl p-8 transition-colors duration-200"
+              className="rounded-2xl p-8 card-hover"
               style={{
                 background: "oklch(0.115 0.004 285)",
                 border: "1px solid oklch(1 0 0 / 0.07)",

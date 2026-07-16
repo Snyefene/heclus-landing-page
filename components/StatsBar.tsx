@@ -10,6 +10,7 @@ export default function StatsBar() {
     <section className="py-12 relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
+          data-reveal="group"
           className="rounded-2xl px-4 py-10 grid grid-cols-2 lg:grid-cols-4 gap-y-10"
           style={{
             background: "oklch(0.115 0.004 285)",
