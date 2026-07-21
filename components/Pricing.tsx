@@ -161,17 +161,8 @@ function CompareCell({ value, highlighted }: { value: boolean | string; highligh
   );
 }
 
-// Public display-only offset: whatever spots-remaining comes back from the
-// DB, we show 25 fewer to the public (floored at 0). This is cosmetic — it
-// never touches the DB or the actual claim logic, only what visitors see.
-const PUBLIC_SPOTS_OFFSET = 25;
-
 export default async function Pricing() {
-  const dbFounder = await fetchFounderState();
-  const founder = {
-    ...dbFounder,
-    spots_left: Math.max(0, dbFounder.spots_left - PUBLIC_SPOTS_OFFSET),
-  };
+  const founder = await fetchFounderState();
   const claimedPct = founder.limit > 0
     ? Math.min(100, ((founder.limit - founder.spots_left) / founder.limit) * 100)
     : 0;
