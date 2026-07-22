@@ -163,9 +163,15 @@ function CompareCell({ value, highlighted }: { value: boolean | string; highligh
 
 export default async function Pricing() {
   const founder = await fetchFounderState();
+  const founderAvailable = founder.spots_left > 0;
   const claimedPct = founder.limit > 0
     ? Math.min(100, ((founder.limit - founder.spots_left) / founder.limit) * 100)
     : 0;
+  // Once the promo sells out (0 spots left), drop the Founder plan entirely -
+  // hide the promo banner and its comparison-table column.
+  const compareColumns = founderAvailable
+    ? COMPARE_COLUMNS
+    : COMPARE_COLUMNS.filter((col) => col.key !== "founder");
   return (
     <section id="pricing" className="py-28 relative">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -184,7 +190,8 @@ export default async function Pricing() {
           </p>
         </div>
 
-        {/* Founder promo */}
+        {/* Founder promo - hidden once the promo sells out */}
+        {founderAvailable && (
         <div data-reveal className="max-w-3xl mx-auto mb-10 rounded-2xl p-6 relative overflow-hidden elevated"
           style={{
             background: "oklch(0.13 0.006 285)",
@@ -236,6 +243,7 @@ export default async function Pricing() {
             </div>
           </div>
         </div>
+        )}
 
         {/* Plan cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mt-6" data-reveal="group">
@@ -363,7 +371,7 @@ export default async function Pricing() {
                     <th className="py-5 px-5 sm:px-6 text-xs font-semibold uppercase tracking-widest" style={{ color: "oklch(0.55 0 0)" }}>
                       Feature
                     </th>
-                    {COMPARE_COLUMNS.map((col) => (
+                    {compareColumns.map((col) => (
                       <th
                         key={col.key}
                         className="py-5 px-4 text-center align-bottom relative"
@@ -402,7 +410,7 @@ export default async function Pricing() {
                       >
                         {row.feature}
                       </td>
-                      {COMPARE_COLUMNS.map((col) => (
+                      {compareColumns.map((col) => (
                         <td
                           key={col.key}
                           className="py-3.5 px-4 text-center"
