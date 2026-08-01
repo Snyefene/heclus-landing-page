@@ -95,7 +95,7 @@ const PLANS = [
     ],
     upcoming: [
       "Free 200,000 voiceover chars / month",
-      "Free Unlimited custom voice cloning - no API key needed",
+      "Free Unlimited custom voice cloning",
     ],
     cta: "Start Pro",
     highlighted: true,
@@ -320,6 +320,9 @@ export default async function Pricing() {
                       <p className="text-[10px] font-semibold uppercase tracking-wider mb-2"
                         style={{ color: "oklch(0.72 0.11 285)" }}>
                         Releasing this week
+                      </p>
+                      <p className="text-[10px] mb-2" style={{ color: "oklch(0.6 0 0)" }}>
+                        No API keys needed
                       </p>
                       <ul className="space-y-2.5">
                         {plan.upcoming.map((f) => (
