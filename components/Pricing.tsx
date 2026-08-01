@@ -65,7 +65,6 @@ const PLANS = [
     price: "$21",
     period: "/month",
     description: "Perfect for creators just getting started.",
-    limit: "5 niches/month",
     features: [
       "5 niches",
       "Full AI pipeline excluding pro features",
@@ -85,7 +84,6 @@ const PLANS = [
     price: "$39",
     period: "/month",
     description: "For creators scaling their content output.",
-    limit: "10 niches/month",
     features: [
       "Everything in Starter",
       "10 niches",
@@ -299,9 +297,6 @@ export default async function Pricing() {
                       {plan.period}
                     </span>
                   </div>
-                  <p className="text-xs mt-1 font-medium" style={{ color: "oklch(0.55 0 0)" }}>
-                    {plan.limit}
-                  </p>
                 </div>
 
                 {/* Features */}
