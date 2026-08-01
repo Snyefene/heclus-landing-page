@@ -32,7 +32,7 @@ export default function FAQ() {
                 className="rounded-2xl overflow-hidden transition-all duration-200"
                 style={{
                   background: isOpen ? "oklch(0.13 0.004 285)" : "oklch(0.115 0.004 285)",
-                  border: `1px solid ${isOpen ? "oklch(1 0 0 / 0.14)" : "oklch(1 0 0 / 0.07)"}`,
+                  border: `1px solid oklch(1 0 0 / 0.35)`,
                 }}
               >
                 <button

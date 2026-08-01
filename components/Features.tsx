@@ -75,7 +75,7 @@ export default function Features() {
               className="rounded-2xl p-8 card-hover"
               style={{
                 background: "oklch(0.115 0.004 285)",
-                border: "1px solid oklch(1 0 0 / 0.07)",
+                border: "1px solid oklch(1 0 0 / 0.35)",
               }}
             >
               {/* Icon */}

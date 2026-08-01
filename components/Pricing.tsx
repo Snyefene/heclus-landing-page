@@ -257,9 +257,7 @@ export default async function Pricing() {
               className="relative rounded-3xl p-8 flex flex-col"
               style={{
                 background: plan.disabled ? "oklch(0.10 0.002 285)" : "oklch(0.115 0.004 285)",
-                border: plan.disabled ? "1px solid oklch(1 0 0 / 0.05)" : plan.highlighted
-                  ? "1px solid oklch(0.58 0.15 285 / 0.40)"
-                  : "1px solid oklch(1 0 0 / 0.08)",
+                border: plan.disabled ? "1px solid oklch(1 0 0 / 0.05)" : "1px solid oklch(1 0 0 / 0.35)",
                 boxShadow: plan.disabled ? "none" : "0 8px 32px oklch(0 0 0 / 0.30)",
                 opacity: plan.disabled ? 0.5 : 1,
               }}

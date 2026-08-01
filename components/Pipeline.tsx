@@ -116,7 +116,7 @@ export default function Pipeline() {
               className="group relative rounded-xl p-6 card-hover"
               style={{
                 background: "oklch(0.115 0.004 285)",
-                border: "1px solid oklch(1 0 0 / 0.07)",
+                border: "1px solid oklch(1 0 0 / 0.35)",
               }}
             >
               <div className="flex items-start justify-between mb-5">
