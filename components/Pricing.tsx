@@ -66,7 +66,7 @@ const PLANS = [
     period: "/month",
     description: "Perfect for creators just getting started.",
     features: [
-      "5 niches",
+      "5 niches/month",
       "Full AI pipeline excluding pro features",
       "Standard image processing",
       "Up to 1080p output",
@@ -86,7 +86,7 @@ const PLANS = [
     description: "For creators scaling their content output.",
     features: [
       "Everything in Starter",
-      "10 niches",
+      "10 niches/month",
       "Unlimited videos",
       "Bulk video generation",
       "Priority rendering queue",
