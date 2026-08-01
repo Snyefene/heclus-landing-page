@@ -78,7 +78,7 @@ const productLd = {
       priceCurrency: "USD",
       url: `${SITE_URL}/pricing`,
       availability: "https://schema.org/InStock",
-      description: "5 niches per month, full AI pipeline, up to 1080p output, 100,000 free voiceover characters per month.",
+      description: "5 niches per month, full AI pipeline, up to 1080p output.",
     },
     {
       "@type": "Offer",
@@ -87,7 +87,7 @@ const productLd = {
       priceCurrency: "USD",
       url: `${SITE_URL}/pricing`,
       availability: "https://schema.org/InStock",
-      description: "10 niches/month, unlimited videos, bulk generation, unlimited custom voice cloning, 200,000 free voiceover characters per month, priority queue, 2K+ premium output.",
+      description: "10 niches/month, unlimited videos, bulk generation, priority queue, 2K+ premium output.",
     },
   ],
 };

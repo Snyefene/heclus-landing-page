@@ -71,8 +71,10 @@ const PLANS = [
       "Full AI pipeline excluding pro features",
       "Standard image processing",
       "Up to 1080p output",
-      "Free 100,000 voiceover characters / month",
       "Community support",
+    ],
+    upcoming: [
+      "Free 100,000 voiceover chars / month",
     ],
     cta: "Get Started",
     highlighted: false,
@@ -89,11 +91,13 @@ const PLANS = [
       "10 niches",
       "Unlimited videos",
       "Bulk video generation",
-      "Free 200,000 voiceover characters / month",
-      "Free Unlimited custom voice cloning - no API key needed",
       "Priority rendering queue",
       "Priority support",
       "2K+ premium output",
+    ],
+    upcoming: [
+      "Free 200,000 voiceover chars / month",
+      "Free Unlimited custom voice cloning - no API key needed",
     ],
     cta: "Start Pro",
     highlighted: true,
@@ -315,6 +319,30 @@ export default async function Pricing() {
                       {f}
                     </li>
                   ))}
+
+                  {plan.upcoming && plan.upcoming.length > 0 && (
+                    <li className="pt-3 mt-1" style={{ borderTop: "1px solid oklch(1 0 0 / 0.08)" }}>
+                      <p className="text-[10px] font-semibold uppercase tracking-wider mb-2"
+                        style={{ color: "oklch(0.72 0.11 285)" }}>
+                        Releasing this week
+                      </p>
+                      <ul className="space-y-2.5">
+                        {plan.upcoming.map((f) => (
+                          <li key={f} className="flex items-center gap-3 text-sm" style={{ color: "oklch(0.68 0 0)" }}>
+                            <span
+                              className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
+                              style={{ background: "oklch(0.72 0.11 285 / 0.12)", color: "oklch(0.72 0.11 285)" }}
+                            >
+                              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                                <circle cx="12" cy="12" r="9" />
+                              </svg>
+                            </span>
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  )}
                 </ul>
 
                 {/* CTA */}
