@@ -178,7 +178,7 @@ export default async function Pricing() {
     : COMPARE_COLUMNS.filter((col) => col.key !== "founder");
   return (
     <section id="pricing" className="py-28 relative">
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-[90rem] px-4 sm:px-5 lg:px-6">
         {/* Heading */}
         <div className="text-center mb-16">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-5" style={{ color: "oklch(0.66 0.10 285)" }}>
@@ -257,9 +257,7 @@ export default async function Pricing() {
               className="relative rounded-3xl p-8 flex flex-col"
               style={{
                 background: plan.disabled ? "oklch(0.10 0.002 285)" : "oklch(0.115 0.004 285)",
-                border: plan.disabled ? "1px solid oklch(1 0 0 / 0.05)" : plan.highlighted
-                  ? "1px solid oklch(0.58 0.15 285 / 0.40)"
-                  : "1px solid oklch(1 0 0 / 0.08)",
+                border: plan.disabled ? "1px solid oklch(1 0 0 / 0.05)" : "1px solid oklch(1 0 0 / 0.35)",
                 boxShadow: plan.disabled ? "none" : "0 8px 32px oklch(0 0 0 / 0.30)",
                 opacity: plan.disabled ? 0.5 : 1,
               }}

@@ -57,7 +57,7 @@ const MODELS = [
 export default function HowItWorks() {
   return (
     <section className="py-28 relative">
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-[90rem] px-4 sm:px-5 lg:px-6">
         {/* Heading */}
         <div className="text-center mb-14" data-reveal>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-5" style={{ color: "oklch(0.66 0.10 285)" }}>

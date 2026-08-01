@@ -91,7 +91,7 @@ const STEPS = [
 export default function Pipeline() {
   return (
     <section id="pipeline" className="py-28 relative">
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-[90rem] px-4 sm:px-5 lg:px-6">
         {/* Heading */}
         <div className="text-center mb-16" data-reveal>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-5" style={{ color: "oklch(0.66 0.10 285)" }}>
@@ -116,7 +116,7 @@ export default function Pipeline() {
               className="group relative rounded-xl p-6 card-hover"
               style={{
                 background: "oklch(0.115 0.004 285)",
-                border: "1px solid oklch(1 0 0 / 0.07)",
+                border: "1px solid oklch(1 0 0 / 0.35)",
               }}
             >
               <div className="flex items-start justify-between mb-5">

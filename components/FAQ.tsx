@@ -8,7 +8,7 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="py-24 relative">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl px-4 sm:px-5 lg:px-6">
         {/* Heading */}
         <div className="text-center mb-14" data-reveal>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-5" style={{ color: "oklch(0.66 0.10 285)" }}>
@@ -32,7 +32,7 @@ export default function FAQ() {
                 className="rounded-2xl overflow-hidden transition-all duration-200"
                 style={{
                   background: isOpen ? "oklch(0.13 0.004 285)" : "oklch(0.115 0.004 285)",
-                  border: `1px solid ${isOpen ? "oklch(1 0 0 / 0.14)" : "oklch(1 0 0 / 0.07)"}`,
+                  border: `1px solid oklch(1 0 0 / 0.35)`,
                 }}
               >
                 <button

@@ -60,7 +60,7 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-16 pb-8 overflow-hidden">
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+      <div className="relative mx-auto max-w-[90rem] px-4 sm:px-5 lg:px-6 w-full">
         {/* grid-cols-1 is load-bearing: minmax(0,1fr) lets the column shrink
             below content min-width on phones (an auto track would be forced
             wide by the nowrap URL-bar text and clipped by overflow-hidden). */}
