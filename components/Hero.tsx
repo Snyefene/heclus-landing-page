@@ -119,10 +119,19 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* ── Right column: product mockup ────────────────────── */}
+          {/* ── Right column: claim + product mockup ────────────── */}
           <div className="animate-fade-up animation-delay-200 relative">
+            {/* The promise, stated plainly above the thing that delivers it. */}
+            <p className="text-2xl sm:text-3xl font-bold tracking-tight leading-[1.2] mb-6 text-center lg:text-left">
+              Paste your preferred channel name,
+              <br className="hidden sm:block" />{" "}
+              <span style={{ color: "oklch(0.74 0.10 285)" }}>Heclus gives you a similar video.</span>
+            </p>
             <div
-              className="rounded-2xl p-6 elevated"
+              /* max-w rather than a transform: the "Video Ready" chip is
+                 absolutely positioned against this column, and a scaled
+                 panel would leave it floating in the leftover box. */
+              className="rounded-2xl p-5 elevated mx-auto lg:mx-0 max-w-xl"
               style={{
                 background: "oklch(0.115 0.004 285)",
                 border: "1px solid oklch(1 0 0 / 0.09)",

@@ -68,6 +68,10 @@ export default function CostControl() {
           <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-5" style={{ color: "oklch(0.66 0.10 285)" }}>
             No markup
           </p>
+          {/* Lead line, deliberately larger than the statement it introduces. */}
+          <p className="text-5xl sm:text-6xl font-bold tracking-tight mb-3" style={{ color: "oklch(0.96 0 0)" }}>
+            Bring your own keys
+          </p>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
             We provide the tool,
             <br />
