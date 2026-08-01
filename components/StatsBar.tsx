@@ -8,7 +8,7 @@ const STATS = [
 export default function StatsBar() {
   return (
     <section className="py-12 relative">
-      <div className="mx-auto max-w-[90rem] px-4 sm:px-5 lg:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
           data-reveal="group"
           className="rounded-2xl px-4 py-10 grid grid-cols-2 lg:grid-cols-4 gap-y-10"

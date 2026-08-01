@@ -60,7 +60,7 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center pt-16 pb-8 overflow-hidden">
-      <div className="relative mx-auto max-w-[90rem] px-4 sm:px-5 lg:px-6 w-full">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
         {/* grid-cols-1 is load-bearing: minmax(0,1fr) lets the column shrink
             below content min-width on phones (an auto track would be forced
             wide by the nowrap URL-bar text and clipped by overflow-hidden). */}
@@ -119,19 +119,10 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* ── Right column: claim + product mockup ────────────── */}
+          {/* ── Right column: product mockup ────────────────────── */}
           <div className="animate-fade-up animation-delay-200 relative">
-            {/* The promise, stated plainly above the thing that delivers it. */}
-            <p className="text-2xl sm:text-3xl font-bold tracking-tight leading-[1.2] mb-6 text-center lg:text-left">
-              Paste your preferred channel name,
-              <br className="hidden sm:block" />{" "}
-              <span style={{ color: "oklch(0.74 0.10 285)" }}>Heclus gives you a similar video.</span>
-            </p>
             <div
-              /* max-w rather than a transform: the "Video Ready" chip is
-                 absolutely positioned against this column, and a scaled
-                 panel would leave it floating in the leftover box. */
-              className="rounded-2xl p-5 elevated mx-auto lg:mx-0 max-w-xl"
+              className="rounded-2xl p-6 elevated"
               style={{
                 background: "oklch(0.115 0.004 285)",
                 border: "1px solid oklch(1 0 0 / 0.09)",

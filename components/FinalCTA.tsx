@@ -1,7 +1,7 @@
 export default function FinalCTA() {
   return (
     <section className="py-28 relative">
-      <div className="relative mx-auto max-w-4xl px-4 sm:px-5 lg:px-6 text-center" data-reveal>
+      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center" data-reveal>
         <p
           className="text-xs font-semibold uppercase tracking-[0.22em] mb-7"
           style={{ color: "oklch(0.66 0.10 285)" }}

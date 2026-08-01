@@ -58,7 +58,7 @@ export default function Footer() {
       className="relative pt-16 pb-10"
       style={{ borderTop: "1px solid oklch(1 0 0 / 0.06)" }}
     >
-      <div className="mx-auto max-w-[90rem] px-4 sm:px-5 lg:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="col-span-2">

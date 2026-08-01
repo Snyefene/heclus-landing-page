@@ -5,8 +5,6 @@ import Pipeline    from "@/components/Pipeline";
 import Features    from "@/components/Features";
 import HowItWorks  from "@/components/HowItWorks";
 import VideoDemo   from "@/components/VideoDemo";
-import ImagesOnly  from "@/components/ImagesOnly";
-import CostControl from "@/components/CostControl";
 import Pricing     from "@/components/Pricing";
 import FAQ         from "@/components/FAQ";
 import FinalCTA    from "@/components/FinalCTA";
@@ -21,8 +19,6 @@ export default function LandingPage() {
       <Pipeline />
       <Features />
       <HowItWorks />
-      <CostControl />
-      <ImagesOnly />
       <VideoDemo />
       <Pricing />
       <FAQ />

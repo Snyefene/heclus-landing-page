@@ -12,7 +12,7 @@ export default function VideoDemo() {
 
   return (
     <section id="demo" className="py-28 relative">
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-5 lg:px-6">
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-12" data-reveal>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-5" style={{ color: "oklch(0.66 0.10 285)" }}>
