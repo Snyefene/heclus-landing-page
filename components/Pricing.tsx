@@ -70,6 +70,7 @@ const PLANS = [
       "Full AI pipeline excluding pro features",
       "Standard image processing",
       "Up to 1080p output",
+      "100 GB asset storage",
       "Community support",
     ],
     upcoming: [
@@ -89,6 +90,7 @@ const PLANS = [
       "10 niches/month",
       "Unlimited videos",
       "Bulk video generation",
+      "200 GB asset storage",
       "Priority rendering queue",
       "Priority support",
       "2K+ premium output",
@@ -103,31 +105,36 @@ const PLANS = [
   },
 ];
 
-// Feature comparison matrix. Columns mirror the offerings above
-// (Founder promo + the two monthly plans). A cell value of true renders
-// a check, false renders a dash, and a string renders as-is.
+// Feature comparison matrix. The two monthly plans only — Founder is a
+// closed one-time promo, so it is sold through the banner above and left
+// out of the table rather than compared against plans you can still buy.
 const COMPARE_COLUMNS = [
-  { key: "founder", label: "Founder", sub: "$40 · one-time / yr", highlighted: false },
   { key: "starter", label: "Starter", sub: "$21 / mo", highlighted: false },
   { key: "pro", label: "Pro", sub: "$39 / mo", highlighted: true },
 ] as const;
 
 const COMPARE_ROWS: {
   feature: string;
-  founder: boolean | string;
   starter: boolean | string;
   pro: boolean | string;
 }[] = [
-  { feature: "Niches included", founder: "20 / year", starter: "5 / month", pro: "10 / month" },
-  { feature: "Full AI pipeline", founder: true, starter: true, pro: true },
-  { feature: "Video generation", founder: "Unlimited", starter: "Unlimited", pro: "Unlimited" },
-  { feature: "Image processing", founder: "Standard", starter: "Standard", pro: "Standard" },
-  { feature: "Output quality", founder: "Up to 1080p", starter: "Up to 1080p", pro: "Up to 4K premium" },
-  { feature: "Bulk image generation", founder: true, starter: true, pro: true },
-  { feature: "Bulk video generation", founder: true, starter: true, pro: true },
-  { feature: "Priority rendering queue", founder: false, starter: false, pro: true },
-  { feature: "Support", founder: "Community", starter: "Community", pro: "Priority" },
-  { feature: "Billing", founder: "One-time (1 year)", starter: "Monthly", pro: "Monthly" },
+  { feature: "Niches included", starter: "5 / month", pro: "10 / month" },
+  { feature: "Full AI pipeline", starter: true, pro: true },
+  { feature: "Video generation", starter: "Unlimited", pro: "Unlimited" },
+  // A standing allowance, not a monthly one — the quota config records this
+  // as period "total", so the cell must not read like a per-month reset.
+  { feature: "Asset storage", starter: "100 GB", pro: "200 GB" },
+  // Heclus-funded perks: these run on our provider account, so unlike the
+  // rows above they cost the user nothing on their own key.
+  { feature: "Free voiceover characters", starter: "100,000 / month", pro: "200,000 / month" },
+  { feature: "Custom voice cloning", starter: false, pro: "Unlimited" },
+  { feature: "Image processing", starter: "Standard", pro: "Standard" },
+  { feature: "Output quality", starter: "Up to 1080p", pro: "Up to 4K premium" },
+  { feature: "Bulk image generation", starter: true, pro: true },
+  { feature: "Bulk video generation", starter: true, pro: true },
+  { feature: "Priority rendering queue", starter: false, pro: true },
+  { feature: "Support", starter: "Community", pro: "Priority" },
+  { feature: "Billing", starter: "Monthly", pro: "Monthly" },
 ];
 
 function CompareCell({ value, highlighted }: { value: boolean | string; highlighted: boolean }) {
@@ -171,11 +178,8 @@ export default async function Pricing() {
   const claimedPct = founder.limit > 0
     ? Math.min(100, ((founder.limit - founder.spots_left) / founder.limit) * 100)
     : 0;
-  // Once the promo sells out (0 spots left), drop the Founder plan entirely -
-  // hide the promo banner and its comparison-table column.
-  const compareColumns = founderAvailable
-    ? COMPARE_COLUMNS
-    : COMPARE_COLUMNS.filter((col) => col.key !== "founder");
+  // Once the promo sells out (0 spots left), the banner hides itself. The
+  // comparison table no longer carries a Founder column either way.
   return (
     <section id="pricing" className="py-28 relative">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -397,7 +401,7 @@ export default async function Pricing() {
                     <th className="py-5 px-5 sm:px-6 text-xs font-semibold uppercase tracking-widest" style={{ color: "oklch(0.55 0 0)" }}>
                       Feature
                     </th>
-                    {compareColumns.map((col) => (
+                    {COMPARE_COLUMNS.map((col) => (
                       <th
                         key={col.key}
                         className="py-5 px-4 text-center align-bottom relative"
@@ -436,7 +440,7 @@ export default async function Pricing() {
                       >
                         {row.feature}
                       </td>
-                      {compareColumns.map((col) => (
+                      {COMPARE_COLUMNS.map((col) => (
                         <td
                           key={col.key}
                           className="py-3.5 px-4 text-center"

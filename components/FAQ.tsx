@@ -65,9 +65,23 @@ export default function FAQ() {
                   style={{ gridTemplateRows: isOpen ? "1fr" : "0fr", opacity: isOpen ? 1 : 0 }}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-5 text-sm leading-relaxed" style={{ color: "oklch(0.58 0 0)" }}>
-                      {item.a}
-                    </p>
+                    <div className="px-6 pb-5 text-sm leading-relaxed" style={{ color: "oklch(0.58 0 0)" }}>
+                      <p>{item.a}</p>
+                      {item.bullets && (
+                        <ul className="mt-3 space-y-2">
+                          {item.bullets.map((b) => (
+                            <li key={b} className="flex gap-2.5">
+                              <span
+                                className="mt-[0.5em] w-1 h-1 rounded-full flex-shrink-0"
+                                style={{ background: "oklch(0.72 0.11 285)" }}
+                              />
+                              <span>{b}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      {item.outro && <p className="mt-3">{item.outro}</p>}
+                    </div>
                   </div>
                 </div>
               </div>

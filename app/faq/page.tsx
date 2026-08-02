@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
-import { FAQ_ITEMS } from "@/lib/faq-data";
+import { FAQ_ITEMS, faqPlainText } from "@/lib/faq-data";
 
 const SITE_URL = "https://heclus.com";
 
@@ -47,7 +47,7 @@ const faqPageLd = {
   mainEntity: FAQ_ITEMS.map((item) => ({
     "@type": "Question",
     name: item.q,
-    acceptedAnswer: { "@type": "Answer", text: item.a },
+    acceptedAnswer: { "@type": "Answer", text: faqPlainText(item) },
   })),
 };
 
