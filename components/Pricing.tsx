@@ -90,8 +90,11 @@ const COMPARE_ROWS: {
   { feature: "Output quality", heclus_starter: "Up to 1080p", heclus_pro: "2K+ premium", heclus_max: "4K" },
   { feature: "Custom voice cloning", heclus_starter: false, heclus_pro: "Unlimited", heclus_max: "Unlimited" },
   { feature: "Bulk image and video generation", heclus_starter: true, heclus_pro: true, heclus_max: true },
-  { feature: "Transitions, motion and effects", heclus_starter: false, heclus_pro: false, heclus_max: true },
-  { feature: "Text, elements and sound effects", heclus_starter: false, heclus_pro: false, heclus_max: true },
+  // Every plan edits with these; Max is the premium set. Strings rather than
+  // ticks because a tick against all three would hide the difference the Max
+  // card is sold on.
+  { feature: "Transitions, motion and effects", heclus_starter: "Included", heclus_pro: "Included", heclus_max: "Premium" },
+  { feature: "Text, elements and sound effects", heclus_starter: "Included", heclus_pro: "Included", heclus_max: "Premium" },
   { feature: "Multi-track timeline editing", heclus_starter: false, heclus_pro: false, heclus_max: true },
   { feature: "Priority rendering queue", heclus_starter: false, heclus_pro: true, heclus_max: true },
   { feature: "Support", heclus_starter: "Community", heclus_pro: "Priority", heclus_max: "Priority" },
