@@ -34,8 +34,9 @@ export const FAQ_ITEMS: FaqItem[] = [
     bullets: [
       "Starter — 5 channel slots a month.",
       "Pro — 10 channel slots a month.",
+      "Max — unlimited.",
     ],
-    outro: "For each channel you can create an unlimited number of videos. So if you run two channels, you are using two of your slots and can keep producing for both. What actually limits your output is the credit on your own provider account, since generation is billed there rather than by us.",
+    outro: "For each channel you can create an unlimited number of videos. So if you run two channels, you are using two of your slots and can keep producing for both. What limits your output is the Heclus Credits on your plan, which is what generation spends.",
   },
   {
     q: "How long can my videos be?",
@@ -47,7 +48,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: "Can I use my own voice, or a voice I cloned elsewhere?",
-    a: "Yes. Add the API key for that ElevenLabs account in setup, and your own voice models — including any you have cloned there — become available in the voiceover step alongside the voices Heclus provides.",
+    a: "Yes, two ways. Pro and Max include unlimited custom voice cloning on our account, so you can clone a voice inside Heclus with no key and no separate subscription. And on any plan you can connect an ElevenLabs account of your own in setup, which makes the voices already cloned there available in the voiceover step alongside the ones Heclus provides.",
   },
   {
     q: "Can I keep the same character across scenes?",
@@ -70,7 +71,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: "How long does it take to make a video?",
-    a: "Most of the pipeline is quick. Script and prompt generation typically take a few minutes, and the final assembly — where everything is stitched into the finished file — usually takes a few minutes too, with nine in ten finishing inside about thirteen. The variable part is image, voice and clip generation, which queues against your provider and scales with the number of narration beats, so a long video means many more generations than a short one.",
+    a: "Most of the pipeline is quick. Script and prompt generation typically take a few minutes, and the final assembly — where everything is stitched into the finished file — usually takes a few minutes too, with nine in ten finishing inside about thirteen. The variable part is image, voice and clip generation, which queues against our generation providers and scales with the number of narration beats, so a long video means many more generations than a short one.",
     outro: "If a step sits for hours rather than minutes, that is not normal — stop it and run it again, and contact support if it persists. You do not have to sit and watch either way: progress is saved at every step, so you can close the tab and pick the project back up where you left off.",
   },
   {
@@ -115,6 +116,15 @@ export const FAQ_ITEMS: FaqItem[] = [
       "Watch the numbers as you go. Each step prices the run before it starts and shows your remaining credits in the same view, so there is no end-of-month surprise. The usage log lists every charge, what it was for and what it produced.",
     ],
     outro: "In our own project data, going images-only and choosing the cheapest image models together cut the cost of a video by roughly 70%.",
+  },
+  {
+    q: "What can I change once the video is assembled?",
+    a: "Every plan gets the editor, not just the top one. Transitions, motion, the effects library, text overlays and elements are all available while you are assembling, so a finished render is something you shape rather than something you accept.",
+    bullets: [
+      "Starter and Pro — transitions, motion, effects, text overlays and elements.",
+      "Max — the premium set of all of those, plus multi-track timeline editing and your own custom sound effects and elements.",
+    ],
+    outro: "Changes are made in the assemble step and applied when you render, so you can adjust and re-render without starting the project again.",
   },
   {
     q: "Can I monetize Heclus videos on YouTube?",
