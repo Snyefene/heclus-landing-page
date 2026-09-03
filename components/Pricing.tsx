@@ -168,6 +168,30 @@ export default async function Pricing() {
           </p>
         </div>
 
+        {/* The thing every visitor who knew the old product asks first. It sat
+            in an FAQ answer near the bottom of the page, which is not where a
+            belief about how you are billed gets corrected. */}
+        <div data-reveal className="max-w-3xl mx-auto mb-6 rounded-2xl px-5 py-4 flex items-start gap-3"
+          style={{
+            background: "oklch(0.55 0.15 160 / 0.10)",
+            border: "1px solid oklch(0.55 0.15 160 / 0.30)",
+          }}>
+          <span
+            className="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center shrink-0"
+            style={{ background: "oklch(0.55 0.15 160 / 0.18)", color: "oklch(0.78 0.14 160)" }}
+            aria-hidden
+          >
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </span>
+          <p className="text-sm leading-relaxed" style={{ color: "oklch(0.80 0 0)" }}>
+            <span className="font-semibold" style={{ color: "oklch(0.88 0.08 160)" }}>No API keys. No KIE account.</span>{" "}
+            Every plan now runs on Heclus Credits, on our own provider accounts — nothing to sign up for, nothing to
+            top up elsewhere. Bringing your own KIE key is no longer part of it.
+          </p>
+        </div>
+
         {/* Founder promo - hidden once the promo sells out */}
         {founderAvailable && (
         <div data-reveal className="max-w-3xl mx-auto mb-10 rounded-2xl p-6 relative overflow-hidden elevated"

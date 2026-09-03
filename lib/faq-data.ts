@@ -97,12 +97,12 @@ export const FAQ_ITEMS: FaqItem[] = [
     outro: "There is no paid storage add-on to buy. Most accounts never come close — a typical project is a fraction of the allowance, and the heaviest accounts on the platform today sit well under 100 GB.",
   },
   {
-    q: "Do I need my own API keys, and how am I billed for generation?",
+    q: "Do I need my own API keys?",
     a: "No keys needed. Every plan includes a monthly allowance of Heclus Credits, and generation spends them: 1,000 credits on Starter, 2,000 on Pro, 6,000 on Max, alongside free image, clip and voiceover allowances on top. Each step prices the work before you run it and your balance is on the same screen, so nothing is spent without you seeing what it costs. Run out mid-month and you can top up; what you have already made is unaffected.",
     bullets: [
       "Included credits reset each month. Anything you top up does not expire.",
       "You are only charged for work that completes — see the failed-generations question above.",
-      "Prefer your own accounts? Connect your own provider keys instead and the providers bill you directly at their published rates, with no markup from us.",
+      "There is no KIE account to open and no generation key to paste. That is the whole point of the credits: the provider accounts are ours.",
     ],
   },
   {

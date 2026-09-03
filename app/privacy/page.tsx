@@ -52,7 +52,7 @@ export default function PrivacyPage() {
 
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
             <h2 className="text-base font-semibold mb-3" style={{ color: "oklch(0.88 0 0)" }}>4. Your API Keys</h2>
-            <p>Heclus generates on its own provider accounts using the credits included with your plan. You may optionally connect your own API keys for third-party AI services (e.g. Anthropic, ElevenLabs) instead; those keys are stored encrypted, are only used to process your requests within the Service, and are never shared with any third party.</p>
+            <p>Heclus generates on its own provider accounts using the credits included with your plan. You may optionally connect an ElevenLabs account of your own to use voices cloned there; any key you provide is stored encrypted, is only used to process your requests within the Service, and is never shared with any third party.</p>
           </section>
 
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>

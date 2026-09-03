@@ -29,7 +29,7 @@ export default function TermsPage() {
 
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
             <h2 className="text-base font-semibold mb-3" style={{ color: "oklch(0.88 0 0)" }}>2. Description of Service</h2>
-            <p>Heclus is an AI-powered tool that helps creators analyze YouTube channels, generate scripts, voiceovers, images, thumbnails, and assemble video content. Generation runs on the Heclus Credits included with your plan, on Heclus&apos;s own provider accounts; you may instead connect your own third-party API keys (e.g. Anthropic, ElevenLabs, KIE.ai) and be billed by those providers directly. Heclus does not guarantee specific output quality as results depend on the third-party services you connect.</p>
+            <p>Heclus is an AI-powered tool that helps creators analyze YouTube channels, generate scripts, voiceovers, images, thumbnails, and assemble video content. Generation runs on the Heclus Credits included with your plan, on Heclus&apos;s own provider accounts. You may optionally connect your own ElevenLabs account to use voices you have cloned there. Heclus does not guarantee specific output quality as results depend on the third-party services you connect.</p>
           </section>
 
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
