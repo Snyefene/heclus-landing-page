@@ -1,3 +1,4 @@
+import { fetchSitePlans, type SitePlan } from "@/lib/plans";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Pricing from "@/components/Pricing";
@@ -50,49 +51,47 @@ const breadcrumbLd = {
   ],
 };
 
-// Product/Offer schema for the three plans. Mirrors the PLANS array
-// in components/Pricing.tsx - if a plan name/price/period changes there,
-// update it here too. (Kept inline rather than imported because the
-// component data carries CTA labels and disabled flags that don't
-// belong in the public-facing product schema.)
-const productLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  name: "Heclus - AI YouTube Video Factory",
-  description: "Clone any YouTube channel/niche with an end-to-end AI pipeline: niche research, script, voiceover, AI images and video clips, thumbnails, and assembly.",
-  brand: { "@type": "Brand", name: "Heclus" },
-  offers: [
-    {
-      "@type": "Offer",
-      name: "Founder",
-      price: "40.00",
-      priceCurrency: "USD",
-      url: `${SITE_URL}/pricing`,
-      availability: "https://schema.org/LimitedAvailability",
-      description: "$40 for one full year of access. First 100 users only.",
-    },
-    {
-      "@type": "Offer",
-      name: "Starter",
-      price: "21.00",
-      priceCurrency: "USD",
-      url: `${SITE_URL}/pricing`,
-      availability: "https://schema.org/InStock",
-      description: "5 niches per month, full AI pipeline, up to 1080p output.",
-    },
-    {
-      "@type": "Offer",
-      name: "Pro",
-      price: "39.00",
-      priceCurrency: "USD",
-      url: `${SITE_URL}/pricing`,
-      availability: "https://schema.org/InStock",
-      description: "10 niches/month, unlimited videos, bulk generation, priority queue, 2K+ premium output.",
-    },
-  ],
-};
+// Product/Offer schema, built from the same plans table the page renders, so
+// the price Google reads and the price a customer sees cannot disagree. They
+// did: this block advertised $21 and $39 for months after the product moved to
+// $29.99 and $49.99.
+function buildProductLd(plans: SitePlan[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Heclus - AI YouTube Video Factory",
+    description: "Clone any YouTube channel/niche with an end-to-end AI pipeline: niche research, script, voiceover, AI images and video clips, thumbnails, and assembly.",
+    brand: { "@type": "Brand", name: "Heclus" },
+    offers: [
+      {
+        "@type": "Offer",
+        name: "Founder",
+        price: "40.00",
+        priceCurrency: "USD",
+        url: `${SITE_URL}/pricing`,
+        availability: "https://schema.org/LimitedAvailability",
+        description: "$40 for one full year of access. First 100 users only.",
+      },
+      ...plans.filter((p) => p.priceAmount).map((p) => ({
+        "@type": "Offer",
+        name: p.name,
+        price: p.priceAmount as string,
+        priceCurrency: "USD",
+        url: `${SITE_URL}/pricing`,
+        // A plan the app will not sell yet is not in stock, whatever the card
+        // beside it says.
+        availability: p.disabled
+          ? "https://schema.org/PreOrder"
+          : "https://schema.org/InStock",
+        description: p.features.slice(0, 4).join(". "),
+      })),
+    ],
+  };
+}
 
-export default function PricingPage() {
+export default async function PricingPage() {
+  const plans = await fetchSitePlans();
+  const productLd = buildProductLd(plans);
   return (
     <main className="min-h-screen overflow-x-hidden">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />

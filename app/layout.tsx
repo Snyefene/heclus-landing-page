@@ -205,35 +205,20 @@ const softwareLd = {
   image: OG_IMAGE,
   brand: { "@id": `${SITE_URL}#organization` },
   publisher: { "@id": `${SITE_URL}#organization` },
-  offers: [
-    {
-      "@type": "Offer",
-      name: "Founder",
-      price: "40.00",
-      priceCurrency: "USD",
-      description: "$40 for a full year of access. 20 niches + the full AI pipeline.",
-      url: `${SITE_URL}/pricing`,
-      availability: "https://schema.org/InStock",
-    },
-    {
-      "@type": "Offer",
-      name: "Starter",
-      price: "21.00",
-      priceCurrency: "USD",
-      description: "5 niches per month, full AI pipeline, up to 1080p output.",
-      url: `${SITE_URL}/pricing`,
-      availability: "https://schema.org/InStock",
-    },
-    {
-      "@type": "Offer",
-      name: "Pro",
-      price: "39.00",
-      priceCurrency: "USD",
-      description: "10 niches/month, unlimited videos, bulk generation, priority queue, 2K+ premium output.",
-      url: `${SITE_URL}/pricing`,
-      availability: "https://schema.org/InStock",
-    },
-  ],
+  // A range rather than a list. The per-plan offers live on /pricing, where
+  // they are built from the plans table itself; keeping a second copy here is
+  // what left $21 and $39 in the site's structured data long after the product
+  // had moved on. The two numbers below are the cheapest and dearest monthly
+  // plans, and the annual Founder promo sits under both.
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "USD",
+    lowPrice: "29.99",
+    highPrice: "129.00",
+    offerCount: 3,
+    url: `${SITE_URL}/pricing`,
+    availability: "https://schema.org/InStock",
+  },
   featureList: [
     "YouTube channel analysis",
     "AI script generation",

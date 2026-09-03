@@ -75,7 +75,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: "Am I charged for failed generations?",
-    a: "No. Providers do not charge for generations that fail, and when you press Retry only the failed beats are requeued — it does not start the whole step over. Depending on which step you are in, you may also be able to retry individual failed items rather than the batch.",
+    a: "No. A generation that fails is not charged — credits are only spent on work that completes — and when you press Retry only the failed beats are requeued — it does not start the whole step over. Depending on which step you are in, you may also be able to retry individual failed items rather than the batch.",
   },
   {
     q: "How much storage do I get?",
@@ -83,6 +83,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     bullets: [
       "Starter and Founder — 100 GB.",
       "Pro — 200 GB.",
+      "Max — 400 GB.",
     ],
     outro: "It is a standing allowance rather than a monthly one: it does not reset each month, and it does not run down on its own. Deleting a project you have already downloaded frees its space back up immediately.",
   },
@@ -91,13 +92,18 @@ export const FAQ_ITEMS: FaqItem[] = [
     a: "Nothing you have made is deleted or locked. Your existing projects stay exactly as they are and you can still download any of them — what stops is new writes, so the next generation step will not run until you are back under the cap. You have two ways forward:",
     bullets: [
       "Download the ZIP for projects you have finished with, then delete them to reclaim the space.",
-      "Move up to Pro for 200 GB.",
+      "Move up a plan: Pro is 200 GB, Max is 400 GB.",
     ],
     outro: "There is no paid storage add-on to buy. Most accounts never come close — a typical project is a fraction of the allowance, and the heaviest accounts on the platform today sit well under 100 GB.",
   },
   {
     q: "Do I need my own API keys, and how am I billed for generation?",
-    a: "Generation runs on your own provider keys, which you connect once in setup. The providers bill you directly at their own published rates — Heclus never resells credits or adds a markup, so there is nothing between you and the real price. Your subscription pays for the platform: the pipeline, the niches, the assembly and the storage. That also means your generation spend is yours to control, which the next question covers.",
+    a: "No keys needed. Every plan includes a monthly allowance of Heclus Credits, and generation spends them: 1,000 credits on Starter, 2,000 on Pro, 6,000 on Max, alongside free image, clip and voiceover allowances on top. Each step prices the work before you run it and your balance is on the same screen, so nothing is spent without you seeing what it costs. Run out mid-month and you can top up; what you have already made is unaffected.",
+    bullets: [
+      "Included credits reset each month. Anything you top up does not expire.",
+      "You are only charged for work that completes — see the failed-generations question above.",
+      "Prefer your own accounts? Connect your own provider keys instead and the providers bill you directly at their published rates, with no markup from us.",
+    ],
   },
   {
     q: "How do I keep my generation costs down?",
@@ -106,7 +112,7 @@ export const FAQ_ITEMS: FaqItem[] = [
       "Turn video generation off. The project then assembles from stills, one AI image held for the length of its narration beat, with no video-model spend at all. The expensive layer is a choice, not a requirement.",
       "Pick cheaper models per step. Every image and video step lists its models with the cost printed on the card and sorts by cheapest, and the range across models runs more than twenty-fold. Run a premium model on the hook and a budget one everywhere else.",
       "Set your prompt prefix once, so your style is consistent from the start. Re-rolling images to fix drift is a large share of what people spend.",
-      "Watch the numbers as you go. Each step shows what it cost and your remaining provider balance in the same view, so there is no end-of-month surprise.",
+      "Watch the numbers as you go. Each step prices the run before it starts and shows your remaining credits in the same view, so there is no end-of-month surprise. The usage log lists every charge, what it was for and what it produced.",
     ],
     outro: "In our own project data, going images-only and choosing the cheapest image models together cut the cost of a video by roughly 70%.",
   },

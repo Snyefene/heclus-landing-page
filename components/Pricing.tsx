@@ -1,5 +1,6 @@
 import { connection } from "next/server";
 import { supabase } from "@/lib/supabase";
+import { fetchSitePlans, type SitePlan } from "@/lib/plans";
 
 // Live founder counter - sourced from the same Supabase row the
 // youtube-engine /api/founder-spots route reads (product_config row
@@ -59,83 +60,45 @@ async function fetchFounderState(): Promise<FounderState> {
   return { spots_left: FOUNDER_TOTAL_FALLBACK, limit: FOUNDER_TOTAL_FALLBACK };
 }
 
-const PLANS = [
-  {
-    name: "Starter",
-    price: "$21",
-    period: "/month",
-    description: "Perfect for creators just getting started.",
-    features: [
-      "5 niches/month",
-      "Full AI pipeline excluding pro features",
-      "Standard image processing",
-      "Up to 1080p output",
-      "100 GB asset storage",
-      "Community support",
-    ],
-    upcoming: [
-      "Free 100,000 voiceover chars / month",
-    ],
-    cta: "Get Started",
-    highlighted: false,
-    disabled: false,
-  },
-  {
-    name: "Pro",
-    price: "$39",
-    period: "/month",
-    description: "For creators scaling their content output.",
-    features: [
-      "Everything in Starter",
-      "10 niches/month",
-      "Unlimited videos",
-      "Bulk video generation",
-      "200 GB asset storage",
-      "Priority rendering queue",
-      "Priority support",
-      "2K+ premium output",
-    ],
-    upcoming: [
-      "Free 200,000 voiceover chars / month",
-      "Free Unlimited custom voice cloning",
-    ],
-    cta: "Start Pro",
-    highlighted: true,
-    disabled: false,
-  },
-];
+/** The one thing the plans table does not carry: a line of copy under the
+ *  name. Keyed by slug with a fallback, so a new plan appears on the site the
+ *  day it is created rather than the day someone remembers this file. */
+const BLURB: Record<string, string> = {
+  heclus_starter: "Perfect for creators just getting started.",
+  heclus_pro: "For creators scaling their content output.",
+  heclus_max: "Everything, at full quality, with no niche limit.",
+};
 
-// Feature comparison matrix. The two monthly plans only — Founder is a
-// closed one-time promo, so it is sold through the banner above and left
-// out of the table rather than compared against plans you can still buy.
-const COMPARE_COLUMNS = [
-  { key: "starter", label: "Starter", sub: "$21 / mo", highlighted: false },
-  { key: "pro", label: "Pro", sub: "$39 / mo", highlighted: true },
-] as const;
-
+// What one plan gives you against the next, in the terms the product bills in.
+// The values are the allowances the app enforces; the prices in the header come
+// from the plans table with the rest of them.
 const COMPARE_ROWS: {
   feature: string;
-  starter: boolean | string;
-  pro: boolean | string;
+  heclus_starter: boolean | string;
+  heclus_pro: boolean | string;
+  heclus_max: boolean | string;
 }[] = [
-  { feature: "Niches included", starter: "5 / month", pro: "10 / month" },
-  { feature: "Full AI pipeline", starter: true, pro: true },
-  { feature: "Video generation", starter: "Unlimited", pro: "Unlimited" },
-  // A standing allowance, not a monthly one — the quota config records this
-  // as period "total", so the cell must not read like a per-month reset.
-  { feature: "Asset storage", starter: "100 GB", pro: "200 GB" },
-  // Heclus-funded perks: these run on our provider account, so unlike the
-  // rows above they cost the user nothing on their own key.
-  { feature: "Free voiceover characters", starter: "100,000 / month", pro: "200,000 / month" },
-  { feature: "Custom voice cloning", starter: false, pro: "Unlimited" },
-  { feature: "Image processing", starter: "Standard", pro: "Standard" },
-  { feature: "Output quality", starter: "Up to 1080p", pro: "Up to 4K premium" },
-  { feature: "Bulk image generation", starter: true, pro: true },
-  { feature: "Bulk video generation", starter: true, pro: true },
-  { feature: "Priority rendering queue", starter: false, pro: true },
-  { feature: "Support", starter: "Community", pro: "Priority" },
-  { feature: "Billing", starter: "Monthly", pro: "Monthly" },
+  { feature: "Niches included", heclus_starter: "5 / month", heclus_pro: "10 / month", heclus_max: "Unlimited" },
+  { feature: "Heclus Credits", heclus_starter: "1,000 / month", heclus_pro: "2,000 / month", heclus_max: "6,000 / month" },
+  { feature: "Videos", heclus_starter: "Unlimited", heclus_pro: "Unlimited", heclus_max: "Unlimited" },
+  { feature: "Free image generations", heclus_starter: "300 / month", heclus_pro: "900 / month", heclus_max: "1,500 / month" },
+  { feature: "Free video clips", heclus_starter: "150 / month", heclus_pro: "200 / month", heclus_max: "400 / month" },
+  { feature: "Free voiceover characters", heclus_starter: "100,000 / month", heclus_pro: "200,000 / month", heclus_max: "500,000 / month" },
+  // A standing allowance, not a monthly one — the quota config records this as
+  // period "total", so the cell must not read like a per-month reset.
+  { feature: "Asset storage", heclus_starter: "100 GB", heclus_pro: "200 GB", heclus_max: "400 GB" },
+  { feature: "Output quality", heclus_starter: "Up to 1080p", heclus_pro: "2K+ premium", heclus_max: "4K" },
+  { feature: "Custom voice cloning", heclus_starter: false, heclus_pro: "Unlimited", heclus_max: "Unlimited" },
+  { feature: "Bulk image and video generation", heclus_starter: true, heclus_pro: true, heclus_max: true },
+  { feature: "Transitions, motion and effects", heclus_starter: false, heclus_pro: false, heclus_max: true },
+  { feature: "Text, elements and sound effects", heclus_starter: false, heclus_pro: false, heclus_max: true },
+  { feature: "Multi-track timeline editing", heclus_starter: false, heclus_pro: false, heclus_max: true },
+  { feature: "Priority rendering queue", heclus_starter: false, heclus_pro: true, heclus_max: true },
+  { feature: "Support", heclus_starter: "Community", heclus_pro: "Priority", heclus_max: "Priority" },
+  { feature: "Billing", heclus_starter: "Monthly", heclus_pro: "Monthly", heclus_max: "Monthly" },
 ];
+
+type CompareKey = "heclus_starter" | "heclus_pro" | "heclus_max";
 
 function CompareCell({ value, highlighted }: { value: boolean | string; highlighted: boolean }) {
   if (value === true) {
@@ -173,7 +136,14 @@ function CompareCell({ value, highlighted }: { value: boolean | string; highligh
 }
 
 export default async function Pricing() {
-  const founder = await fetchFounderState();
+  const [founder, plans] = await Promise.all([fetchFounderState(), fetchSitePlans()]);
+  // The comparison table's columns are the plans themselves, so a plan the
+  // table has no rows for is left out of it rather than rendering a column of
+  // blanks. Three of them today.
+  const compareColumns = plans
+    .filter((p): p is SitePlan & { slug: CompareKey } =>
+      p.slug === "heclus_starter" || p.slug === "heclus_pro" || p.slug === "heclus_max")
+    .map((p) => ({ key: p.slug, label: p.name, sub: `${p.price} ${p.period}`.trim(), highlighted: p.highlighted }));
   const founderAvailable = founder.spots_left > 0;
   const claimedPct = founder.limit > 0
     ? Math.min(100, ((founder.limit - founder.spots_left) / founder.limit) * 100)
@@ -254,10 +224,10 @@ export default async function Pricing() {
         )}
 
         {/* Plan cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mt-6" data-reveal="group">
-          {PLANS.map((plan) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mt-6" data-reveal="group">
+          {plans.map((plan) => (
             <div
-              key={plan.name}
+              key={plan.slug}
               className="relative rounded-3xl p-8 flex flex-col"
               style={{
                 background: plan.disabled ? "oklch(0.10 0.002 285)" : "oklch(0.115 0.004 285)",
@@ -285,7 +255,7 @@ export default async function Pricing() {
                     {plan.name}
                   </p>
                   <p className="text-xs leading-relaxed" style={{ color: "oklch(0.78 0 0)" }}>
-                    {plan.description}
+                    {BLURB[plan.slug] ?? ""}
                   </p>
                 </div>
 
@@ -317,32 +287,6 @@ export default async function Pricing() {
                     </li>
                   ))}
 
-                  {plan.upcoming && plan.upcoming.length > 0 && (
-                    <li className="pt-3 mt-1" style={{ borderTop: "1px solid oklch(1 0 0 / 0.08)" }}>
-                      <p className="text-[10px] font-semibold uppercase tracking-wider mb-2"
-                        style={{ color: "oklch(0.72 0.11 285)" }}>
-                        Releasing this week
-                      </p>
-                      <p className="text-[10px] mb-2" style={{ color: "oklch(0.6 0 0)" }}>
-                        No API keys needed
-                      </p>
-                      <ul className="space-y-2.5">
-                        {plan.upcoming.map((f) => (
-                          <li key={f} className="flex items-center gap-3 text-sm" style={{ color: "oklch(0.68 0 0)" }}>
-                            <span
-                              className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
-                              style={{ background: "oklch(0.72 0.11 285 / 0.12)", color: "oklch(0.72 0.11 285)" }}
-                            >
-                              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                                <circle cx="12" cy="12" r="9" />
-                              </svg>
-                            </span>
-                            {f}
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  )}
                 </ul>
 
                 {/* CTA */}
@@ -366,7 +310,7 @@ export default async function Pricing() {
                       border: "1px solid oklch(1 0 0 / 0.10)",
                     }}
                   >
-                    {plan.cta}
+                    {plan.highlighted ? `Start ${plan.name}` : "Get Started"}
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
@@ -401,7 +345,7 @@ export default async function Pricing() {
                     <th className="py-5 px-5 sm:px-6 text-xs font-semibold uppercase tracking-widest" style={{ color: "oklch(0.55 0 0)" }}>
                       Feature
                     </th>
-                    {COMPARE_COLUMNS.map((col) => (
+                    {compareColumns.map((col) => (
                       <th
                         key={col.key}
                         className="py-5 px-4 text-center align-bottom relative"
@@ -440,7 +384,7 @@ export default async function Pricing() {
                       >
                         {row.feature}
                       </td>
-                      {COMPARE_COLUMNS.map((col) => (
+                      {compareColumns.map((col) => (
                         <td
                           key={col.key}
                           className="py-3.5 px-4 text-center"
