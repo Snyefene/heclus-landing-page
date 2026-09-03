@@ -187,8 +187,9 @@ export default async function Pricing() {
           </span>
           <p className="text-sm leading-relaxed" style={{ color: "oklch(0.80 0 0)" }}>
             <span className="font-semibold" style={{ color: "oklch(0.88 0.08 160)" }}>No API keys. No KIE account.</span>{" "}
-            Every plan now runs on Heclus Credits, on our own provider accounts — nothing to sign up for, nothing to
-            top up elsewhere. Bringing your own KIE key is no longer part of it.
+            Generation runs on Heclus Credits, on our provider accounts. Your plan&apos;s credits are in the account
+            the moment you sign up and renew every month; if you run out early you top up here, in Heclus, rather
+            than on a provider&apos;s dashboard.
           </p>
         </div>
 
