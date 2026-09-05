@@ -8,11 +8,15 @@ import Footer from "@/components/Footer";
 
 const SITE_URL = "https://heclus.com";
 
-const PAGE_TITLE = "Pricing - From $21/mo. Founder Offer: $40/yr Full Access";
+// The prices on the cards come from the plans table; these three strings are
+// metadata and cannot, so they are the ones that go stale. They named $21 and
+// $39, which the product stopped charging in July, and Paystack, which has
+// never taken a payment for Heclus: Dodo Payments is the merchant of record.
+const PAGE_TITLE = "Pricing - From $29.99/mo, credits included";
 const PAGE_DESC =
-  "Heclus pricing: limited-time Founder offer at $40 for a full year. Starter plan from $21/month, Pro from $39/month. Secure checkout via Paystack. Cancel anytime, no lock-in.";
+  "Heclus pricing: Starter $29.99/month with 1,000 Heclus Credits, Pro $49.99 with 2,000, Max $129 with 6,000. No API keys to bring. Secure checkout via Dodo Payments. Cancel anytime, no lock-in.";
 const PAGE_DESC_SHORT =
-  "Founder offer: $40 for a full year. Starter $21/mo, Pro $39/mo. Cancel anytime.";
+  "Starter $29.99/mo, Pro $49.99/mo, Max $129/mo. Credits included, no API keys. Cancel anytime.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
