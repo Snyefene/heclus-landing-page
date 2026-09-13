@@ -82,7 +82,7 @@ const COMPARE_ROWS: {
   { feature: "Heclus Credits", heclus_starter: "1,000 / month", heclus_pro: "2,000 / month", heclus_max: "6,000 / month" },
   { feature: "Videos", heclus_starter: "Unlimited", heclus_pro: "Unlimited", heclus_max: "Unlimited" },
   { feature: "Free image generations", heclus_starter: "300 / month", heclus_pro: "900 / month", heclus_max: "1,500 / month" },
-  { feature: "Free video clips", heclus_starter: "150 / month", heclus_pro: "200 / month", heclus_max: "400 / month" },
+  { feature: "Free video clips", heclus_starter: "150 / month", heclus_pro: "300 / month", heclus_max: "400 / month" },
   { feature: "Free voiceover characters", heclus_starter: "100,000 / month", heclus_pro: "200,000 / month", heclus_max: "500,000 / month" },
   // A standing allowance, not a monthly one — the quota config records this as
   // period "total", so the cell must not read like a per-month reset.
