@@ -18,7 +18,7 @@ export default function PrivacyPage() {
           </div>
         </a>
         <h1 className="text-4xl font-bold mb-2" style={{ color: "oklch(0.95 0 0)" }}>Privacy Policy</h1>
-        <p className="text-sm mb-12" style={{ color: "oklch(0.72 0 0)" }}>Last updated: May 2025</p>
+        <p className="text-sm mb-12" style={{ color: "oklch(0.72 0 0)" }}>Last updated: September 2026</p>
 
         <div className="space-y-4 text-sm leading-relaxed" style={{ color: "oklch(0.62 0 0)" }}>
 
@@ -71,12 +71,17 @@ export default function PrivacyPage() {
           </section>
 
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
-            <h2 className="text-base font-semibold mb-3" style={{ color: "oklch(0.88 0 0)" }}>8. Changes to This Policy</h2>
+            <h2 className="text-base font-semibold mb-3" style={{ color: "oklch(0.88 0 0)" }}>8. Social Media</h2>
+            <p>We run a company page on LinkedIn. We use LinkedIn&rsquo;s Community Management API only to publish and manage posts on our own page. We do not use it to collect or store personal data about LinkedIn members, for advertising or profiling, or to share LinkedIn data with anyone. The access it needs is stored securely and can be revoked from LinkedIn at any time. When you interact with our page, LinkedIn&rsquo;s own privacy policy applies to that interaction.</p>
+          </section>
+
+          <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
+            <h2 className="text-base font-semibold mb-3" style={{ color: "oklch(0.88 0 0)" }}>9. Changes to This Policy</h2>
             <p>We may update this Privacy Policy periodically. We will notify you of significant changes via email or a notice on the platform.</p>
           </section>
 
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
-            <h2 className="text-base font-semibold mb-3" style={{ color: "oklch(0.88 0 0)" }}>9. Contact</h2>
+            <h2 className="text-base font-semibold mb-3" style={{ color: "oklch(0.88 0 0)" }}>10. Contact</h2>
             <p>For privacy-related questions, contact us at <a href="mailto:support@heclus.com" className="underline" style={{ color: "oklch(0.74 0.10 285)" }}>support@heclus.com</a>.</p>
           </section>
 
