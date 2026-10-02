@@ -209,7 +209,7 @@ const softwareLd = {
   // they are built from the plans table itself; keeping a second copy here is
   // what left $21 and $39 in the site's structured data long after the product
   // had moved on. The two numbers below are the cheapest and dearest monthly
-  // plans, and the annual Founder promo sits under both.
+  // plans.
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "USD",

@@ -82,7 +82,7 @@ export const FAQ_ITEMS: FaqItem[] = [
     q: "How much storage do I get?",
     a: "Your plan includes a standing allowance for everything your projects hold — generated images, video clips, voiceovers, thumbnails and the finished export:",
     bullets: [
-      "Starter and Founder — 100 GB.",
+      "Starter — 100 GB.",
       "Pro — 200 GB.",
       "Max — 400 GB.",
     ],

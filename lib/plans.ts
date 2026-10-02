@@ -41,8 +41,7 @@ interface PlanRow {
 /**
  * The monthly products, in the order an admin put them in.
  *
- * Founder is left out: it is a closed annual promo sold by its own banner, with
- * a live counter, and it has never been one of these cards. The
+ * Founder is left out, in both its forms: it is no longer sold. The
  * production-test fixture is left out because it is not a product.
  *
  * Fails to an empty list rather than to stale prices. A pricing section that
@@ -50,8 +49,8 @@ interface PlanRow {
  * quarter's numbers is not.
  */
 export async function fetchSitePlans(): Promise<SitePlan[]> {
-  // Opt the enclosing route out of static rendering, the same way the founder
-  // counter does, so a price change shows up without a redeploy.
+  // Opt the enclosing route out of static rendering, so a price change shows
+  // up without a redeploy.
   await connection();
   try {
     const { data, error } = await supabase
@@ -60,7 +59,9 @@ export async function fetchSitePlans(): Promise<SitePlan[]> {
       .order("sort_order");
     if (error) throw error;
     return ((data ?? []) as PlanRow[])
-      .filter((r) => r.slug.startsWith("heclus_") && !r.legacy)
+      // heclus_founder is the Founder plan on credits: existing customers keep
+      // it, but it is no longer sold here.
+      .filter((r) => r.slug.startsWith("heclus_") && r.slug !== "heclus_founder" && !r.legacy)
       .map((r) => ({
         slug: r.slug,
         name: r.name,
