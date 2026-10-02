@@ -18,7 +18,7 @@ export default function TermsPage() {
           </div>
         </a>
         <h1 className="text-4xl font-bold mb-2" style={{ color: "oklch(0.95 0 0)" }}>Terms of Service</h1>
-        <p className="text-sm mb-12" style={{ color: "oklch(0.72 0 0)" }}>Last updated: September 2026</p>
+        <p className="text-sm mb-12" style={{ color: "oklch(0.72 0 0)" }}>Last updated: October 2026</p>
 
         <div className="space-y-4 text-sm leading-relaxed" style={{ color: "oklch(0.62 0 0)" }}>
 
@@ -74,6 +74,7 @@ export default function TermsPage() {
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
             <h2 className="text-base font-semibold mb-3" style={{ color: "oklch(0.88 0 0)" }}>10. Intellectual Property</h2>
             <p>You retain ownership of the content you generate using Heclus. Heclus retains ownership of the platform, software, and underlying technology. You grant Heclus a limited license to process your inputs solely to deliver the Service.</p>
+            <p className="mt-3">Public gallery: if you choose Allow after a render, Heclus may show that video in its gallery and marketing. We review every video first, and remove it on request.</p>
           </section>
 
           <section className="rounded-xl p-6" style={{ background: "oklch(0.10 0.006 280 / 0.55)", border: "1px solid oklch(1 0 0 / 0.06)" }}>
