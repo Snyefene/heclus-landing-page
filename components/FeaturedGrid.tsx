@@ -42,12 +42,12 @@ function Card({ v, onOpen }: { v: FeaturedVideo; onOpen: () => void }) {
     const t = setTimeout(() => setState("ready"), 4000);
     return () => clearTimeout(t);
   }, [hasMeta, state]);
-  const label = v.style || v.title;
+  const label = v.style;
 
   return (
     <article className="space-y-3" data-reveal>
       <button ref={ref} type="button" onClick={() => { if (state === "error") { setState("loading"); setAttempt((a) => a + 1); } else onOpen(); }}
-        aria-label={state === "error" ? "Retry loading video" : `Play ${label ?? "video"}`}
+        aria-label={state === "error" ? "Retry loading video" : `Play ${label ?? v.title ?? "video"}`}
         className="group relative block w-full aspect-video overflow-hidden rounded-2xl cursor-pointer"
         style={{ border: "1px solid oklch(1 0 0 / 0.10)", background: "oklch(0.07 0.004 285)" }}>
         {near && (
@@ -103,7 +103,7 @@ export default function FeaturedGrid({ videos }: { videos: FeaturedVideo[] }) {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
-  const openLabel = open && (open.style || open.title);
+  const openLabel = open?.style;
 
   return (
     <>
