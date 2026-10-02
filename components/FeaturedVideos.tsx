@@ -11,7 +11,7 @@ async function featured(): Promise<FeaturedVideo[]> {
   try {
     // The query string is part of the cache key: changing it drops a cached
     // empty answer from before anything was featured.
-    const res = await fetch(`${APP_URL}/api/public/gallery?v=2`, { next: { revalidate: 300 } });
+    const res = await fetch(`${APP_URL}/api/public/gallery?v=3`, { next: { revalidate: 300 } });
     if (!res.ok) return [];
     const data = (await res.json()) as { videos?: FeaturedVideo[] };
     return data.videos ?? [];
