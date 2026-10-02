@@ -2,13 +2,16 @@ import FeaturedGrid, { type FeaturedVideo } from "@/components/FeaturedGrid";
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "";
 
-// Videos made with Heclus that an admin featured in the app. Refreshed hourly,
+// Videos made with Heclus that an admin featured in the app. Refreshed every
+// five minutes,
 // so featuring one in Admin -> Gallery reaches the site without a deploy.
 // Renders nothing when none are featured or the app can't be reached.
 async function featured(): Promise<FeaturedVideo[]> {
   if (!APP_URL) return [];
   try {
-    const res = await fetch(`${APP_URL}/api/public/gallery`, { next: { revalidate: 3600 } });
+    // The query string is part of the cache key: changing it drops a cached
+    // empty answer from before anything was featured.
+    const res = await fetch(`${APP_URL}/api/public/gallery?v=2`, { next: { revalidate: 300 } });
     if (!res.ok) return [];
     const data = (await res.json()) as { videos?: FeaturedVideo[] };
     return data.videos ?? [];
