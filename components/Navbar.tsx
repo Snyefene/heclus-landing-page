@@ -9,6 +9,7 @@ const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "";
 const NAV_LINKS = [
   { label: "Features",   href: "/features"  },
   { label: "Pipeline",   href: "/pipeline"  },
+  { label: "Gallery",    href: "/gallery"   },
   { label: "Pricing",    href: "/pricing"   },
   { label: "FAQ",        href: "/faq"       },
 ];
