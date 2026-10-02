@@ -20,9 +20,11 @@ async function featured(): Promise<FeaturedVideo[]> {
   }
 }
 
-export default async function FeaturedVideos() {
+// standalone: the /gallery page, where this is the h1 and an empty list says so.
+export default async function FeaturedVideos({ standalone = false }: { standalone?: boolean }) {
   const videos = await featured();
-  if (!videos.length) return null;
+  if (!videos.length && !standalone) return null;
+  const Heading = standalone ? "h1" : "h2";
   return (
     <section id="made-with-heclus" className="py-28 relative">
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -30,14 +32,19 @@ export default async function FeaturedVideos() {
           <p className="text-xs font-semibold uppercase tracking-[0.22em] mb-5" style={{ color: "oklch(0.66 0.10 285)" }}>
             Made with Heclus
           </p>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
-            Real videos, <span style={{ color: "oklch(0.74 0.10 285)" }}>made here.</span>
-          </h2>
+          <Heading className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
+            {standalone ? "AI video gallery, " : "Real videos, "}
+            <span style={{ color: "oklch(0.74 0.10 285)" }}>{standalone ? "made with Heclus." : "made here."}</span>
+          </Heading>
           <p className="text-lg max-w-xl mx-auto" style={{ color: "oklch(0.58 0 0)" }}>
-            A few of the videos creators have made with Heclus.
+            {standalone
+              ? "AI YouTube videos creators made with Heclus, in every style: Pixar-style animation, stick figure explainers, 3D cinematic and more."
+              : "A few of the videos creators have made with Heclus."}
           </p>
         </div>
-        <FeaturedGrid videos={videos} />
+        {videos.length ? <FeaturedGrid videos={videos} /> : (
+          <p className="text-center" style={{ color: "oklch(0.58 0 0)" }}>New videos are on their way.</p>
+        )}
         <div className="mt-14 text-center" data-reveal>
           <a href={`${APP_URL}/signup`}
             className="inline-flex items-center rounded-xl px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90"

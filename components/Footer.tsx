@@ -38,6 +38,7 @@ const LINKS = {
   Product: [
     { label: "Features",     href: "/features"  },
     { label: "Pipeline",     href: "/pipeline"  },
+    { label: "Gallery",      href: "/gallery"   },
     { label: "Pricing",      href: "/pricing"   },
     { label: "FAQ",          href: "/faq"        },
   ],
