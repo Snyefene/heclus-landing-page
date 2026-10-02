@@ -1,64 +1,5 @@
-import { connection } from "next/server";
-import { supabase } from "@/lib/supabase";
 import { fetchSitePlans, type SitePlan } from "@/lib/plans";
 
-// Live founder counter - sourced from the same Supabase row the
-// youtube-engine /api/founder-spots route reads (product_config row
-// service='_global', columns founders_promo_limit /
-// founders_subscriptions_count). The RPC get_founder_promo_state returns
-// { taken, remaining, active, limit } as a single O(1) read; if it isn't
-// deployed we fall back to reading product_config directly so the banner
-// still tracks reality. FOUNDER_TOTAL_FALLBACK is the last-resort value
-// used only when both reads fail.
-const FOUNDER_TOTAL_FALLBACK = 100;
-
-type FounderState = { spots_left: number; limit: number };
-
-async function fetchFounderState(): Promise<FounderState> {
-  // Opt the enclosing route out of static rendering so the counter
-  // reflects the DB on every request rather than the build snapshot.
-  await connection();
-
-  try {
-    const { data, error } = await supabase
-      .rpc("get_founder_promo_state")
-      .single();
-    if (error) throw error;
-    if (data) {
-      const row = data as { taken?: number; remaining?: number; active?: boolean; limit?: number };
-      const limit = typeof row.limit === "number"
-        ? row.limit
-        : (typeof row.taken === "number" && typeof row.remaining === "number"
-          ? row.taken + row.remaining
-          : FOUNDER_TOTAL_FALLBACK);
-      if (typeof row.remaining === "number") {
-        return { spots_left: row.remaining, limit };
-      }
-    }
-    throw new Error("get_founder_promo_state returned no usable row");
-  } catch (err) {
-    console.error("[Pricing] get_founder_promo_state RPC failed", err);
-  }
-
-  try {
-    const { data, error } = await supabase
-      .from("product_config")
-      .select("founders_promo_limit, founders_subscriptions_count")
-      .eq("service", "_global")
-      .single();
-    if (error) throw error;
-    if (data) {
-      const row = data as { founders_promo_limit: number | null; founders_subscriptions_count: number | null };
-      const limit = row.founders_promo_limit ?? FOUNDER_TOTAL_FALLBACK;
-      const taken = row.founders_subscriptions_count ?? 0;
-      return { spots_left: Math.max(0, limit - taken), limit };
-    }
-  } catch (err) {
-    console.error("[Pricing] product_config fallback failed", err);
-  }
-
-  return { spots_left: FOUNDER_TOTAL_FALLBACK, limit: FOUNDER_TOTAL_FALLBACK };
-}
 
 /** The one thing the plans table does not carry: a line of copy under the
  *  name. Keyed by slug with a fallback, so a new plan appears on the site the
@@ -139,7 +80,7 @@ function CompareCell({ value, highlighted }: { value: boolean | string; highligh
 }
 
 export default async function Pricing() {
-  const [founder, plans] = await Promise.all([fetchFounderState(), fetchSitePlans()]);
+  const plans = await fetchSitePlans();
   // The comparison table's columns are the plans themselves, so a plan the
   // table has no rows for is left out of it rather than rendering a column of
   // blanks. Three of them today.
@@ -147,12 +88,6 @@ export default async function Pricing() {
     .filter((p): p is SitePlan & { slug: CompareKey } =>
       p.slug === "heclus_starter" || p.slug === "heclus_pro" || p.slug === "heclus_max")
     .map((p) => ({ key: p.slug, label: p.name, sub: `${p.price} ${p.period}`.trim(), highlighted: p.highlighted }));
-  const founderAvailable = founder.spots_left > 0;
-  const claimedPct = founder.limit > 0
-    ? Math.min(100, ((founder.limit - founder.spots_left) / founder.limit) * 100)
-    : 0;
-  // Once the promo sells out (0 spots left), the banner hides itself. The
-  // comparison table no longer carries a Founder column either way.
   return (
     <section id="pricing" className="py-28 relative">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -195,61 +130,6 @@ export default async function Pricing() {
             than on a provider&apos;s dashboard.
           </p>
         </div>
-
-        {/* Founder promo - hidden once the promo sells out */}
-        {founderAvailable && (
-        <div data-reveal className="max-w-3xl mx-auto mb-10 rounded-2xl p-6 relative overflow-hidden elevated"
-          style={{
-            background: "oklch(0.13 0.006 285)",
-            border: "1px solid oklch(0.58 0.15 285 / 0.35)",
-          }}>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 relative">
-            <div>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-xs font-bold uppercase tracking-widest px-2.5 py-1 rounded-full"
-                  style={{ background: "oklch(0.58 0.15 285 / 0.14)", color: "oklch(0.76 0.10 285)" }}>
-                  Founder Offer · First {founder.limit} only
-                </span>
-              </div>
-              <h3 className="text-xl font-bold mb-1" style={{ color: "oklch(0.95 0 0)" }}>
-                $40 · Full access for 1 year
-              </h3>
-              <p className="text-sm font-semibold mb-1" style={{ color: "oklch(0.74 0.10 285)" }}>
-                Everything in Starter
-              </p>
-              <p className="text-sm" style={{ color: "oklch(0.55 0 0)" }}>
-                Pay once, get 20 niches + full AI pipeline for a full year - no monthly renewal. After one year, choose any monthly plan.
-              </p>
-            </div>
-            <div className="shrink-0 flex flex-col items-stretch sm:items-end gap-2.5">
-              <a
-                href={`${process.env.NEXT_PUBLIC_APP_URL ?? ""}/signup?plan=founder`}
-                className="lift flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap"
-                style={{
-                  background: "oklch(0.55 0.16 285)",
-                  color: "white",
-                }}
-              >
-                Claim Founder Spot →
-              </a>
-              <div className="flex items-center gap-2.5 w-full sm:w-auto">
-                <div className="flex-1 sm:w-[140px] h-1.5 rounded-full overflow-hidden"
-                  style={{ background: "oklch(1 0 0 / 0.07)" }}>
-                  <div className="h-full rounded-full"
-                    style={{
-                      background: "oklch(0.62 0.15 285)",
-                      width: `${claimedPct}%`,
-                    }} />
-                </div>
-                <span className="text-xs font-semibold tabular-nums whitespace-nowrap"
-                  style={{ color: "oklch(0.74 0.10 285)" }}>
-                  {founder.spots_left} spots left
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        )}
 
         {/* Plan cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mt-6" data-reveal="group">

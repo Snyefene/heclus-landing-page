@@ -28,7 +28,6 @@ export const metadata: Metadata = {
     "AI video generator price",
     "YouTube automation pricing",
     "AI YouTube subscription",
-    "founder offer",
     "AI video SaaS pricing",
   ],
   openGraph: {
@@ -67,15 +66,6 @@ function buildProductLd(plans: SitePlan[]) {
     description: "Clone any YouTube channel/niche with an end-to-end AI pipeline: niche research, script, voiceover, AI images and video clips, thumbnails, and assembly.",
     brand: { "@type": "Brand", name: "Heclus" },
     offers: [
-      {
-        "@type": "Offer",
-        name: "Founder",
-        price: "40.00",
-        priceCurrency: "USD",
-        url: `${SITE_URL}/pricing`,
-        availability: "https://schema.org/LimitedAvailability",
-        description: "$40 for one full year of access. First 100 users only.",
-      },
       ...plans.filter((p) => p.priceAmount).map((p) => ({
         "@type": "Offer",
         name: p.name,
