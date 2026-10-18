@@ -39,6 +39,15 @@ export const FAQ_ITEMS: FaqItem[] = [
     outro: "For each channel you can create an unlimited number of videos. So if you run two channels, you are using two of your slots and can keep producing for both. What limits your output is the Heclus Credits on your plan, which is what generation spends.",
   },
   {
+    q: "Can I give my videos a specific visual style?",
+    a: "Yes. Pick one of the ready-made style presets, from 3D animation and anime to documentary, noir, comic book and watercolour, and every image and clip in the video follows it.",
+    outro: "If you tune a style you love, save it as your own preset and apply it to your next videos in one click.",
+  },
+  {
+    q: "Will my characters look the same in every scene?",
+    a: "Yes. In the Characters step you lock your cast: Heclus draws a character sheet for each one and uses it as the reference for every image, so faces, outfits and proportions stay consistent from scene to scene.",
+  },
+  {
     q: "How long can my videos be?",
     a: "Up to 45 minutes at the moment. Within that, length follows your script — a longer script with more narration beats gives a longer video. In practice most videos made on Heclus land between 3 and 13 minutes, with the median around 8, so there is plenty of headroom for long-form.",
   },

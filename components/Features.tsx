@@ -24,6 +24,33 @@ const FEATURES = [
     ),
   },
   {
+    title: "Style Presets",
+    desc: "Pick a ready-made visual style and every image prompt, image and clip in the video follows it. Found a look you love? Save it as your own preset and reuse it on your other videos.",
+    highlights: ["10 ready-made styles", "Save your own presets", "One look across every scene", "3D, anime, documentary & more"],
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <circle cx="13.5" cy="6.5" r="1.5" />
+        <circle cx="17.5" cy="10.5" r="1.5" />
+        <circle cx="8.5" cy="7.5" r="1.5" />
+        <circle cx="6.5" cy="12.5" r="1.5" />
+        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.56-2.5 5.56-5.55C21.97 6.01 17.46 2 12 2z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Consistent Characters",
+    desc: "Lock your cast once. Heclus draws a character sheet for each one and uses it as the reference for every scene, so the same face, outfit and look appear from the first shot to the last.",
+    highlights: ["Locked cast", "Character turnaround sheets", "Same look in every scene", "Works with any style"],
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </svg>
+    ),
+  },
+  {
     title: "Images, Video Clips & Thumbnail",
     desc: "Automated 1-click image generation using the latest image models like Nano Banana 2. Bulk video generation using Seedance 2, Kling 3 and more",
     highlights: ["Scene-level image prompts", "AI image generation", "Thumbnail generation", "Video clip assembly"],
