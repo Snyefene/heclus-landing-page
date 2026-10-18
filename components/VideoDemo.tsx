@@ -2,12 +2,10 @@
 
 import { useState } from "react";
 
-// Click-to-play facade: we render the poster + a play button and only mount
-// the video once the user actually clicks, so the 23 MB file is never fetched
-// by a visitor who doesn't watch it. The file is served from /public with its
-// index at the front (faststart), so playback starts before it has downloaded.
-const VIDEO_SRC = "/demo.mp4";
-const POSTER_SRC = "/demo-poster.jpg";
+// Click-to-play facade: we render the YouTube thumbnail + a play button and
+// only mount the (heavy) iframe once the user actually clicks. Keeps the
+// landing page fast — no third-party player JS on initial load.
+const VIDEO_ID = "SOGxuvyFj3s";
 
 export default function VideoDemo() {
   const [playing, setPlaying] = useState(false);
@@ -39,14 +37,12 @@ export default function VideoDemo() {
           }}
         >
           {playing ? (
-            <video
+            <iframe
               className="absolute inset-0 w-full h-full"
-              src={VIDEO_SRC}
-              poster={POSTER_SRC}
+              src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?autoplay=1&rel=0`}
               title="Heclus demo"
-              autoPlay
-              controls
-              playsInline
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
             />
           ) : (
             <button
@@ -58,7 +54,7 @@ export default function VideoDemo() {
               {/* Thumbnail */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={POSTER_SRC}
+                src={`https://i.ytimg.com/vi/${VIDEO_ID}/maxresdefault.jpg`}
                 alt="Heclus demo video thumbnail"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
