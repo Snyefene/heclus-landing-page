@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import DemoPlayer from "@/components/DemoPlayer";
 
 // Each step loops 0%→100% at its own cadence so the cards look like
 // independent workers, not a single synchronized progress group.
@@ -119,8 +120,14 @@ export default function Hero() {
             </p>
           </div>
 
+          {/* ── Right column: the demo video on phones, where the
+                 mockup is too cramped to read; the mockup from md up. ── */}
+          <div className="md:hidden animate-fade-up animation-delay-200">
+            <DemoPlayer reveal={false} />
+          </div>
+
           {/* ── Right column: product mockup ────────────────────── */}
-          <div className="animate-fade-up animation-delay-200 relative">
+          <div className="hidden md:block animate-fade-up animation-delay-200 relative">
             <div
               className="rounded-2xl p-6 elevated"
               style={{
