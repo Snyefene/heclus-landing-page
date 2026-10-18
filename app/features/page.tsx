@@ -8,9 +8,9 @@ const SITE_URL = "https://heclus.com";
 
 const PAGE_TITLE = "Features - AI YouTube Video Tools, Voiceover, Thumbnails & Auto-Assembly";
 const PAGE_DESC =
-  "Everything you need in one AI YouTube tool: niche research, channel analysis, AI script writing, natural voiceover, bulk image and video generation, thumbnail creation, and one-click export.";
+  "Everything you need in one AI YouTube tool: niche research, channel analysis, AI script writing, natural voiceover, style presets, consistent characters, bulk image and video generation, thumbnail creation, and one-click export.";
 const PAGE_DESC_SHORT =
-  "Niche research, AI scripts, voiceover, AI images, video clips, thumbnails - every step automated.";
+  "Niche research, AI scripts, voiceover, style presets, consistent characters, AI images, video clips, thumbnails - every step automated.";
 
 export const metadata: Metadata = {
   title: PAGE_TITLE,
@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     "AI video generator",
     "YouTube content tools",
     "faceless YouTube tools",
+    "AI video style presets",
+    "consistent AI characters",
+    "character consistency AI video",
     "automated YouTube editor",
   ],
   openGraph: {
