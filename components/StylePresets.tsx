@@ -7,6 +7,21 @@ type Preset = { id: string; name: string; bestFor: string; sample: string };
 const PUBLIC_NAMES: Record<string, string> = {
   "pixar-3d": "3D Animation",
   "family-guy-cartoon": "Adult Cartoon",
+  "stick-figure": "Stick Figure",
+};
+
+// Looks Heclus makes that are switched off in the product but shown here: the
+// app returns these when named in ?also=, sample image and all.
+const ALSO_SHOW = ["stick-figure"];
+
+// The editorial collage look (yellow highlights, halftone cut-outs, marker
+// arrows). Its preset in the app has since been rewritten as a different style,
+// so it is listed here with the sample still served by the app, third in the grid.
+const EDITORIAL: Preset = {
+  id: "editorial-explainer",
+  name: "Editorial Explainer",
+  bestFor: "News, analysis and data explainers",
+  sample: `${APP_URL}/style-presets/vox-editorial.jpg`,
 };
 
 // The style presets switched on in the app (Admin -> Styles), with the sample
@@ -16,10 +31,11 @@ const PUBLIC_NAMES: Record<string, string> = {
 async function presets(): Promise<Preset[]> {
   if (!APP_URL) return [];
   try {
-    const res = await fetch(`${APP_URL}/api/public/style-presets?v=1`, { next: { revalidate: 300 } });
+    const res = await fetch(`${APP_URL}/api/public/style-presets?also=${ALSO_SHOW.join(",")}`, { next: { revalidate: 300 } });
     if (!res.ok) return [];
     const data = (await res.json()) as { presets?: Preset[] };
-    return (data.presets ?? []).filter((p) => p.sample);
+    const list = (data.presets ?? []).filter((p) => p.sample);
+    return list.length ? [...list.slice(0, 2), EDITORIAL, ...list.slice(2)] : [];
   } catch {
     return [];
   }
@@ -47,7 +63,7 @@ export default async function StylePresets() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4" data-reveal="group">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" data-reveal="group">
           {list.map((p) => (
             <figure key={p.id} className="group rounded-2xl overflow-hidden card-hover"
               style={{ background: "oklch(0.115 0.004 285)", border: "1px solid oklch(1 0 0 / 0.12)" }}>
