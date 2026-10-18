@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Features from "@/components/Features";
+import StylePresets from "@/components/StylePresets";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -60,6 +61,7 @@ export default function FeaturesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <Navbar />
       <Features />
+      <StylePresets />
       <FinalCTA />
       <Footer />
     </main>

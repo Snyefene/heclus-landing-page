@@ -8,6 +8,7 @@ import VideoDemo   from "@/components/VideoDemo";
 import FeaturedVideos from "@/components/FeaturedVideos";
 import Pricing     from "@/components/Pricing";
 import FAQ         from "@/components/FAQ";
+import StylePresets from "@/components/StylePresets";
 import FinalCTA    from "@/components/FinalCTA";
 import Footer      from "@/components/Footer";
 
@@ -19,6 +20,7 @@ export default function LandingPage() {
       <StatsBar />
       <Pipeline />
       <Features />
+      <StylePresets />
       <HowItWorks />
       <VideoDemo />
       <FeaturedVideos />
